@@ -7,7 +7,7 @@ This is a repository made to store the tasks completed during the JS School Boot
 ***
 ####  2.1 Challenge C02
   RESTful APIs and HTTP requests
-  [Watch Json files and how I get them here](../blob/master/Challenge%2002)
+  [Watch Json files and how I get them here](../master/ChallengeC02)
   ***
 #### 2.2 Challenge C03
   Layout and styling
