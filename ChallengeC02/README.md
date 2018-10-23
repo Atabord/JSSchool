@@ -12,7 +12,7 @@
 2. Get an API key for Marvel developers [signing up here](https://developer.marvel.com/signup)
 ***
 3. Now, we want to find all the characters in the comic "Cable & Deadpool (2004) #46 (Zombie Variant)" so we need the id of that comic to find that, so firstable we do a general search following the next steps
-  ![alt text](images/key_value.png "Marvel API in POSTMAN")
+  ![alt text](images/key_values.png "Marvel API in POSTMAN")
 
   * Use the link bellow https://gateway.marvel.com:443/v1/public/characters
   * As parameters add orderBy = name; ts = 1; apikey = [your public apikey]; hash = [your hash]
@@ -25,7 +25,7 @@
       * Take the generated key and use it as your hash in POSTMAN
   ***
   * Now, using the response, we will search for "Cable & Deadpool (2004) #46 (Zombie Variant)"
-    ![alt text](images/key_value.png "desired comic")
+    ![alt text](images/desiredcomic.PNG "desired comic")
   * We will take that url, adding /characters at the end to get all the characters in that comic and adding the same parameters as we did above.
   ***
   [See the JSON response here](JsonFiles/Cable%26Deadpool46.json)
