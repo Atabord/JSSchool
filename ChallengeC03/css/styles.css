@@ -1,0 +1,220 @@
+@font-face {
+  font-family: 'PlutoSans';
+  font-weight: bolder;
+  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansBlack.otf');
+}
+
+@font-face {
+  font-family: 'PlutoSans';
+  font-weight: 800;
+  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansHeavy.otf');
+}
+
+@font-face {
+  font-family: 'PlutoSans';
+  font-weight: bold;
+  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansBold.otf');
+}
+
+@font-face {
+  font-family: 'PlutoSans';
+  font-weight: 500;
+  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansMedium.otf');
+}
+
+@font-face {
+  font-family: 'PlutoSans';
+  font-weight: normal;
+  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansRegular.otf');
+}
+
+@font-face {
+  font-family: 'PlutoSans';
+  font-weight: 300;
+  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansLight.otf');
+}
+
+@font-face {
+  font-family: 'PlutoSans';
+  font-weight: 200;
+  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansExtraLight.otf');
+}
+
+@font-face {
+  font-family: 'PlutoSans';
+  font-weight: lighter;
+  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansThin.otf');
+}
+
+@font-face {
+  font-family: 'PlutoSans';
+  font-weight: bolder;
+  font-stretch: condensed;
+  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondBlack.otf');
+}
+
+@font-face {
+  font-family: 'PlutoSans';
+  font-weight: 800;
+  font-stretch: condensed;
+  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondHeavy.otf');
+}
+
+@font-face {
+  font-family: 'PlutoSans';
+  font-weight: bold;
+  font-stretch: condensed;
+  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondBold.otf');
+}
+
+@font-face {
+  font-family: 'PlutoSans';
+  font-weight: 500;
+  font-stretch: condensed;
+  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondMedium.otf');
+}
+
+@font-face {
+  font-family: 'PlutoSans';
+  font-stretch: condensed;
+  font-weight: normal;
+  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondRegular.otf');
+}
+
+@font-face {
+  font-family: 'PlutoSans';
+  font-weight: 300;
+  font-stretch: condensed;
+  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondLight.otf');
+}
+
+@font-face {
+  font-family: 'PlutoSans';
+  font-weight: 200;
+  font-stretch: condensed;
+  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondExLight.otf');
+}
+
+@font-face {
+  font-family: 'PlutoSans';
+  font-weight: lighter;
+  font-stretch: condensed;
+  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondThin.otf');
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'PlutoSans';
+}
+
+header {
+  background-color: #fcf8f3;
+  display: flex;
+  height: 80px;
+}
+
+.logo-header {
+  flex-basis: 14.8%;
+}
+
+#logo {
+  width: 240px;
+  height: 80px;
+}
+
+.main-header {
+  flex-basis: 68%;
+  display: flex;
+  padding-left: 23px;
+  padding-right: 18px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-header h1 {
+  font-size: 24px;
+  font-stretch: normal;
+  line-height: 32px;
+  font-weight: 500;
+}
+
+.form-search {
+  width: 299px;
+  height: 36px;
+  border: 0.5px solid #6ec1e4;
+  background: rgba(245, 246, 248, 0.51);
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 24px;
+}
+
+.form-search i {
+  margin: 10px 5px 0 10px;
+  font-size: 18px;
+}
+
+input[type='search'] {
+  border: 0px;
+  background-color: transparent;
+}
+
+input[type='search']::placeholder {
+  opacity: 1;
+  color: #000;
+  font-weight: normal;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+}
+
+.profile-header {
+  flex-basis: 15%;
+}
+
+.dropdown-menu {
+  width: 100%;
+  margin: 10px 5px;
+  display: flex;
+  justify-content: space-around;
+  border-left: 1px solid #979797;
+}
+
+.dropdown-button {
+  background-color: transparent;
+  border: 0;
+  font-stretch: condensed;
+  font-size: 14px;
+  font-weight: normal;
+  display: inline-block;
+}
+
+.dropdown-list {
+  display: none;
+}
+
+img.jakob {
+  width: 36px;
+  height: 36px;
+  border: 2px solid #6ec1e4;
+  border-radius: 20px;
+  margin: 10px 16px 10px 10px;
+
+  /* display: inline-block; */
+}
+
+ul li {
+  list-style: none;
+}
+
+ol li a {
+  text-decoration: none;
+}
+
+ol li a:hover {
+  text-decoration: underline;
+}
+
+ol li a:visited {
+  text-decoration: none;
+}
