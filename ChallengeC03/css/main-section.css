@@ -85,7 +85,7 @@
 }
 
 .popup-book{
-  display: none;
+  visibility: visible;
   width: 382px;
   height: 358px;
   background: rgba(35,31,32,0.88);
@@ -94,7 +94,12 @@
   font-stretch: condensed;
   font-size: 12px;
   line-height: 16px;
-  padding: 20px;
+  padding: 30px;
+  position: relative;
+  z-index: 5;
+  left: 54%;
+  top: -47%;
+  border-radius: 5px;
 }
 
 .pupup-section-container {
@@ -144,4 +149,21 @@
 .recommenders{
   width: 24px;
   height: 24px;
+  margin-right: 10px;
+}
+
+.popup-book::before {
+	content: '';
+
+	-webkit-transition-duration: 0.3s;
+	border-style: solid;
+	border-width: 15px 15px 15px 0px;
+	border-color: transparent
+					rgba(35,31,32,0.88)
+					transparent
+					transparent;
+
+	position: absolute;
+	left: -13px;
+	top: 31%;
 }
