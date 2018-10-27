@@ -86,7 +86,7 @@ input[type='search']::placeholder {
 }
 
 .dropdown-list {
-  display: none;
+  visibility: hidden;
   position: absolute;
   background-color: #fcf8f3;
   min-width: 160px;

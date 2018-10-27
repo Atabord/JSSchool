@@ -246,3 +246,7 @@
 .right {
   float: right;
 }
+
+.show {
+  visibility: visible !important;
+}
