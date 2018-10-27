@@ -1,0 +1,43 @@
+.nav-list-header {
+  color: #FFF;
+  font-weight: bold;
+  font-stretch: condensed;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.menu-section {
+  margin-top: 36px;
+  margin-left: 39px;
+}
+
+.menu-section:last-of-type {
+  margin-top: 54px;
+}
+
+.menu-section ul {
+  padding: 0;
+}
+
+.nav-list-item {
+  margin-bottom: 21px;
+  font-weight: normal;
+  font-stretch: condensed;
+}
+
+.nav-list-item a {
+  color: #6ec1e4;
+  text-decoration: none;
+}
+
+.nav-list-item a:hover {
+  text-decoration: underline;
+}
+
+.nav-list-item a i {
+  margin-right: 10px;
+}
+
+.active {
+  color: #fcf8f3 !important;
+}

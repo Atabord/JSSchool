@@ -1,0 +1,147 @@
+.section-header {
+  display: flex;
+  margin: 28px 80px;
+  justify-content: space-between;
+  /* align-items: flex-start; */
+}
+
+.section-header h2 {
+  color: #231f20;
+  font-weight: 300;
+  font-stretch: condensed;
+  font-size: 20px;
+  margin: 0;
+  flex-basis: 15%;
+}
+
+.breadcrumb{
+  flex-basis: 70%;
+  justify-content: center;
+  text-align: center;
+}
+
+.breadcrumb a {
+    color: #858585;
+    font-stretch: condensed;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.breadcrumb a:first-of-type::after {
+  content: '';
+  border-right: 1px solid black;
+  margin: 10px;
+
+}
+
+.breadcrumb-active{
+  font-weight: 500 !important;
+  color: #979797 !important;
+}
+
+.list-icons {
+  /* margin: */
+  flex-basis: 15%
+}
+
+.list-icons a {
+  color: #6ec1e4;
+  font-size: 18.5px;
+  margin-left: 10px;
+  float: right;
+  clear: left;
+}
+
+.book-section{
+  display: flex;
+}
+
+.book-description {
+  width: 176px;
+  white-space: nowrap;
+}
+
+.book-title {
+  color: #383838;
+  font-stretch: condensed;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin: 0;
+}
+
+.book-author {
+  color: #9e9e9e;
+  font-stretch: condensed;
+  font-weight: 300;
+  display: block;
+}
+
+.book-description i {
+  color: #6ec1e4;
+  font-size: 12.5px;
+}
+
+.popup-book{
+  display: none;
+  width: 382px;
+  height: 358px;
+  background: rgba(35,31,32,0.88);
+  color: #858585;
+  font-weight: bold;
+  font-stretch: condensed;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 20px;
+}
+
+.pupup-section-container {
+  margin-bottom: 20px;
+}
+
+.popup-title {
+  color: #5eb4dd;
+  font-size: 13px;
+  margin: 0;
+  line-height: 17px;
+  text-align: left;
+  text-transform: uppercase;
+  display: inline block !important;
+}
+
+.popup-book-year {
+  color: #858585;
+  font-stretch: condensed;
+  font-weight: normal;
+  font-size: 13px;
+  float: right;
+}
+
+.popup-book p {
+  color: #fff;
+  font-stretch: condensed;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 17px;
+  margin: 1px;
+}
+
+.popup-author {
+  color: #858585;
+}
+
+.popup-section-title {
+  text-transform: uppercase;
+  margin: 0px;
+}
+
+.pupup-section-container i {
+  color: #5eb4dd;
+}
+
+.recommenders{
+  width: 24px;
+  height: 24px;
+}
