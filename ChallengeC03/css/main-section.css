@@ -106,9 +106,13 @@
   padding: 30px;
   position: relative;
   z-index: 5;
-  left: 53%;
-  top: -61%;
+  left: 113%;
+  top: -154%;
   border-radius: 5px;
+}
+
+.popup-book-left {
+  left: -228% !important;
 }
 
 .pupup-section-container {
@@ -175,6 +179,11 @@
 	position: absolute;
 	left: -13px;
 	top: 31%;
+}
+
+.popup-book-left::before {
+  transform: rotate(180deg);
+  left: 380px;
 }
 
 .book-hover {

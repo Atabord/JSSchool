@@ -15,6 +15,7 @@ body {
 .sidebar {
     flex-basis: 15%;
     background: #231f20;
+    width: 240px;
 }
 
 section {

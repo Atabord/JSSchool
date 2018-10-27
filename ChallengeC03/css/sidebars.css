@@ -41,3 +41,38 @@
 .active {
   color: #fcf8f3 !important;
 }
+
+aside {
+  padding: 38px 34px;
+  font-stretch: condensed;
+  color: #fcf8f3;
+}
+
+aside h2 {
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 17px;
+  text-transform: uppercase;
+  margin-bottom: 26px;
+  margin-top: 0;
+}
+
+aside ol {
+  padding: 0;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+aside li {
+  text-overflow: ellipsis;
+  width: 177px;
+  overflow: hidden;
+  white-space: nowrap;
+  list-style-position: inside;
+  margin-bottom: 26px;
+}
+
+aside a {
+  color: #fcf8f3;
+  text-overflow: ellipsis;
+}

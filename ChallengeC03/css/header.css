@@ -67,7 +67,6 @@ input[type='search']::placeholder {
   width: 100%;
   margin: 10px 5px;
   display: flex;
-  justify-content: space-around;
   border-left: 1px solid #979797;
 }
 
@@ -76,8 +75,14 @@ input[type='search']::placeholder {
   border: 0;
   font-stretch: condensed;
   font-size: 14px;
+  margin-left: auto;
   font-weight: normal;
   display: inline-block;
+  line-height: 19px;
+}
+
+.dropdown-button i {
+  margin-left: 10px;
 }
 
 .dropdown-list {
