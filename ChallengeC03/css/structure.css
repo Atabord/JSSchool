@@ -6,16 +6,22 @@ body {
   margin: 0;
   font-family: 'PlutoSans';
 }
+
 .container {
   display: flex;
+  height: calc(100vh - 80px);
 }
+
 .sidebar {
     flex-basis: 15%;
     background: #231f20;
-    height: 94vh;
 }
+
 section {
   flex-basis: 72%;
   background: #f5f6f8;
   border-top: 1px solid #6ec1e4;
+  padding: 28px 80px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }

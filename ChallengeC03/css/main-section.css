@@ -1,6 +1,6 @@
 .section-header {
   display: flex;
-  margin: 28px 80px;
+  margin-bottom: 27px;
   justify-content: space-between;
   /* align-items: flex-start; */
 }
@@ -54,6 +54,14 @@
 
 .book-section{
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.book {
+  flex-basis: 18%;
+  width: 15%;
+  height: 366px;
 }
 
 .book-description {
@@ -68,6 +76,7 @@
   font-size: 15px;
   line-height: 20px;
   text-overflow: ellipsis;
+  text-transform: capitalize;
   overflow: hidden;
   margin: 0;
 }
@@ -85,7 +94,7 @@
 }
 
 .popup-book{
-  visibility: visible;
+  visibility: hidden;
   width: 382px;
   height: 358px;
   background: rgba(35,31,32,0.88);
@@ -97,8 +106,8 @@
   padding: 30px;
   position: relative;
   z-index: 5;
-  left: 54%;
-  top: -47%;
+  left: 53%;
+  top: -61%;
   border-radius: 5px;
 }
 
@@ -166,4 +175,65 @@
 	position: absolute;
 	left: -13px;
 	top: 31%;
+}
+
+.book-hover {
+  visibility: hidden;
+  width: 176px;
+  height: 250px;
+  background: rgba(35,31,32,0.88);
+  position: relative;
+  top: -86%;
+  margin: 0;
+  padding: 15px;
+}
+
+.book-rate {
+  text-transform: uppercase;
+  color: #fcf8f3;
+  font-stretch: condensed;
+  font-weight: 500;
+  font-size: 11px;
+  margin-top: 57px;
+  text-align: center;
+}
+
+.hover-rate {
+  color: #eec75a;
+  font-size: 12.5px;
+  text-align: center;
+}
+
+.icon-container {
+    color: #9e9e9e;
+    background: #FFF;
+    width: 30px;
+    height: 30px;
+    z-index: 1;
+    border-radius: 15px;
+    position: relative;
+    padding: 8px;
+    display: inline block;
+}
+
+.main-icon-container {
+    color: #6ec1e4;
+    background: #FFF;
+    width: 48px;
+    height: 48px;
+    z-index: 1;
+    position: relative;
+    border-radius: 25px;
+    padding: 15px;
+    clear: both;
+    margin: auto;
+    margin-top: 85px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
 }
