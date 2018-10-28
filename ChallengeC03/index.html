@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
   <link rel="stylesheet" href="css/main.css">
   <link rel="shortcut icon" href="images/favicon.png">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
 </head>
 
 <body>
@@ -37,8 +38,61 @@
       </div>
     </div>
   </header>
+  <div class="small-devices-navbar">
+    <img id="logo" src="images/logo-jobsity.png" alt="Jobsity Logo">
+    <h1 class="hide-on-small">Bookshelf</h1>
+    <div class="button-container">
+      <button type="button" name="button" class="navbar-toggler">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div class="navbar-collapse">
+      <h1 class="only-on-small">Bookshelf</h1>
+      <div class="dropdown-collapse">
+        <button type="button" name="button" class="collapse-button">
+          <img src="images/profile.png" alt="Profile Image" class="jakob">
+          <span>Jakob Treml <i class="fas fa-angle-down"></i></span>
+        </button>
+        <div class="dropdown-collapse-list">
+          <ul>
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">Help</a></li>
+              <li><a href="#">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="dropdown-collapse">
+        <button type="button" name="button" class="collapse-button">
+          <span>MAIN <i class="fas fa-angle-down"></i></span>
+        </button>
+        <div class="dropdown-collapse-list">
+          <ul>
+            <li class="nav-list-item"><a href="#"><i class="fas fa-globe"></i> Quito</a></li>
+            <li class="nav-list-item"><a href="#"><i class="fas fa-globe"></i> Cartagena</a></li>
+            <li class="nav-list-item"><a href="#"><i class="fas fa-globe"></i> Medellín</a></li>
+            <li class="nav-list-item"><a href="#"><i class="fas fa-tablet-alt"></i> Digital</a></li>
+            <li class="nav-list-item"><a href="#"><i class="fas fa-user-tag"></i> Personal Loans</a></li>
+            <li class="nav-list-item"><a href="#" class="active"><i class="fas fa-tags"></i> New Releases</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="dropdown-collapse">
+        <button type="button" name="button" class="collapse-button">
+          <span>YOUR BOOKS <i class="fas fa-angle-down"></i></span>
+        </button>
+        <div class="dropdown-collapse-list">
+          <ul>
+            <li class="nav-list-item"><a href="#"><i class="fas fa-book-open"></i> Readings</a></li>
+            <li class="nav-list-item"><a href="#"><i class="fas fa-history"></i> History</a></li>
+            <li class="nav-list-item"><a href="#"><i class="fas fa-bookmark"></i> Read Later</a></li>
+            <li class="nav-list-item"><a href="#"><i class="fas fa-heart"></i> Favorites</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="container">
-    <nav class="sidebar">
+    <nav class="sidebar only-large-devices">
       <div class="menu-section">
         <h2 class="nav-list-header">Main</h2>
         <ul>
@@ -284,7 +338,7 @@
               <i class="far fa-star"></i>
             </div>
           </div>
-          <div class="popup-book">
+          <div class="popup-book popup-book-left">
             <div class="pupup-section-container">
               <h3 class="popup-title">Everything I Never Told You <span class="popup-book-year">2014</span></h3>
               <p>Novel by <span class="popup-author">Celeste Ng</span></p>
@@ -584,7 +638,7 @@
               <i class="far fa-star"></i>
             </div>
           </div>
-          <div class="popup-book">
+          <div class="popup-book popup-book-left">
             <div class="pupup-section-container">
               <h3 class="popup-title">Revival <span class="popup-book-year">2014</span></h3>
               <p>Novel by <span class="popup-author">Stephen King</span></p>
@@ -884,7 +938,7 @@
               <i class="far fa-star"></i>
             </div>
           </div>
-          <div class="popup-book">
+          <div class="popup-book popup-book-left">
             <div class="pupup-section-container">
               <h3 class="popup-title">All The Light We Cannot See <span class="popup-book-year">2014</span></h3>
               <p>Novel by <span class="popup-author">Anthony Doerr</span></p>

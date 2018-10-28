@@ -4,11 +4,11 @@
   font-stretch: condensed;
   font-size: 13px;
   text-transform: uppercase;
+  margin-top: 0px;
 }
 
-.menu-section {
-  margin-top: 36px;
-  margin-left: 39px;
+nav {
+  padding: 36px 39px;
 }
 
 .menu-section:last-of-type {
@@ -43,7 +43,7 @@
 }
 
 aside {
-  padding: 38px 34px;
+  padding: 38px 31px 38px 34px;
   font-stretch: condensed;
   color: #fcf8f3;
 }
@@ -65,7 +65,6 @@ aside ol {
 
 aside li {
   text-overflow: ellipsis;
-  width: 177px;
   overflow: hidden;
   white-space: nowrap;
   list-style-position: inside;

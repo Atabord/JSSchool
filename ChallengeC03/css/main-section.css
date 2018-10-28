@@ -60,7 +60,7 @@
 
 .book {
   flex-basis: 18%;
-  width: 15%;
+  width: 176px;
   height: 366px;
 }
 
@@ -112,7 +112,7 @@
 }
 
 .popup-book-left {
-  left: -228% !important;
+  left: -228%;
 }
 
 .pupup-section-container {
