@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Jobsity - Bookshelf</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="shortcut icon" href="images/favicon.png">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+</head>
+
+<body>
+  <header>
+    <div class="logo-header">
+      <img id="logo" src="images/logo-jobsity.png" alt="Jobsity Logo">
+    </div>
+    <div class="main-header">
+      <h1 class="">Bookshelf</h1>
+      <form class="" action="index.html" method="post">
+        <div class="form-search">
+          <i class="fas fa-search"></i>
+          <input type="search" placeholder="Search..." class="PlutoRegular">
+        </div>
+      </form>
+    </div>
+    <div class="profile-header">
+      <div class="dropdown-menu">
+        <button type="button" name="button" class="dropdown-button">Jakob Treml <i class="fas fa-angle-down"></i></button>
+        <div class="dropdown-list">
+          <ul>
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">Help</a></li>
+              <li><a href="#">Logout</a></li>
+          </ul>
+        </div>
+        <img src="images/profile.png" alt="Profile Image" class="jakob">
+      </div>
+    </div>
+  </header>
+  <div class="small-devices-navbar">
+    <img id="logo" src="images/logo-jobsity.png" alt="Jobsity Logo">
+    <h1 class="hide-on-small">Bookshelf</h1>
+    <div class="button-container">
+      <button type="button" name="button" class="navbar-toggler">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div class="navbar-collapse">
+      <h1 class="only-on-small">Bookshelf</h1>
+      <div class="dropdown-collapse">
+        <button type="button" name="button" class="collapse-button">
+          <img src="images/profile.png" alt="Profile Image" class="jakob">
+          <span>Jakob Treml <i class="fas fa-angle-down"></i></span>
+        </button>
+        <div class="dropdown-collapse-list">
+          <ul>
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">Help</a></li>
+              <li><a href="#">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="dropdown-collapse">
+        <button type="button" name="button" class="collapse-button">
+          <span>MAIN <i class="fas fa-angle-down"></i></span>
+        </button>
+        <div class="dropdown-collapse-list">
+          <ul>
+            <li class="nav-list-item"><a href="#"><i class="fas fa-globe"></i> Quito</a></li>
+            <li class="nav-list-item"><a href="#"><i class="fas fa-globe"></i> Cartagena</a></li>
+            <li class="nav-list-item"><a href="#"><i class="fas fa-globe"></i> Medellín</a></li>
+            <li class="nav-list-item"><a href="#"><i class="fas fa-tablet-alt"></i> Digital</a></li>
+            <li class="nav-list-item"><a href="#"><i class="fas fa-user-tag"></i> Personal Loans</a></li>
+            <li class="nav-list-item"><a href="#" class="active"><i class="fas fa-tags"></i> New Releases</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="dropdown-collapse">
+        <button type="button" name="button" class="collapse-button">
+          <span>YOUR BOOKS <i class="fas fa-angle-down"></i></span>
+        </button>
+        <div class="dropdown-collapse-list">
+          <ul>
+            <li class="nav-list-item"><a href="#"><i class="fas fa-book-open"></i> Readings</a></li>
+            <li class="nav-list-item"><a href="#"><i class="fas fa-history"></i> History</a></li>
+            <li class="nav-list-item"><a href="#"><i class="fas fa-bookmark"></i> Read Later</a></li>
+            <li class="nav-list-item"><a href="#"><i class="fas fa-heart"></i> Favorites</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <nav class="sidebar only-large-devices">
+      <div class="menu-section">
+        <h2 class="nav-list-header">Main</h2>
+        <ul>
+          <li class="nav-list-item"><a href="#"><i class="fas fa-globe"></i> Quito</a></li>
+          <li class="nav-list-item"><a href="#"><i class="fas fa-globe"></i> Cartagena</a></li>
+          <li class="nav-list-item"><a href="#"><i class="fas fa-globe"></i> Medellín</a></li>
+          <li class="nav-list-item"><a href="#"><i class="fas fa-tablet-alt"></i> Digital</a></li>
+          <li class="nav-list-item"><a href="#"><i class="fas fa-user-tag"></i> Personal Loans</a></li>
+          <li class="nav-list-item"><a href="#" class="active"><i class="fas fa-tags"></i> New Releases</a></li>
+        </ul>
+      </div>
+      <div class="menu-section">
+        <h2 class="nav-list-header">Your Books</h2>
+        <ul>
+          <li class="nav-list-item"><a href="#"><i class="fas fa-book-open"></i> Readings</a></li>
+          <li class="nav-list-item"><a href="#"><i class="fas fa-history"></i> History</a></li>
+          <li class="nav-list-item"><a href="#"><i class="fas fa-bookmark"></i> Read Later</a></li>
+          <li class="nav-list-item"><a href="#"><i class="fas fa-heart"></i> Favorites</a></li>
+        </ul>
+      </div>
+    </nav>
+    <section>
+      <div class="section-header">
+        <h2>New Releases</h2>
+        <div class="breadcrumb">
+          <a href="#" class="breadcrumb-active">Release date</a>
+          <a href="#">Popularity</a>
+        </div>
+        <div class="list-icons">
+          <a href="#"><i class="fas fa-th-large"></i></a>
+          <a href="#"><i class="fas fa-th-list"></i></a>
+        </div>
+      </div class="section-header">
+      <div class="book-section">
+        <div class="book">
+          <img src="images/Everything-I-Never-Told-You.png" alt="Everything I Never Told You book image">
+          <div class="book-description">
+            <h3 class="book-title">Everything I Never Told You</h3>
+            <span class="book-author">Celeste Ng</span>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <!-- PopUp and hover section-->
+          <div class="book-hover">
+            <div class="icon-container left">
+              <i class="far fa-heart"></i>
+            </div>
+            <div class="icon-container right">
+              <i class="far fa-bookmark"></i>
+            </div>
+            <div class="main-icon-container">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <p class="book-rate">Rate this book</p>
+            <div class="hover-rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class="popup-book">
+            <div class="pupup-section-container">
+              <h3 class="popup-title">Everything I Never Told You <span class="popup-book-year">2014</span></h3>
+              <p>Novel by <span class="popup-author">Celeste Ng</span></p>
+              <p>520 pages</p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Summary</h4>
+              <p class="pupup-summary-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              </p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Rating</h4>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Recommended By</h4>
+              <img src="images/recommender1.png" class="recommenders">
+              <img src="images/recommender2.png" class="recommenders">
+              <img src="images/recommender3.png" class="recommenders">
+            </div>
+          </div>
+        </div>
+        <!-- Other Book -->
+        <div class="book">
+          <img src="images/All-the-light-we-cannot-see.jpg" alt="All the light we cannot see book image">
+          <div class="book-description">
+            <h3 class="book-title">All The Light We Cannot See</h3>
+            <span class="book-author">Anthony Doerr</span>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <!-- PopUp and hover section-->
+          <div class="book-hover">
+            <div class="icon-container left">
+              <i class="far fa-heart"></i>
+            </div>
+            <div class="icon-container right">
+              <i class="far fa-bookmark"></i>
+            </div>
+            <div class="main-icon-container">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <p class="book-rate">Rate this book</p>
+            <div class="hover-rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class="popup-book">
+            <div class="pupup-section-container">
+              <h3 class="popup-title">All The Light We Cannot See <span class="popup-book-year">2014</span></h3>
+              <p>Novel by <span class="popup-author">Anthony Doerr</span></p>
+              <p>544 pages</p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Summary</h4>
+              <p class="pupup-summary-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              </p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Rating</h4>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Recommended By</h4>
+              <img src="images/recommender1.png" class="recommenders">
+              <img src="images/recommender2.png" class="recommenders">
+              <img src="images/recommender3.png" class="recommenders">
+            </div>
+          </div>
+        </div>
+        <!-- Other Book -->
+        <div class="book">
+          <img src="images/Revival.jpg" alt="Revival book image">
+          <div class="book-description">
+            <h3 class="book-title">Revival</h3>
+            <span class="book-author">Stephen King</span>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <!-- PopUp and hover section-->
+          <div class="book-hover">
+            <div class="icon-container left">
+              <i class="far fa-heart"></i>
+            </div>
+            <div class="icon-container right">
+              <i class="far fa-bookmark"></i>
+            </div>
+            <div class="main-icon-container">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <p class="book-rate">Rate this book</p>
+            <div class="hover-rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class="popup-book">
+            <div class="pupup-section-container">
+              <h3 class="popup-title">Revival <span class="popup-book-year">2014</span></h3>
+              <p>Novel by <span class="popup-author">Stephen King</span></p>
+              <p>405 pages</p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Summary</h4>
+              <p class="pupup-summary-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              </p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Rating</h4>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Recommended By</h4>
+              <img src="images/recommender1.png" class="recommenders">
+              <img src="images/recommender2.png" class="recommenders">
+              <img src="images/recommender3.png" class="recommenders">
+            </div>
+          </div>
+        </div>
+        <!-- Other Book -->
+        <div class="book">
+          <img src="images/Everything-I-Never-Told-You.png" alt="Everything I Never Told You book image">
+          <div class="book-description">
+            <h3 class="book-title">Everything I Never Told You</h3>
+            <span class="book-author">Celeste Ng</span>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <!-- PopUp and hover section-->
+          <div class="book-hover">
+            <div class="icon-container left">
+              <i class="far fa-heart"></i>
+            </div>
+            <div class="icon-container right">
+              <i class="far fa-bookmark"></i>
+            </div>
+            <div class="main-icon-container">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <p class="book-rate">Rate this book</p>
+            <div class="hover-rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class="popup-book popup-book-left">
+            <div class="pupup-section-container">
+              <h3 class="popup-title">Everything I Never Told You <span class="popup-book-year">2014</span></h3>
+              <p>Novel by <span class="popup-author">Celeste Ng</span></p>
+              <p>520 pages</p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Summary</h4>
+              <p class="pupup-summary-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              </p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Rating</h4>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Recommended By</h4>
+              <img src="images/recommender1.png" class="recommenders">
+              <img src="images/recommender2.png" class="recommenders">
+              <img src="images/recommender3.png" class="recommenders">
+            </div>
+          </div>
+        </div>
+        <!-- Other Book -->
+        <div class="book">
+          <img src="images/All-the-light-we-cannot-see.jpg" alt="All the light we cannot see book image">
+          <div class="book-description">
+            <h3 class="book-title">All The Light We Cannot See</h3>
+            <span class="book-author">Anthony Doerr</span>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <!-- PopUp and hover section-->
+          <div class="book-hover">
+            <div class="icon-container left">
+              <i class="far fa-heart"></i>
+            </div>
+            <div class="icon-container right">
+              <i class="far fa-bookmark"></i>
+            </div>
+            <div class="main-icon-container">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <p class="book-rate">Rate this book</p>
+            <div class="hover-rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class="popup-book popup-book-left">
+            <div class="pupup-section-container">
+              <h3 class="popup-title">All The Light We Cannot See <span class="popup-book-year">2014</span></h3>
+              <p>Novel by <span class="popup-author">Anthony Doerr</span></p>
+              <p>544 pages</p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Summary</h4>
+              <p class="pupup-summary-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              </p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Rating</h4>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Recommended By</h4>
+              <img src="images/recommender1.png" class="recommenders">
+              <img src="images/recommender2.png" class="recommenders">
+              <img src="images/recommender3.png" class="recommenders">
+            </div>
+          </div>
+        </div>
+        <!-- Other Book -->
+        <div class="book">
+          <img src="images/Revival.jpg" alt="Revival book image">
+          <div class="book-description">
+            <h3 class="book-title">Revival</h3>
+            <span class="book-author">Stephen King</span>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <!-- PopUp and hover section-->
+          <div class="book-hover">
+            <div class="icon-container left">
+              <i class="far fa-heart"></i>
+            </div>
+            <div class="icon-container right">
+              <i class="far fa-bookmark"></i>
+            </div>
+            <div class="main-icon-container">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <p class="book-rate">Rate this book</p>
+            <div class="hover-rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class="popup-book">
+            <div class="pupup-section-container">
+              <h3 class="popup-title">Revival <span class="popup-book-year">2014</span></h3>
+              <p>Novel by <span class="popup-author">Stephen King</span></p>
+              <p>405 pages</p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Summary</h4>
+              <p class="pupup-summary-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              </p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Rating</h4>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Recommended By</h4>
+              <img src="images/recommender1.png" class="recommenders">
+              <img src="images/recommender2.png" class="recommenders">
+              <img src="images/recommender3.png" class="recommenders">
+            </div>
+          </div>
+        </div>
+        <!-- Other Book -->
+        <div class="book">
+          <img src="images/Everything-I-Never-Told-You.png" alt="Everything I Never Told You book image">
+          <div class="book-description">
+            <h3 class="book-title">Everything I Never Told You</h3>
+            <span class="book-author">Celeste Ng</span>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <!-- PopUp and hover section-->
+          <div class="book-hover">
+            <div class="icon-container left">
+              <i class="far fa-heart"></i>
+            </div>
+            <div class="icon-container right">
+              <i class="far fa-bookmark"></i>
+            </div>
+            <div class="main-icon-container">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <p class="book-rate">Rate this book</p>
+            <div class="hover-rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class="popup-book">
+            <div class="pupup-section-container">
+              <h3 class="popup-title">Everything I Never Told You <span class="popup-book-year">2014</span></h3>
+              <p>Novel by <span class="popup-author">Celeste Ng</span></p>
+              <p>520 pages</p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Summary</h4>
+              <p class="pupup-summary-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              </p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Rating</h4>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Recommended By</h4>
+              <img src="images/recommender1.png" class="recommenders">
+              <img src="images/recommender2.png" class="recommenders">
+              <img src="images/recommender3.png" class="recommenders">
+            </div>
+          </div>
+        </div>
+        <!-- Other Book -->
+        <div class="book">
+          <img src="images/All-the-light-we-cannot-see.jpg" alt="All the light we cannot see book image">
+          <div class="book-description">
+            <h3 class="book-title">All The Light We Cannot See</h3>
+            <span class="book-author">Anthony Doerr</span>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <!-- PopUp and hover section-->
+          <div class="book-hover">
+            <div class="icon-container left">
+              <i class="far fa-heart"></i>
+            </div>
+            <div class="icon-container right">
+              <i class="far fa-bookmark"></i>
+            </div>
+            <div class="main-icon-container">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <p class="book-rate">Rate this book</p>
+            <div class="hover-rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class="popup-book">
+            <div class="pupup-section-container">
+              <h3 class="popup-title">All The Light We Cannot See <span class="popup-book-year">2014</span></h3>
+              <p>Novel by <span class="popup-author">Anthony Doerr</span></p>
+              <p>544 pages</p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Summary</h4>
+              <p class="pupup-summary-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              </p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Rating</h4>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Recommended By</h4>
+              <img src="images/recommender1.png" class="recommenders">
+              <img src="images/recommender2.png" class="recommenders">
+              <img src="images/recommender3.png" class="recommenders">
+            </div>
+          </div>
+        </div>
+        <!-- Other Book -->
+        <div class="book">
+          <img src="images/Revival.jpg" alt="Revival book image">
+          <div class="book-description">
+            <h3 class="book-title">Revival</h3>
+            <span class="book-author">Stephen King</span>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <!-- PopUp and hover section-->
+          <div class="book-hover">
+            <div class="icon-container left">
+              <i class="far fa-heart"></i>
+            </div>
+            <div class="icon-container right">
+              <i class="far fa-bookmark"></i>
+            </div>
+            <div class="main-icon-container">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <p class="book-rate">Rate this book</p>
+            <div class="hover-rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class="popup-book popup-book-left">
+            <div class="pupup-section-container">
+              <h3 class="popup-title">Revival <span class="popup-book-year">2014</span></h3>
+              <p>Novel by <span class="popup-author">Stephen King</span></p>
+              <p>405 pages</p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Summary</h4>
+              <p class="pupup-summary-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              </p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Rating</h4>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Recommended By</h4>
+              <img src="images/recommender1.png" class="recommenders">
+              <img src="images/recommender2.png" class="recommenders">
+              <img src="images/recommender3.png" class="recommenders">
+            </div>
+          </div>
+        </div>
+        <!-- Other Book -->
+        <div class="book">
+          <img src="images/Everything-I-Never-Told-You.png" alt="Everything I Never Told You book image">
+          <div class="book-description">
+            <h3 class="book-title">Everything I Never Told You</h3>
+            <span class="book-author">Celeste Ng</span>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <!-- PopUp and hover section-->
+          <div class="book-hover">
+            <div class="icon-container left">
+              <i class="far fa-heart"></i>
+            </div>
+            <div class="icon-container right">
+              <i class="far fa-bookmark"></i>
+            </div>
+            <div class="main-icon-container">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <p class="book-rate">Rate this book</p>
+            <div class="hover-rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class="popup-book popup-book-left">
+            <div class="pupup-section-container">
+              <h3 class="popup-title">Everything I Never Told You <span class="popup-book-year">2014</span></h3>
+              <p>Novel by <span class="popup-author">Celeste Ng</span></p>
+              <p>520 pages</p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Summary</h4>
+              <p class="pupup-summary-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              </p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Rating</h4>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Recommended By</h4>
+              <img src="images/recommender1.png" class="recommenders">
+              <img src="images/recommender2.png" class="recommenders">
+              <img src="images/recommender3.png" class="recommenders">
+            </div>
+          </div>
+        </div>
+        <!-- Other Book -->
+        <div class="book">
+          <img src="images/All-the-light-we-cannot-see.jpg" alt="All the light we cannot see book image">
+          <div class="book-description">
+            <h3 class="book-title">All The Light We Cannot See</h3>
+            <span class="book-author">Anthony Doerr</span>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <!-- PopUp and hover section-->
+          <div class="book-hover">
+            <div class="icon-container left">
+              <i class="far fa-heart"></i>
+            </div>
+            <div class="icon-container right">
+              <i class="far fa-bookmark"></i>
+            </div>
+            <div class="main-icon-container">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <p class="book-rate">Rate this book</p>
+            <div class="hover-rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class="popup-book">
+            <div class="pupup-section-container">
+              <h3 class="popup-title">All The Light We Cannot See <span class="popup-book-year">2014</span></h3>
+              <p>Novel by <span class="popup-author">Anthony Doerr</span></p>
+              <p>544 pages</p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Summary</h4>
+              <p class="pupup-summary-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              </p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Rating</h4>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Recommended By</h4>
+              <img src="images/recommender1.png" class="recommenders">
+              <img src="images/recommender2.png" class="recommenders">
+              <img src="images/recommender3.png" class="recommenders">
+            </div>
+          </div>
+        </div>
+        <!-- Other Book -->
+        <div class="book">
+          <img src="images/Revival.jpg" alt="Revival book image">
+          <div class="book-description">
+            <h3 class="book-title">Revival</h3>
+            <span class="book-author">Stephen King</span>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <!-- PopUp and hover section-->
+          <div class="book-hover">
+            <div class="icon-container left">
+              <i class="far fa-heart"></i>
+            </div>
+            <div class="icon-container right">
+              <i class="far fa-bookmark"></i>
+            </div>
+            <div class="main-icon-container">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <p class="book-rate">Rate this book</p>
+            <div class="hover-rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class="popup-book">
+            <div class="pupup-section-container">
+              <h3 class="popup-title">Revival <span class="popup-book-year">2014</span></h3>
+              <p>Novel by <span class="popup-author">Stephen King</span></p>
+              <p>405 pages</p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Summary</h4>
+              <p class="pupup-summary-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              </p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Rating</h4>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Recommended By</h4>
+              <img src="images/recommender1.png" class="recommenders">
+              <img src="images/recommender2.png" class="recommenders">
+              <img src="images/recommender3.png" class="recommenders">
+            </div>
+          </div>
+        </div>
+        <!-- Other Book -->
+        <div class="book">
+          <img src="images/Everything-I-Never-Told-You.png" alt="Everything I Never Told You book image">
+          <div class="book-description">
+            <h3 class="book-title">Everything I Never Told You</h3>
+            <span class="book-author">Celeste Ng</span>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <!-- PopUp and hover section-->
+          <div class="book-hover">
+            <div class="icon-container left">
+              <i class="far fa-heart"></i>
+            </div>
+            <div class="icon-container right">
+              <i class="far fa-bookmark"></i>
+            </div>
+            <div class="main-icon-container">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <p class="book-rate">Rate this book</p>
+            <div class="hover-rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class="popup-book">
+            <div class="pupup-section-container">
+              <h3 class="popup-title">Everything I Never Told You <span class="popup-book-year">2014</span></h3>
+              <p>Novel by <span class="popup-author">Celeste Ng</span></p>
+              <p>520 pages</p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Summary</h4>
+              <p class="pupup-summary-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              </p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Rating</h4>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Recommended By</h4>
+              <img src="images/recommender1.png" class="recommenders">
+              <img src="images/recommender2.png" class="recommenders">
+              <img src="images/recommender3.png" class="recommenders">
+            </div>
+          </div>
+        </div>
+        <!-- Other Book -->
+        <div class="book">
+          <img src="images/All-the-light-we-cannot-see.jpg" alt="All the light we cannot see book image">
+          <div class="book-description">
+            <h3 class="book-title">All The Light We Cannot See</h3>
+            <span class="book-author">Anthony Doerr</span>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <!-- PopUp and hover section-->
+          <div class="book-hover">
+            <div class="icon-container left">
+              <i class="far fa-heart"></i>
+            </div>
+            <div class="icon-container right">
+              <i class="far fa-bookmark"></i>
+            </div>
+            <div class="main-icon-container">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <p class="book-rate">Rate this book</p>
+            <div class="hover-rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class="popup-book popup-book-left">
+            <div class="pupup-section-container">
+              <h3 class="popup-title">All The Light We Cannot See <span class="popup-book-year">2014</span></h3>
+              <p>Novel by <span class="popup-author">Anthony Doerr</span></p>
+              <p>544 pages</p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Summary</h4>
+              <p class="pupup-summary-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              </p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Rating</h4>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Recommended By</h4>
+              <img src="images/recommender1.png" class="recommenders">
+              <img src="images/recommender2.png" class="recommenders">
+              <img src="images/recommender3.png" class="recommenders">
+            </div>
+          </div>
+        </div>
+        <!-- Other Book -->
+        <div class="book">
+          <img src="images/Revival.jpg" alt="Revival book image">
+          <div class="book-description">
+            <h3 class="book-title">Revival</h3>
+            <span class="book-author">Stephen King</span>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <!-- PopUp and hover section-->
+          <div class="book-hover">
+            <div class="icon-container left">
+              <i class="far fa-heart"></i>
+            </div>
+            <div class="icon-container right">
+              <i class="far fa-bookmark"></i>
+            </div>
+            <div class="main-icon-container">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <p class="book-rate">Rate this book</p>
+            <div class="hover-rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class="popup-book popup-book-left">
+            <div class="pupup-section-container">
+              <h3 class="popup-title">Revival <span class="popup-book-year">2014</span></h3>
+              <p>Novel by <span class="popup-author">Stephen King</span></p>
+              <p>405 pages</p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Summary</h4>
+              <p class="pupup-summary-text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              </p>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Rating</h4>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="pupup-section-container">
+              <h4 class="popup-section-title">Recommended By</h4>
+              <img src="images/recommender1.png" class="recommenders">
+              <img src="images/recommender2.png" class="recommenders">
+              <img src="images/recommender3.png" class="recommenders">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <aside class="sidebar">
+      <h2>Most Read Books</h2>
+      <ol>
+        <li><a href="#">Hooked: How to Build Habit-Forming Products</a></li>
+        <li><a href="#">The inevitable: Understanding the 12 Technological Forces That Will Shape Our Future</a></li>
+        <li><a href="#">Lean In: Women, Work, and the Will to Lead</a></li>
+        <li><a href="#">Building a Business When There Are No Easy Answers</a></li>
+        <li><a href="#">How Google Works</a></li>
+      </ol>
+    </aside>
+  </div>
+
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -11,6 +11,7 @@ This is a repository made to store the tasks completed during the JS School Boot
   ***
 #### 2.2 Challenge C03
   Layout and styling
+  [Watch HTML, CSS and assets files here](../master/ChallengeC03)
 ***
 ### 3. Challenge C04
   Create a piano player
