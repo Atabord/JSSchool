@@ -15,18 +15,9 @@ $(function(){
   $('.navbar-toggler').click(function(){
     $(this).parent().siblings(".navbar-collapse").toggleClass("show");
   })
+
+  $('.collapse-button').click(function(){
+    $(this).next().toggle("linear");
+    console.log($(this).next())
+  })
 });
-
-var dropdown = document.getElementsByClassName("collapse-button");
-var i;
-
-for (i = 0; i < dropdown.length; i++) {
-  dropdown[i].addEventListener("click", function() {
-    var dropdownContent = this.nextElementSibling;
-    if (dropdownContent.style.display === "block") {
-      dropdownContent.style.display = "none";
-    } else {
-      dropdownContent.style.display = "block";
-    }
-  });
-}
