@@ -1,0 +1,17 @@
+{
+  "name": "challengec04",
+  "version": "1.0.0",
+  "description": "Linting for challenge C04",
+  "main": "js\\app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": ".\\node_modules\\.bin\\eslint js\\app.js"
+  },
+  "author": "Alejandro Taborda",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}
