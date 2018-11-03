@@ -14,6 +14,13 @@
 .tecla {
     border: 1px solid black;
 }
+
+.tecla-activa {
+    box-shadow: inset 0px 3px 10px 6px rgba(0,0,0,0.5);
+    transition-duration: 0.3s;
+    transform: scale(0.97) translateY(-4px);
+}
+
 .blancas {
     display: flex;
     flex-wrap: nowrap;
