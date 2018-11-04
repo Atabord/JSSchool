@@ -1,10 +1,5 @@
 // This function initialize piano functions
 function initPiano() {
-  //changing device orientation on small screens
-  if(window.screen.width < 500){
-    screen.orientation.lock('landscape');
-  }
-
   // Adding Listeners to mouse events over the piano
   const teclas = document.getElementsByClassName('tecla');
   for (let i = 0; i < teclas.length; i += 1) {

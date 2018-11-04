@@ -2,9 +2,16 @@
     box-sizing: border-box;
 }
 
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgba(78, 72, 72, 0.5);
+}
+
 .piano {
     width: 80%;
     margin: auto;
+    margin-top: 15px; 
     display: flex;
     justify-content: center
 }
@@ -18,6 +25,7 @@
     border: 1px solid black;
     position: relative;
     display: flex;
+    border-radius: 0 0 5px 5px;
 }
 
 .tecla_activa {
@@ -57,9 +65,32 @@
     color: white
 }
 
+.songsSection {
+    width: 100%;
+    text-align: center;
+}
+
+.songNotes {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+
+.song {
+    background-color: rgba(4, 155, 4, 0.486);
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+}
+
+.song h2 {
+    margin-top: 0;
+    color: black;
+}
+
 @media (max-width: 780px){
     .piano {
-        width: 100%;
+        width: 100%;        
     }
     .blanca {
         height: 70vh;
@@ -78,13 +109,13 @@
     .letterBox {
         display: none;
     }
+
+    .songsSection {
+        display: none;
+    }
 }
 
 @media (orientation: landscape) and (max-width: 830px){
-    body{
-        margin: 0;
-        padding: 0;    
-    }
     .piano {
         width: 100%;
         margin: 0;
@@ -106,4 +137,28 @@
     .letterBox {
         display: none;
     }
+
+    .songsSection {
+        display: none;
+    }
 }
+
+@media screen and (max-width: 767px) and (orientation: portrait) {
+    .octave:first-of-type {
+        display: none;
+    }
+    .octave:last-of-type {
+        width: 100vw;
+        justify-content: center;
+    }
+    .blanca {
+        width: calc(100vw / 7);
+    }
+    .re, .mi, .sol, .la, .si {
+        margin: 0px 0 0 -3.2vw;
+    }
+    .negra {
+        width: 6vw;
+        margin: 0px 0 0 -5vw;
+    }
+  }
