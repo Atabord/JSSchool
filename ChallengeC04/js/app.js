@@ -64,9 +64,12 @@ function initPiano() {
   // Removing some styles when the key is unpressed
   window.addEventListener('keyup', (event) => {
     const keyUnpressed = event.code;
-    const pianoKeyUnpressedId = getPianoKey(keyUnpressed)[1];
-    const pianoKeyUnpressed = document.getElementById(pianoKeyUnpressedId);
-    pianoKeyUnpressed.classList.remove('tecla_activa');
+    const pianoKey = getPianoKey(keyUnpressed);
+    if (pianoKey) {
+      const pianoKeyUnpressedId = pianoKey[1];
+      const pianoKeyUnpressed = document.getElementById(pianoKeyUnpressedId);
+      pianoKeyUnpressed.classList.remove('tecla_activa');
+    }
   });
 }
 
