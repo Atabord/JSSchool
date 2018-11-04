@@ -1,5 +1,10 @@
 // This function initialize piano functions
 function initPiano() {
+  //changing device orientation on small screens
+  if(window.screen.width < 500){
+    screen.orientation.lock('landscape');
+  }
+
   // Adding Listeners to mouse events over the piano
   const teclas = document.getElementsByClassName('tecla');
   for (let i = 0; i < teclas.length; i += 1) {
@@ -18,16 +23,16 @@ function initPiano() {
   // Depending on the key pressed on the keyboard
   function getPianoKey(key) {
     const pianoKeys = {
-      KeyA: ['audioDoc', 'keyDoc'],
-      KeyS: ['audioRec', 'keyRec'],
-      KeyD: ['audioMic', 'keyMic'],
-      KeyF: ['audioFac', 'keyFac'],
-      KeyX: ['audioSolc', 'keySolc'],
-      KeyC: ['audioLac', 'keyLac'],
-      KeyV: ['audioSic', 'keySic'],
-      KeyB: ['audioDos', 'keyDos'],
-      KeyN: ['audioRes', 'keyRes'],
-      KeyM: ['audioMis', 'keyMis'],
+      KeyZ: ['audioDoc', 'keyDoc'],
+      KeyX: ['audioRec', 'keyRec'],
+      KeyC: ['audioMic', 'keyMic'],
+      KeyV: ['audioFac', 'keyFac'],
+      KeyB: ['audioSolc', 'keySolc'],
+      KeyN: ['audioLac', 'keyLac'],
+      KeyM: ['audioSic', 'keySic'],
+      KeyD: ['audioDos', 'keyDos'],
+      KeyF: ['audioRes', 'keyRes'],
+      KeyG: ['audioMis', 'keyMis'],
       KeyH: ['audioFas', 'keyFas'],
       KeyJ: ['audioSols', 'keySols'],
       KeyK: ['audioLas', 'keyLas'],

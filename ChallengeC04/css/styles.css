@@ -3,16 +3,21 @@
 }
 
 .piano {
-    display: flex;
-    flex-wrap: nowrap;
-    position: relative;
-    margin: auto;
-    justify-content: center;
     width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center
+}
+
+.octave {
+    display: flex;
+    position: relative;
 }
 
 .tecla {
     border: 1px solid black;
+    position: relative;
+    display: flex;
 }
 
 .tecla_activa {
@@ -21,43 +26,56 @@
     transform: scaleY(0.97) translateY(-4px);
 }
 
-.blancas {
-    display: flex;
-    flex-wrap: nowrap;
-}
-
 .blanca {
-    height: 400px;
-    width: 80px;
+    height: 55vh;
+    width: 5vw;
     background-color: #f5f5f5;
-}
-
-.negras {
-    position: absolute;
-    display: flex;
-    width: 1120px;
+    z-index: 1;
 }
 
 .negra {
-    height: 250px;
-    width: 50px;
+    height: 28vh;
+    width: 3vw;
     background-color: black;
     z-index: 2;
+    margin: 0 0 0 -1.95vw;
 }
 
-.dosost {
-    margin-left: 56px;
+.re, .mi, .sol, .la, .si{
+    margin: 0 0 0 -1.2vw;
 }
 
-.resost, .solsost, .lasost {
-    margin-left: 30px;
+.letterBox {
+    border: 1px solid black;
+    margin: auto;
+    margin-bottom: 0.5vh;
+    padding: 0.5vw;
 }
 
-.fasost{
-    margin-left: 110px;
+.colorWhite{
+    border: 1px solid white;
+    color: white
 }
 
-#keyDossost{
-    margin-left: 108px;
-}
+@media (max-width: 780px){
+    .piano {
+        width: 100%;
+    }
+    .blanca {
+        height: 70vh;
+        width: 6vw;
+    }
+    .negra {
+        height: 40vh;
+        width: 4vw;
+        margin: 0 0 0 -2vw
+    }
 
+    .re, .mi, .sol, .la, .si{
+        margin: 0 0 0 -2.2vw;
+    }
+
+    .letterBox {
+        display: none;
+    }
+}
