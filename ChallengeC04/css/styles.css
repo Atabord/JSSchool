@@ -15,7 +15,7 @@
     border: 1px solid black;
 }
 
-.tecla-activa {
+.tecla_activa {
     box-shadow: inset 0px 3px 10px 6px rgba(0,0,0,0.5);
     transition-duration: 0.3s;
     transform: scale(0.97) translateY(-4px);
@@ -57,7 +57,7 @@
     margin-left: 110px;
 }
 
-#key-dossost{
+#keyDossost{
     margin-left: 108px;
 }
 

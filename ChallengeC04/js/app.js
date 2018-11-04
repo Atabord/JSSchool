@@ -1,57 +1,74 @@
-window.addEventListener('load', initPiano);
+// This function initialize piano functions
 function initPiano() {
+  // Adding Listeners to mouse events over the piano
   const teclas = document.getElementsByClassName('tecla');
-  for (let i = 0; i < teclas.length; i++) {
-    teclas[i].addEventListener('mousedown', function() {
-      this.classList.add("tecla-activa");
+  for (let i = 0; i < teclas.length; i += 1) {
+    teclas[i].addEventListener('mousedown', function () {
+      this.classList.add('tecla_activa');
       const audio = document.getElementById(this.dataset.audio);
       audio.currentTime = 0;
       audio.play();
     });
-    teclas[i].addEventListener('mouseup', function() {
-        this.classList.remove("tecla-activa");
-    })
+    teclas[i].addEventListener('mouseup', function () {
+      this.classList.remove('tecla_activa');
+    });
   }
 
-  function getPianoKey(key){
+  // GetPianoKey function returns the audio id an the key id
+  // Depending on the key pressed on the keyboard
+  function getPianoKey(key) {
     const pianoKeys = {
-        'KeyA': 'audio-doc',
-        'KeyS': 'audio-rec',
-        'KeyD': 'audio-mic',
-        'KeyF': 'audio-fac',
-        'KeyX': 'audio-solc',
-        'KeyC': 'audio-lac',
-        'KeyV': 'audio-sic',
-        'KeyB': 'audio-dos',
-        'KeyN': 'audio-res',
-        'KeyM': 'audio-mis',
-        'KeyH': 'audio-fas',
-        'KeyJ': 'audio-sols',
-        'KeyK': 'audio-las',
-        'KeyL': 'audio-sis',
-        'KeyQ': 'audio-docsost',
-        'KeyW': 'audio-recsost',
-        'KeyE': 'audio-facsost',
-        'KeyR': 'audio-solcsost',
-        'KeyT': 'audio-lacsost',
-        'KeyY': 'audio-dossost',
-        'KeyU': 'audio-ressost',
-        'KeyI': 'audio-fassost',
-        'KeyO': 'audio-solssost',
-        'KeyP': 'audio-lassost'
+      KeyA: ['audioDoc', 'keyDoc'],
+      KeyS: ['audioRec', 'keyRec'],
+      KeyD: ['audioMic', 'keyMic'],
+      KeyF: ['audioFac', 'keyFac'],
+      KeyX: ['audioSolc', 'keySolc'],
+      KeyC: ['audioLac', 'keyLac'],
+      KeyV: ['audioSic', 'keySic'],
+      KeyB: ['audioDos', 'keyDos'],
+      KeyN: ['audioRes', 'keyRes'],
+      KeyM: ['audioMis', 'keyMis'],
+      KeyH: ['audioFas', 'keyFas'],
+      KeyJ: ['audioSols', 'keySols'],
+      KeyK: ['audioLas', 'keyLas'],
+      KeyL: ['audioSis', 'keySis'],
+      KeyQ: ['audioDocsost', 'keyDocsost'],
+      KeyW: ['audioRecsost', 'keyRecsost'],
+      KeyE: ['audioFacsost', 'keyFacsost'],
+      KeyR: ['audioSolcsost', 'keySolcsost'],
+      KeyT: ['audioLacsost', 'keyLacsost'],
+      KeyY: ['audioDossost', 'keyDossost'],
+      KeyU: ['audioRessost', 'keyRessost'],
+      KeyI: ['audioFassost', 'keyFassost'],
+      KeyO: ['audioSolssost', 'keySolssost'],
+      KeyP: ['audioLassost', 'keyLassost'],
     };
     return pianoKeys[key];
   }
 
+  // Adding Event listener to the keyboard events
   window.addEventListener('keydown', (event) => {
-    let keyPressed = event.code;
-    // console.log(keyPressed)
-    const audioId = getPianoKey(keyPressed);
-    if(audioId) {
-        const audioToPlay = document.getElementById(audioId);
-        audioToPlay.currentTime = 0;
-        audioToPlay.play();
+    const keyPressed = event.code;
+    const pianoKey = getPianoKey(keyPressed);
+    if (pianoKey) {
+      const audioId = pianoKey[0];
+      const pianoKeyId = pianoKey[1];
+      const pianoKeyPressed = document.getElementById(pianoKeyId);
+      pianoKeyPressed.classList.add('tecla_activa');
+      const audioToPlay = document.getElementById(audioId);
+      audioToPlay.currentTime = 0;
+      audioToPlay.play();
     }
   });
-  
+
+  // Removing some styles when the key is unpressed
+  window.addEventListener('keyup', (event) => {
+    const keyUnpressed = event.code;
+    const pianoKeyUnpressedId = getPianoKey(keyUnpressed)[1];
+    const pianoKeyUnpressed = document.getElementById(pianoKeyUnpressedId);
+    pianoKeyUnpressed.classList.remove('tecla_activa');
+  });
 }
+
+// Initialize piano functions only when the whole page has loaded
+window.addEventListener('load', initPiano);
