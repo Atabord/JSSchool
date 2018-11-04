@@ -79,3 +79,31 @@
         display: none;
     }
 }
+
+@media (orientation: landscape) and (max-width: 830px){
+    body{
+        margin: 0;
+        padding: 0;    
+    }
+    .piano {
+        width: 100%;
+        margin: 0;
+    }
+    .blanca {
+        height: 100vh;
+        width: calc(100vw/14);
+    }
+    .negra {
+        height: 50vh;
+        width: 4vw;
+        margin: 0 0 0 -2vw
+    }
+
+    .re, .mi, .sol, .la, .si{
+        margin: 0 0 0 -2.2vw;
+    }
+
+    .letterBox {
+        display: none;
+    }
+}
