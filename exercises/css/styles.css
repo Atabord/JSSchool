@@ -1,0 +1,29 @@
+.d-block {
+    display: block;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+#postIts {
+    display: flex;
+    align-items: flex-start;
+    flex-basis: 80%;
+    flex-flow: wrap;
+}
+
+.note {
+    min-width: 100px;
+    min-height: 100px;
+    background-color: yellow;
+    margin: 5px;
+    padding: 15px;
+    flex-basis: 15%;
+}
+
+.form-container {
+    flex-basis: 20%;
+}
