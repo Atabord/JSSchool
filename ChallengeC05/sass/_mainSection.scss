@@ -6,7 +6,7 @@
 }
 
 .section-header h2 {
-  color: #231f20;
+  color: $primary-black;
   font-weight: 300;
   font-stretch: condensed;
   font-size: 20px;
@@ -21,7 +21,7 @@
 }
 
 .breadcrumb a {
-    color: #858585;
+    color: $primary-grey;
     font-stretch: condensed;
     font-weight: normal;
     text-decoration: none;
@@ -36,7 +36,7 @@
 
 .breadcrumb-active{
   font-weight: 500 !important;
-  color: #979797 !important;
+  color: $dark-grey !important;
 }
 
 .list-icons {
@@ -45,7 +45,7 @@
 }
 
 .list-icons a {
-  color: #6ec1e4;
+  color: $primary-blue;
   font-size: 18.5px;
   margin-left: 10px;
   float: right;
@@ -89,7 +89,7 @@
 }
 
 .book-description i {
-  color: #6ec1e4;
+  color: $primary-blue;
   font-size: 12.5px;
 }
 
@@ -98,7 +98,7 @@
   width: 382px;
   height: 358px;
   background: rgba(35,31,32,0.88);
-  color: #858585;
+  color: $primary-grey;
   font-weight: bold;
   font-stretch: condensed;
   font-size: 12px;
@@ -111,7 +111,7 @@
   border-radius: 5px;
 }
 
-.popup-book-left {
+.book:nth-child(5n) .popup-book, .book:nth-child(5n-1) .popup-book {
   left: -228%;
 }
 
@@ -120,7 +120,7 @@
 }
 
 .popup-title {
-  color: #5eb4dd;
+  color: $secondary-blue;
   font-size: 13px;
   margin: 0;
   line-height: 17px;
@@ -130,7 +130,7 @@
 }
 
 .popup-book-year {
-  color: #858585;
+  color: $primary-grey;
   font-stretch: condensed;
   font-weight: normal;
   font-size: 13px;
@@ -147,7 +147,7 @@
 }
 
 .popup-author {
-  color: #858585;
+  color: $primary-grey;
 }
 
 .popup-section-title {
@@ -156,11 +156,11 @@
 }
 
 .pupup-section-container i {
-  color: #5eb4dd;
+  color: $secondary-blue;
 }
 
 button.borrow-book {
-  background-color: #5eb4dd;
+  background-color: $secondary-blue;
   border-radius: 15px;
   padding: 10px;
   text-transform: uppercase;
@@ -181,7 +181,7 @@ button.borrow-book {
 	top: 31%;
 }
 
-.popup-book-left::before {
+.book:nth-child(5n) .popup-book::before, .book:nth-child(5n-1) .popup-book::before {
   transform: rotate(180deg);
   left: 380px;
 }
@@ -199,7 +199,7 @@ button.borrow-book {
 
 .book-rate {
   text-transform: uppercase;
-  color: #fcf8f3;
+  color: $light-grey;
   font-stretch: condensed;
   font-weight: 500;
   font-size: 11px;
@@ -225,7 +225,7 @@ button.borrow-book {
 }
 
 .main-icon-container {
-    color: #6ec1e4;
+    color: $primary-blue;
     background: #FFF;
     width: 48px;
     height: 48px;

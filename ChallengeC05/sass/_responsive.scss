@@ -5,7 +5,7 @@
 
   .small-devices-navbar {
     display: flex;
-    background-color: #fcf8f3;
+    background-color: $light-grey;
     justify-content: space-between;
   }
 
@@ -25,10 +25,10 @@
 
   .small-devices-navbar .navbar-toggler {
     padding: 10px;
-    color: #6ec1e4;
-    background-color: #231f20;
+    color: $primary-blue;
+    background-color: $primary-black;
     font-size: 20px;
-    border: 1px solid #6ec1e4;
+    border: 1px solid $primary-blue;
     border-radius: 2px;
     width: 50px;
     height: 50px;
@@ -37,7 +37,7 @@
   .navbar-collapse {
     visibility: hidden;
     position: absolute;
-    background-color: #231f20;
+    background-color: $primary-black;
     color: #fff;
     right: 0;
     top: 81px;

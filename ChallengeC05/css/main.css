@@ -234,6 +234,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "PlutoSans";
+  overflow: hidden;
 }
 
 .container {
@@ -448,7 +449,7 @@ aside a {
   border-radius: 5px;
 }
 
-.popup-book-left {
+.book:nth-child(5n) .popup-book, .book:nth-child(5n-1) .popup-book {
   left: -228%;
 }
 
@@ -514,7 +515,7 @@ button.borrow-book {
   top: 31%;
 }
 
-.popup-book-left::before {
+.book:nth-child(5n) .popup-book::before, .book:nth-child(5n-1) .popup-book::before {
   transform: rotate(180deg);
   left: 380px;
 }

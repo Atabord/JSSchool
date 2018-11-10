@@ -1,103 +1,70 @@
-@font-face {
-  font-family: 'PlutoSans';
-  font-weight: bolder;
-  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansBlack.otf');
+@mixin font-declaration($src, $weight, $stretch:unset, $family: 'PlutoSans') {
+  font-family: $family;
+  font-weight: $weight;
+  font-stretch: $stretch;
+  src: url(#{$font-path}#{$src})
 }
 
 @font-face {
-  font-family: 'PlutoSans';
-  font-weight: 800;
-  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansHeavy.otf');
+  @include font-declaration('PlutoSansBlack.otf', bolder);
 }
 
 @font-face {
-  font-family: 'PlutoSans';
-  font-weight: bold;
-  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansBold.otf');
+  @include font-declaration('PlutoSansHeavy.otf', 800);
 }
 
 @font-face {
-  font-family: 'PlutoSans';
-  font-weight: 500;
-  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansMedium.otf');
+  @include font-declaration('PlutoSansBold.otf', bold);
 }
 
 @font-face {
-  font-family: 'PlutoSans';
-  font-weight: normal;
-  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansRegular.otf');
+  @include font-declaration('PlutoSansMedium.otf', 500);
 }
 
 @font-face {
-  font-family: 'PlutoSans';
-  font-weight: 300;
-  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansLight.otf');
+  @include font-declaration('PlutoSansRegular.otf', normal);
 }
 
 @font-face {
-  font-family: 'PlutoSans';
-  font-weight: 200;
-  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansExtraLight.otf');
+  @include font-declaration('PlutoSansLight.otf', 300);
 }
 
 @font-face {
-  font-family: 'PlutoSans';
-  font-weight: lighter;
-  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansThin.otf');
+  @include font-declaration('PlutoSansExtraLight.otf', 200);
 }
 
 @font-face {
-  font-family: 'PlutoSans';
-  font-weight: bolder;
-  font-stretch: condensed;
-  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondBlack.otf');
+  @include font-declaration('PlutoSansThin.otf', lighter);
 }
 
 @font-face {
-  font-family: 'PlutoSans';
-  font-weight: 800;
-  font-stretch: condensed;
-  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondHeavy.otf');
+  @include font-declaration('PlutoSansCondBlack.otf', bolder, condensed);
 }
 
 @font-face {
-  font-family: 'PlutoSans';
-  font-weight: bold;
-  font-stretch: condensed;
-  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondBold.otf');
+  @include font-declaration('PlutoSansCondHeavy.otf', 800, condensed);
 }
 
 @font-face {
-  font-family: 'PlutoSans';
-  font-weight: 500;
-  font-stretch: condensed;
-  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondMedium.otf');
+  @include font-declaration('PlutoSansCondBold.otf', bold, condensed);
 }
 
 @font-face {
-  font-family: 'PlutoSans';
-  font-stretch: condensed;
-  font-weight: normal;
-  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondRegular.otf');
+  @include font-declaration('PlutoSansCondMedium.otf', 500, condensed);
 }
 
 @font-face {
-  font-family: 'PlutoSans';
-  font-weight: 300;
-  font-stretch: condensed;
-  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondLight.otf');
+  @include font-declaration('PlutoSansCondRegular.otf', normal, condensed);
 }
 
 @font-face {
-  font-family: 'PlutoSans';
-  font-weight: 200;
-  font-stretch: condensed;
-  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondExLight.otf');
+  @include font-declaration('PlutoSansCondLight.otf', 300, condensed);
 }
 
 @font-face {
-  font-family: 'PlutoSans';
-  font-weight: lighter;
-  font-stretch: condensed;
-  src: url('../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondThin.otf');
+  @include font-declaration('PlutoSansCondExLight.otf', 200, condensed);
+}
+
+@font-face {
+  @include font-declaration('PlutoSansCondThin.otf', lighter, condensed);
 }
