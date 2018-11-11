@@ -11,31 +11,34 @@ nav {
   padding: 36px 39px;
 }
 
-.menu-section:last-of-type {
-  margin-top: 54px;
-}
+.menu-section {
+  &:last-of-type {
+    margin-top: 54px;
+  }
+  
+  ul {
+    padding: 0;
+  }
+} 
 
-.menu-section ul {
-  padding: 0;
-}
 
 .nav-list-item {
   margin-bottom: 21px;
   font-weight: normal;
   font-stretch: condensed;
-}
-
-.nav-list-item a {
-  color: $primary-blue;
-  text-decoration: none;
-}
-
-.nav-list-item a:hover {
-  text-decoration: underline;
-}
-
-.nav-list-item a i {
-  margin-right: 10px;
+  
+  a {
+    color: $primary-blue;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+    
+    i {
+      margin-right: 10px;
+    }
+  }
 }
 
 .active {
@@ -46,32 +49,32 @@ aside {
   padding: 38px 31px 38px 34px;
   font-stretch: condensed;
   color: $light-grey;
-}
-
-aside h2 {
-  font-weight: bold;
-  font-size: 13px;
-  line-height: 17px;
-  text-transform: uppercase;
-  margin-bottom: 26px;
-  margin-top: 0;
-}
-
-aside ol {
-  padding: 0;
-  font-size: 12px;
-  font-weight: 300;
-}
-
-aside li {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  list-style-position: inside;
-  margin-bottom: 26px;
-}
-
-aside a {
-  color: $light-grey;
-  text-overflow: ellipsis;
+  
+  h2 {
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 17px;
+    text-transform: uppercase;
+    margin-bottom: 26px;
+    margin-top: 0;
+  }
+  
+  ol {
+    padding: 0;
+    font-size: 12px;
+    font-weight: 300;
+    
+    li {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      list-style-position: inside;
+      margin-bottom: 26px;
+      
+      a {
+       color: $light-grey;
+       text-overflow: ellipsis;
+      }
+    }
+  }
 }

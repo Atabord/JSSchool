@@ -1,15 +1,24 @@
 @media (max-width: 900px) {
-  header {
-    display: none;
+  // header {
+  //   display: none;
+  // }
+
+  .main-header {
+    flex-basis: 50%;
   }
 
   .small-devices-navbar {
     display: flex;
+    flex: 1;
     background-color: $light-grey;
     justify-content: space-between;
   }
 
-  .small-devices-navbar #logo {
+  .logo-header {
+    flex-basis: unset;
+  }
+
+  #logo {
     flex: 1;
   }
 
@@ -140,6 +149,10 @@
   }
   .only-on-small {
     display: block;
+  }
+
+  .main-header{
+    flex-basis: 0;
   }
 
   h1 {
