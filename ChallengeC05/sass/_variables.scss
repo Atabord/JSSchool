@@ -6,9 +6,13 @@ $primary-grey: #858585;
 $primary-black: #231f20;
 $font-path : '../fonts/fonts_pluto_sans/OpenTypeOTF/';
 
-
-
 %onlyOverflowY {
   overflow-y: scroll;
   overflow-x: hidden;
+}
+
+@mixin tablet {
+  @media screen and (max-width: 900px) {
+    @content;
+  }
 }

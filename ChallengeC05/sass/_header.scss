@@ -1,3 +1,10 @@
+@mixin profile-icon {
+  width: 36px;
+  height: 36px;
+  border: 2px solid $primary-blue;
+  border-radius: 20px;
+  margin: 10px 16px 10px 10px;      
+}
 
 header {
   background-color: $light-grey;
@@ -12,6 +19,14 @@ header {
     #logo {
       width: 100%;
     }
+
+    @include tablet {
+      flex-basis: unset;
+
+      #logo {
+        flex: 1;
+      }
+    }
   }
   
   
@@ -22,6 +37,10 @@ header {
     padding-right: 18px;
     justify-content: space-between;
     align-items: center;
+
+    @include tablet {
+      flex-basis: 50%;
+    }
     
     h1 {
       font-size: 24px;
@@ -107,19 +126,97 @@ header {
     }
     
     img.jakob {
-      width: 36px;
-      height: 36px;
-      border: 2px solid $primary-blue;
-      border-radius: 20px;
-      margin: 10px 16px 10px 10px;
-      /* display: inline-block; */
+      @include profile-icon();
     }
   }
   
   .small-devices-navbar {
     display: none;
+
+    @include tablet {
+      display: flex;
+      flex: 1;
+      background-color: $light-grey;
+      justify-content: space-between;
+
+      h1 {
+        flex: 2;
+      }
+
+      .button-container {
+        flex: 1;
+        margin: auto;
+        text-align: center;
+      }
+
+      .navbar-toggler {
+        padding: 10px;
+        color: $primary-blue;
+        background-color: $primary-black;
+        font-size: 20px;
+        border: 1px solid $primary-blue;
+        border-radius: 2px;
+        width: 50px;
+        height: 50px;        
+      }
+
+      .navbar-collapse {
+        visibility: hidden;
+        position: absolute;
+        background-color: $primary-black;
+        color: #fff;
+        right: 0;
+        top: 81px;
+        padding: 10px;
+        z-index: 5;
+        border-radius: 0px 10px;
+        box-shadow: 2px -3px 9px black;
+        
+        ul {
+          padding: 0;
+        }
+
+        .form-search {
+          border-radius: 0;
+        }
+
+        .collapse-button {
+          background: none;
+          color: #fff;
+          width: 100%;
+          border: 0px;
+          padding: 5px;
+          margin-bottom: 1px;
+      
+          img {
+            @include profile-icon();
+            vertical-align: middle;
+          }
+        }
+
+        li {
+          text-align: center;
+          padding: 10px;
+
+          a {
+            color: #fff;
+            text-decoration: none;
+
+            &:visited {
+              color: #fff;
+              text-decoration: none;
+            }
+          }
+        }
+
+        .dropdown-collapse-list {
+          display: none;
+          background-color: #262626;
+          padding-left: 8px;
+        }
+      }
+    }
   }
-  
 }
 
 .only-on-small {
