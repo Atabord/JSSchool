@@ -19,6 +19,18 @@ nav {
   ul {
     padding: 0;
   }
+
+  @include tablet {
+    flex: 1;
+
+    &:last-of-type {
+      margin-top: 0;
+    }
+
+    ul {
+      display: flex;
+    }
+  }
 } 
 
 
