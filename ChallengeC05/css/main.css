@@ -544,6 +544,21 @@ section .book-section .book {
   flex-basis: 18%;
   width: 176px;
   height: 366px;
+  position: relative;
+}
+section .book-section .book .in-use {
+  position: absolute;
+  top: 9%;
+  right: -7px;
+}
+section .book-section .book .in-use img {
+  position: relative;
+}
+section .book-section .book .in-use i {
+  position: absolute;
+  top: 5px;
+  left: 40%;
+  color: white;
 }
 section .book-section .book .book-description {
   width: 176px;
