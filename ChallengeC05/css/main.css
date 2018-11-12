@@ -546,10 +546,15 @@ section .book-section .book {
   height: 366px;
   position: relative;
 }
+section .book-section .book .book-main-image {
+  width: 176px;
+  height: 250px;
+}
 section .book-section .book .in-use {
   position: absolute;
   top: 9%;
   right: -7px;
+  display: none;
 }
 section .book-section .book .in-use img {
   position: relative;
@@ -644,6 +649,12 @@ section .book-section .book .popup-book .pupup-section-container p .popup-author
 section .book-section .book .popup-book .pupup-section-container .popup-section-title {
   text-transform: uppercase;
   margin: 0px;
+}
+section .book-section .book .popup-book .pupup-section-container .pupup-summary-text {
+  width: 320px;
+  height: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 section .book-section .book .popup-book .pupup-section-container i {
   color: #5eb4dd;

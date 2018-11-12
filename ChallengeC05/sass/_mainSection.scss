@@ -86,10 +86,16 @@ section {
       height: 366px;
       position: relative;
 
+      .book-main-image {
+        width: 176px;
+        height: 250px;
+      }
+
       .in-use {
         position: absolute;
         top: 9%;
         right: -7px;
+        display: none;
 
         img {
           position: relative;
@@ -200,6 +206,13 @@ section {
           .popup-section-title {
             text-transform: uppercase;
             margin: 0px;
+          }
+
+          .pupup-summary-text {
+            width: 320px;
+            height: 80px;
+            overflow: hidden;
+            text-overflow: ellipsis;
           }
           
           i {
