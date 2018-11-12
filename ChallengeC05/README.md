@@ -16,6 +16,8 @@ This interactivity help the page showing some pupups and navigation menu as bell
 ![Image of how popup looks like](images/bookshelf-popups.png "Image of popup")
 ![Image of how dropdown looks like](images/bookshelf-dropdown.png "Image of dropdown")
 
+## Note: Ajax calls will only works using a server, so I used VS live-server plugin while developing the project
+
 ## Watch it runing in your device:
 https://atabord.github.io/JSSchool/ChallengeC05/
 

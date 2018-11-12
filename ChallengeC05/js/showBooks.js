@@ -1,6 +1,7 @@
 'use strict'
-
+//app initiator
 function initBookShelfApp() {
+    //function to get the JSON of an specific file
     async function getJson() {
         try {
             let content = await fetch('./js/books.json')
@@ -10,10 +11,10 @@ function initBookShelfApp() {
             console.error(`an error ocurred ${err}`);
         }
     }
-    
+    //function to get the stars icons due to the book rating
     function getStars(rating) {
         let starIcon;
-        rating = Number(rating);
+        rating = Math.floor(Number(rating));
         for (let i = 0; i<rating; i += 1) {
             starIcon ? starIcon += '<i class="fas fa-star"></i>\n' : starIcon = '<i class="fas fa-star"></i>\n';        
         }
@@ -26,10 +27,10 @@ function initBookShelfApp() {
     }
     
     let data = getJson();
+    //function to create the books using the Json
     data.then((jsonData) => {
         let bookContainer = document.getElementById('books-container');
-        for (const item in jsonData.items){
-            console.log(jsonData.items[item]);
+        for (const item in jsonData.items){            
             let bookInfo = jsonData.items[item];
             let starsIcons = getStars(bookInfo.volumeInfo.averageRating);
             let book = `
@@ -84,8 +85,6 @@ function initBookShelfApp() {
             bookContainer.innerHTML += book;
         }
     }) 
-    console.log(data);
-    
 }
 
 window.addEventListener('load', initBookShelfApp);

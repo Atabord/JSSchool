@@ -651,7 +651,7 @@ section .book-section .book .popup-book .pupup-section-container .popup-section-
   margin: 0px;
 }
 section .book-section .book .popup-book .pupup-section-container .pupup-summary-text {
-  width: 320px;
+  width: 98%;
   height: 80px;
   overflow: hidden;
   text-overflow: ellipsis;

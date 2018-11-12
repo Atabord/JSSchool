@@ -66,5 +66,615 @@
             "copies": 4,
             "available": 2
         }
+    }, {
+        "volumeInfo": {
+            "title": "Harry Potter and the Sorcerer's Stone",
+            "authors": [
+                "J. K. Rowling"
+            ],
+            "publisher": "Arthur A. Levine Books",
+            "publishedDate": "1998",
+            "description": "Rescued from the outrageous neglect of his aunt and uncle, a young boy with a great destiny proves his worth while attending Hogwarts School for Witchcraft and Wizardry.",
+            "industryIdentifiers": [{
+                    "type": "ISBN_10",
+                    "identifier": "0590353403"
+                },
+                {
+                    "type": "ISBN_13",
+                    "identifier": "9780590353403"
+                }
+            ],
+            "pageCount": 309,
+            "printType": "BOOK",
+            "categories": [
+                "Juvenile Fiction"
+            ],
+            "averageRating": 4.5,
+            "ratingsCount": 1545,
+            "imageLink": "http://books.google.com/books/content?id=lDxLtgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+            "language": "en"
+        },
+        "borrowInfo": {
+            "copies": 6,
+            "available": 0
+        }
+    }, {
+        "volumeInfo": {
+            "title": "Harry Potter and the Chamber of Secrets (Book 2)",
+            "authors": [
+                "Rowling, J.K."
+            ],
+            "publisher": "Pottermore",
+            "publishedDate": "2015-01-10",
+            "description": "In Harry Potter and the Chamber of Secrets, the summer after Harry’s first year at Hogwarts has been his worst summer ever… the Dursleys more distant and horrible than ever before. But just as he’s packing his bags to return to school, a creature named Dobby the house-elf announces that if Harry goes back to Hogwarts, disaster will strike. And it turns out, Dobby is right. Harry and Ron miss the Hogwarts Express, so they fly to school in a blue Ford Anglia, crash landing in the notorious Whomping Willow. Soon other worries accumulate: the outrageously stuck-up new professor Gilderoy Lockhart; a ghost named Moaning Myrtle, who haunts the girls' bathroom; the strange behavior of Ron's little sister, Ginny Weasley; rumors about the \"Chamber of Secrets,\" a cavern buried deep below Hogwarts; and a magical diary owned by Tom Riddle, a Hogwarts student of long ago. Harry is also shocked to discover that he can speak Parseltongue, the language of snakes - a rare ability that Lord Voldemort also possessed - and that anti-Muggle prejudice exists in the Wizarding world, even affecting Harry's friend Hermione. But all of these seem like minor concerns when someone starts turning Hogwarts students to stone: an evildoer said to be the fearsome Heir of Salazar Slytherin, on of the founders of the school. Could it be Draco Malfoy, Harry's most poisonous rival? Could it be Hagrid whose mysterious past is finally told? Or could it be the one person everyone at Hogwarts most suspects: Harry Potter himself?",
+            "industryIdentifiers": [{
+                    "type": "ISBN_13",
+                    "identifier": "9780439064866"
+                },
+                {
+                    "type": "ISBN_10",
+                    "identifier": "0439064864"
+                }
+            ],
+            "pageCount": 341,
+            "printType": "BOOK",
+            "categories": [
+                "Juvenile Fiction"
+            ],
+            "averageRating": 4.5,
+            "ratingsCount": 2269,
+            "imageLink": "http://books.google.com/books/content?id=ZTE0BgAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+            "language": "en"
+        },
+        "borrowInfo": {
+            "copies": 4,
+            "available": 1
+        }
+    }, {
+        "volumeInfo": {
+            "title": "Harry Potter and the Prisoner of Azkaban",
+            "authors": [
+                "J. K. Rowling"
+            ],
+            "publisher": "Scholastic",
+            "publishedDate": "1999",
+            "description": "During his third year at Hogwarts School for Witchcraft and Wizardry, Harry Potter must confront the devious and dangerous wizard responsible for his parents' deaths.",
+            "industryIdentifiers": [{
+                    "type": "ISBN_10",
+                    "identifier": "0439136350"
+                },
+                {
+                    "type": "ISBN_13",
+                    "identifier": "9780439136358"
+                }
+            ],
+            "pageCount": 435,
+            "printType": "BOOK",
+            "categories": [
+                "Juvenile Fiction"
+            ],
+            "averageRating": 4.5,
+            "ratingsCount": 2122,
+            "imageLink": "http://books.google.com/books/content?id=Z9wWuAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+            "language": "en"
+        },
+        "borrowInfo": {
+            "copies": 5,
+            "available": 3
+        }
+    }, {
+        "volumeInfo": {
+            "title": "The Chronicles of Narnia (adult)",
+            "authors": [
+                "C. S. Lewis"
+            ],
+            "publisher": "Harper Collins",
+            "publishedDate": "2004-10-26",
+            "description": "Journeys to the end of the world, fantastic creatures, and epic battles between good and evil -- what more could any reader ask for in one book? The book that has it all is the lion, the witch and the wardrobe, written in 1949 by C. S. Lewis. But Lewis did not stop there. Six more books followed, and together they became known as The Chronicles of Narnia. For the past fifty years, The Chronicles of Narnia have transcended the fantasy genre to become part of the canon of classic literature. Each of the seven books is a masterpiece, drawing the reader into a world where magic meets reality, and the result is a fictional world whose scope has fascinated generations. This edition presents all seven books -- unabridged -- in one impressive volume. The books are presented here according to Lewis's preferred order, each chapter graced with an illustration by the original artist, Pauline Baynes. This edition also contains C. S. Lewis's essay \"On Three Ways of Writing for Children,\" in which he explains precisely how the magic of Narnia and the realm of fantasy appeal not only to children but to discerning readers of all ages. Deceptively simple and direct, The Chronicles of Narnia continue to captivate fans with adventures, characters, and truths that speak to all readers, even fifty years after the books were first published.",
+            "industryIdentifiers": [{
+                    "type": "ISBN_10",
+                    "identifier": "0060598247"
+                },
+                {
+                    "type": "ISBN_13",
+                    "identifier": "9780060598242"
+                }
+            ],
+            "pageCount": 784,
+            "printType": "BOOK",
+            "categories": [
+                "Fiction"
+            ],
+            "averageRating": 4.5,
+            "ratingsCount": 291,
+            "imageLink": "http://books.google.com/books/content?id=XQGhJhEPT10C&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+            "language": "en"
+        },
+        "borrowInfo": {
+            "copies": 5,
+            "available": 1
+        }
+    }, {
+        "volumeInfo": {
+            "title": "The Emperor's Children",
+            "authors": [
+                "Claire Messud"
+            ],
+            "publisher": "Vintage",
+            "publishedDate": "2007",
+            "description": "Three friends on the verge of their thirties--beautiful, sophisticated Marina Thwaite; Danielle, a quiet TV producer; and Julius, a freelance writer--make their way through New York City, until Marina's idealistic cousin, Bootie, arrives to complicate their lives.",
+            "industryIdentifiers": [{
+                    "type": "ISBN_13",
+                    "identifier": "9780307276667"
+                },
+                {
+                    "type": "ISBN_10",
+                    "identifier": "030727666X"
+                }
+            ],
+            "pageCount": 478,
+            "printType": "BOOK",
+            "categories": [
+                "Fiction"
+            ],
+            "averageRating": 3,
+            "ratingsCount": 60,
+            "imageLink": "http://books.google.com/books/content?id=ffSRKlY-kfcC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+            "language": "en"
+        },
+        "borrowInfo": {
+            "copies": 3,
+            "available": 3
+        }
+    }, {
+        "volumeInfo": {
+            "title": "Everything I Never Told You",
+            "authors": [
+                "Celeste Ng"
+            ],
+            "publisher": "Penguin",
+            "publishedDate": "2015",
+            "description": "\"Lydia is dead. But they don't know this yet. So begins the story of this exquisite debut novel, about a Chinese American family living in 1970s small-town Ohio. Lydia is the favorite child of Marilyn and James Lee; their middle daughter, a girl who inherited her mother's bright blue eyes and her father's jet-black hair. Her parents are determined that Lydia will fulfill the dreams they were unable to pursue-in Marilyn's case that her daughter become a doctor rather than a homemaker, in James's case that Lydia be popular at school, a girl with a busy social life and the center of every party. When Lydia's body is found in the local lake, the delicate balancing act that has been keeping the Lee family together tumbles into chaos, forcing them to confront the long-kept secrets that have been slowly pulling them apart. James, consumed by guilt, sets out on a reckless path that may destroy his marriage. Marilyn, devastated and vengeful, is determined to find a responsible party, no matter what the cost. Lydia's older brother, Nathan, is certain that the neighborhood bad boy Jack is somehow involved. But it's the youngest of the family-Hannah-who observes far more than anyone realizes and who may be the only one who knows the truth about what happened. A profoundly moving story of family, history, and the meaning of home, Everything I Never Told You is both a gripping page-turner and a sensitive family portrait, exploring the divisions between cultures and the rifts within a family, and uncovering the ways in which mothers and daughters, fathers and sons, and husbands and wives struggle, all their lives, to understand one another\"--",
+            "industryIdentifiers": [{
+                    "type": "ISBN_13",
+                    "identifier": "9780143127550"
+                },
+                {
+                    "type": "ISBN_10",
+                    "identifier": "0143127551"
+                }
+            ],
+            "pageCount": 306,
+            "printType": "BOOK",
+            "categories": [
+                "Fiction"
+            ],
+            "averageRating": 4,
+            "ratingsCount": 126,
+            "imageLink": "http://books.google.com/books/content?id=JEYCDAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+            "language": "en"
+        },
+        "borrowInfo": {
+            "copies": 5,
+            "available": 1
+        }
+    }, {
+        "volumeInfo": {
+            "title": "All the Light We Cannot See",
+            "subtitle": "A Novel",
+            "authors": [
+                "Anthony Doerr"
+            ],
+            "publisher": "Simon and Schuster",
+            "publishedDate": "2017-04-04",
+            "description": "\"From the highly acclaimed, multiple award-winning Anthony Doerr, a stunningly ambitious and beautiful novel about a blind French girl and a German boy whose paths collide in occupied France as both try to survive the devastation of World War II. Marie Laure lives with her father in Paris within walking distance of the Museum of Natural History where he works as the master of the locks (there are thousands of locks in the museum). When she is six, she goes blind, and her father builds her a model of their neighborhood, every house, every manhole, so she can memorize it with her fingers and navigate the real streets with her feet and cane. When the Germans occupy Paris, father and daughter flee to Saint-Malo on the Brittany coast, where Marie-Laure's agoraphobic great uncle lives in a tall, narrow house by the sea wall. In another world in Germany, an orphan boy, Werner, grows up with his younger sister, Jutta, both enchanted by a crude radio Werner finds. He becomes a master at building and fixing radios, a talent that wins him a place at an elite and brutal military academy and, ultimately, makes him a highly specialized tracker of the Resistance. Werner travels through the heart of Hitler Youth to the far-flung outskirts of Russia, and finally into Saint-Malo, where his path converges with Marie-Laure. Doerr's gorgeous combination of soaring imagination with observation is electric. Deftly interweaving the lives of Marie-Laure and Werner, Doerr illuminates the ways, against all odds, people try to be good to one another. Ten years in the writing, All the Light We Cannot See is his most ambitious and dazzling work\"--",
+            "industryIdentifiers": [{
+                    "type": "ISBN_13",
+                    "identifier": "9781501173219"
+                },
+                {
+                    "type": "ISBN_10",
+                    "identifier": "1501173219"
+                }
+            ],
+            "pageCount": 544,
+            "printType": "BOOK",
+            "categories": [
+                "Fiction"
+            ],
+            "averageRating": 4,
+            "ratingsCount": 3515,
+            "imageLink": "http://books.google.com/books/content?id=giaLDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+            "language": "en"
+        },
+        "borrowInfo": {
+            "copies": 4,
+            "available": 2
+        }
+    }, {
+        "volumeInfo": {
+            "title": "Harry Potter and the Sorcerer's Stone",
+            "authors": [
+                "J. K. Rowling"
+            ],
+            "publisher": "Arthur A. Levine Books",
+            "publishedDate": "1998",
+            "description": "Rescued from the outrageous neglect of his aunt and uncle, a young boy with a great destiny proves his worth while attending Hogwarts School for Witchcraft and Wizardry.",
+            "industryIdentifiers": [{
+                    "type": "ISBN_10",
+                    "identifier": "0590353403"
+                },
+                {
+                    "type": "ISBN_13",
+                    "identifier": "9780590353403"
+                }
+            ],
+            "pageCount": 309,
+            "printType": "BOOK",
+            "categories": [
+                "Juvenile Fiction"
+            ],
+            "averageRating": 4.5,
+            "ratingsCount": 1545,
+            "imageLink": "http://books.google.com/books/content?id=lDxLtgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+            "language": "en"
+        },
+        "borrowInfo": {
+            "copies": 6,
+            "available": 0
+        }
+    }, {
+        "volumeInfo": {
+            "title": "Harry Potter and the Chamber of Secrets (Book 2)",
+            "authors": [
+                "Rowling, J.K."
+            ],
+            "publisher": "Pottermore",
+            "publishedDate": "2015-01-10",
+            "description": "In Harry Potter and the Chamber of Secrets, the summer after Harry’s first year at Hogwarts has been his worst summer ever… the Dursleys more distant and horrible than ever before. But just as he’s packing his bags to return to school, a creature named Dobby the house-elf announces that if Harry goes back to Hogwarts, disaster will strike. And it turns out, Dobby is right. Harry and Ron miss the Hogwarts Express, so they fly to school in a blue Ford Anglia, crash landing in the notorious Whomping Willow. Soon other worries accumulate: the outrageously stuck-up new professor Gilderoy Lockhart; a ghost named Moaning Myrtle, who haunts the girls' bathroom; the strange behavior of Ron's little sister, Ginny Weasley; rumors about the \"Chamber of Secrets,\" a cavern buried deep below Hogwarts; and a magical diary owned by Tom Riddle, a Hogwarts student of long ago. Harry is also shocked to discover that he can speak Parseltongue, the language of snakes - a rare ability that Lord Voldemort also possessed - and that anti-Muggle prejudice exists in the Wizarding world, even affecting Harry's friend Hermione. But all of these seem like minor concerns when someone starts turning Hogwarts students to stone: an evildoer said to be the fearsome Heir of Salazar Slytherin, on of the founders of the school. Could it be Draco Malfoy, Harry's most poisonous rival? Could it be Hagrid whose mysterious past is finally told? Or could it be the one person everyone at Hogwarts most suspects: Harry Potter himself?",
+            "industryIdentifiers": [{
+                    "type": "ISBN_13",
+                    "identifier": "9780439064866"
+                },
+                {
+                    "type": "ISBN_10",
+                    "identifier": "0439064864"
+                }
+            ],
+            "pageCount": 341,
+            "printType": "BOOK",
+            "categories": [
+                "Juvenile Fiction"
+            ],
+            "averageRating": 4.5,
+            "ratingsCount": 2269,
+            "imageLink": "http://books.google.com/books/content?id=ZTE0BgAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+            "language": "en"
+        },
+        "borrowInfo": {
+            "copies": 4,
+            "available": 1
+        }
+    }, {
+        "volumeInfo": {
+            "title": "Harry Potter and the Prisoner of Azkaban",
+            "authors": [
+                "J. K. Rowling"
+            ],
+            "publisher": "Scholastic",
+            "publishedDate": "1999",
+            "description": "During his third year at Hogwarts School for Witchcraft and Wizardry, Harry Potter must confront the devious and dangerous wizard responsible for his parents' deaths.",
+            "industryIdentifiers": [{
+                    "type": "ISBN_10",
+                    "identifier": "0439136350"
+                },
+                {
+                    "type": "ISBN_13",
+                    "identifier": "9780439136358"
+                }
+            ],
+            "pageCount": 435,
+            "printType": "BOOK",
+            "categories": [
+                "Juvenile Fiction"
+            ],
+            "averageRating": 4.5,
+            "ratingsCount": 2122,
+            "imageLink": "http://books.google.com/books/content?id=Z9wWuAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+            "language": "en"
+        },
+        "borrowInfo": {
+            "copies": 5,
+            "available": 3
+        }
+    }, {
+        "volumeInfo": {
+            "title": "The Chronicles of Narnia (adult)",
+            "authors": [
+                "C. S. Lewis"
+            ],
+            "publisher": "Harper Collins",
+            "publishedDate": "2004-10-26",
+            "description": "Journeys to the end of the world, fantastic creatures, and epic battles between good and evil -- what more could any reader ask for in one book? The book that has it all is the lion, the witch and the wardrobe, written in 1949 by C. S. Lewis. But Lewis did not stop there. Six more books followed, and together they became known as The Chronicles of Narnia. For the past fifty years, The Chronicles of Narnia have transcended the fantasy genre to become part of the canon of classic literature. Each of the seven books is a masterpiece, drawing the reader into a world where magic meets reality, and the result is a fictional world whose scope has fascinated generations. This edition presents all seven books -- unabridged -- in one impressive volume. The books are presented here according to Lewis's preferred order, each chapter graced with an illustration by the original artist, Pauline Baynes. This edition also contains C. S. Lewis's essay \"On Three Ways of Writing for Children,\" in which he explains precisely how the magic of Narnia and the realm of fantasy appeal not only to children but to discerning readers of all ages. Deceptively simple and direct, The Chronicles of Narnia continue to captivate fans with adventures, characters, and truths that speak to all readers, even fifty years after the books were first published.",
+            "industryIdentifiers": [{
+                    "type": "ISBN_10",
+                    "identifier": "0060598247"
+                },
+                {
+                    "type": "ISBN_13",
+                    "identifier": "9780060598242"
+                }
+            ],
+            "pageCount": 784,
+            "printType": "BOOK",
+            "categories": [
+                "Fiction"
+            ],
+            "averageRating": 4.5,
+            "ratingsCount": 291,
+            "imageLink": "http://books.google.com/books/content?id=XQGhJhEPT10C&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+            "language": "en"
+        },
+        "borrowInfo": {
+            "copies": 5,
+            "available": 1
+        }
+    }, {
+        "volumeInfo": {
+            "title": "The Emperor's Children",
+            "authors": [
+                "Claire Messud"
+            ],
+            "publisher": "Vintage",
+            "publishedDate": "2007",
+            "description": "Three friends on the verge of their thirties--beautiful, sophisticated Marina Thwaite; Danielle, a quiet TV producer; and Julius, a freelance writer--make their way through New York City, until Marina's idealistic cousin, Bootie, arrives to complicate their lives.",
+            "industryIdentifiers": [{
+                    "type": "ISBN_13",
+                    "identifier": "9780307276667"
+                },
+                {
+                    "type": "ISBN_10",
+                    "identifier": "030727666X"
+                }
+            ],
+            "pageCount": 478,
+            "printType": "BOOK",
+            "categories": [
+                "Fiction"
+            ],
+            "averageRating": 3,
+            "ratingsCount": 60,
+            "imageLink": "http://books.google.com/books/content?id=ffSRKlY-kfcC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+            "language": "en"
+        },
+        "borrowInfo": {
+            "copies": 3,
+            "available": 3
+        }
+    }, {
+        "volumeInfo": {
+            "title": "Everything I Never Told You",
+            "authors": [
+                "Celeste Ng"
+            ],
+            "publisher": "Penguin",
+            "publishedDate": "2015",
+            "description": "\"Lydia is dead. But they don't know this yet. So begins the story of this exquisite debut novel, about a Chinese American family living in 1970s small-town Ohio. Lydia is the favorite child of Marilyn and James Lee; their middle daughter, a girl who inherited her mother's bright blue eyes and her father's jet-black hair. Her parents are determined that Lydia will fulfill the dreams they were unable to pursue-in Marilyn's case that her daughter become a doctor rather than a homemaker, in James's case that Lydia be popular at school, a girl with a busy social life and the center of every party. When Lydia's body is found in the local lake, the delicate balancing act that has been keeping the Lee family together tumbles into chaos, forcing them to confront the long-kept secrets that have been slowly pulling them apart. James, consumed by guilt, sets out on a reckless path that may destroy his marriage. Marilyn, devastated and vengeful, is determined to find a responsible party, no matter what the cost. Lydia's older brother, Nathan, is certain that the neighborhood bad boy Jack is somehow involved. But it's the youngest of the family-Hannah-who observes far more than anyone realizes and who may be the only one who knows the truth about what happened. A profoundly moving story of family, history, and the meaning of home, Everything I Never Told You is both a gripping page-turner and a sensitive family portrait, exploring the divisions between cultures and the rifts within a family, and uncovering the ways in which mothers and daughters, fathers and sons, and husbands and wives struggle, all their lives, to understand one another\"--",
+            "industryIdentifiers": [{
+                    "type": "ISBN_13",
+                    "identifier": "9780143127550"
+                },
+                {
+                    "type": "ISBN_10",
+                    "identifier": "0143127551"
+                }
+            ],
+            "pageCount": 306,
+            "printType": "BOOK",
+            "categories": [
+                "Fiction"
+            ],
+            "averageRating": 4,
+            "ratingsCount": 126,
+            "imageLink": "http://books.google.com/books/content?id=JEYCDAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+            "language": "en"
+        },
+        "borrowInfo": {
+            "copies": 5,
+            "available": 1
+        }
+    }, {
+        "volumeInfo": {
+            "title": "All the Light We Cannot See",
+            "subtitle": "A Novel",
+            "authors": [
+                "Anthony Doerr"
+            ],
+            "publisher": "Simon and Schuster",
+            "publishedDate": "2017-04-04",
+            "description": "\"From the highly acclaimed, multiple award-winning Anthony Doerr, a stunningly ambitious and beautiful novel about a blind French girl and a German boy whose paths collide in occupied France as both try to survive the devastation of World War II. Marie Laure lives with her father in Paris within walking distance of the Museum of Natural History where he works as the master of the locks (there are thousands of locks in the museum). When she is six, she goes blind, and her father builds her a model of their neighborhood, every house, every manhole, so she can memorize it with her fingers and navigate the real streets with her feet and cane. When the Germans occupy Paris, father and daughter flee to Saint-Malo on the Brittany coast, where Marie-Laure's agoraphobic great uncle lives in a tall, narrow house by the sea wall. In another world in Germany, an orphan boy, Werner, grows up with his younger sister, Jutta, both enchanted by a crude radio Werner finds. He becomes a master at building and fixing radios, a talent that wins him a place at an elite and brutal military academy and, ultimately, makes him a highly specialized tracker of the Resistance. Werner travels through the heart of Hitler Youth to the far-flung outskirts of Russia, and finally into Saint-Malo, where his path converges with Marie-Laure. Doerr's gorgeous combination of soaring imagination with observation is electric. Deftly interweaving the lives of Marie-Laure and Werner, Doerr illuminates the ways, against all odds, people try to be good to one another. Ten years in the writing, All the Light We Cannot See is his most ambitious and dazzling work\"--",
+            "industryIdentifiers": [{
+                    "type": "ISBN_13",
+                    "identifier": "9781501173219"
+                },
+                {
+                    "type": "ISBN_10",
+                    "identifier": "1501173219"
+                }
+            ],
+            "pageCount": 544,
+            "printType": "BOOK",
+            "categories": [
+                "Fiction"
+            ],
+            "averageRating": 4,
+            "ratingsCount": 3515,
+            "imageLink": "http://books.google.com/books/content?id=giaLDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+            "language": "en"
+        },
+        "borrowInfo": {
+            "copies": 4,
+            "available": 2
+        }
+    }, {
+        "volumeInfo": {
+            "title": "Harry Potter and the Sorcerer's Stone",
+            "authors": [
+                "J. K. Rowling"
+            ],
+            "publisher": "Arthur A. Levine Books",
+            "publishedDate": "1998",
+            "description": "Rescued from the outrageous neglect of his aunt and uncle, a young boy with a great destiny proves his worth while attending Hogwarts School for Witchcraft and Wizardry.",
+            "industryIdentifiers": [{
+                    "type": "ISBN_10",
+                    "identifier": "0590353403"
+                },
+                {
+                    "type": "ISBN_13",
+                    "identifier": "9780590353403"
+                }
+            ],
+            "pageCount": 309,
+            "printType": "BOOK",
+            "categories": [
+                "Juvenile Fiction"
+            ],
+            "averageRating": 4.5,
+            "ratingsCount": 1545,
+            "imageLink": "http://books.google.com/books/content?id=lDxLtgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+            "language": "en"
+        },
+        "borrowInfo": {
+            "copies": 6,
+            "available": 0
+        }
+    }, {
+        "volumeInfo": {
+            "title": "Harry Potter and the Chamber of Secrets (Book 2)",
+            "authors": [
+                "Rowling, J.K."
+            ],
+            "publisher": "Pottermore",
+            "publishedDate": "2015-01-10",
+            "description": "In Harry Potter and the Chamber of Secrets, the summer after Harry’s first year at Hogwarts has been his worst summer ever… the Dursleys more distant and horrible than ever before. But just as he’s packing his bags to return to school, a creature named Dobby the house-elf announces that if Harry goes back to Hogwarts, disaster will strike. And it turns out, Dobby is right. Harry and Ron miss the Hogwarts Express, so they fly to school in a blue Ford Anglia, crash landing in the notorious Whomping Willow. Soon other worries accumulate: the outrageously stuck-up new professor Gilderoy Lockhart; a ghost named Moaning Myrtle, who haunts the girls' bathroom; the strange behavior of Ron's little sister, Ginny Weasley; rumors about the \"Chamber of Secrets,\" a cavern buried deep below Hogwarts; and a magical diary owned by Tom Riddle, a Hogwarts student of long ago. Harry is also shocked to discover that he can speak Parseltongue, the language of snakes - a rare ability that Lord Voldemort also possessed - and that anti-Muggle prejudice exists in the Wizarding world, even affecting Harry's friend Hermione. But all of these seem like minor concerns when someone starts turning Hogwarts students to stone: an evildoer said to be the fearsome Heir of Salazar Slytherin, on of the founders of the school. Could it be Draco Malfoy, Harry's most poisonous rival? Could it be Hagrid whose mysterious past is finally told? Or could it be the one person everyone at Hogwarts most suspects: Harry Potter himself?",
+            "industryIdentifiers": [{
+                    "type": "ISBN_13",
+                    "identifier": "9780439064866"
+                },
+                {
+                    "type": "ISBN_10",
+                    "identifier": "0439064864"
+                }
+            ],
+            "pageCount": 341,
+            "printType": "BOOK",
+            "categories": [
+                "Juvenile Fiction"
+            ],
+            "averageRating": 4.5,
+            "ratingsCount": 2269,
+            "imageLink": "http://books.google.com/books/content?id=ZTE0BgAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+            "language": "en"
+        },
+        "borrowInfo": {
+            "copies": 4,
+            "available": 1
+        }
+    }, {
+        "volumeInfo": {
+            "title": "Harry Potter and the Prisoner of Azkaban",
+            "authors": [
+                "J. K. Rowling"
+            ],
+            "publisher": "Scholastic",
+            "publishedDate": "1999",
+            "description": "During his third year at Hogwarts School for Witchcraft and Wizardry, Harry Potter must confront the devious and dangerous wizard responsible for his parents' deaths.",
+            "industryIdentifiers": [{
+                    "type": "ISBN_10",
+                    "identifier": "0439136350"
+                },
+                {
+                    "type": "ISBN_13",
+                    "identifier": "9780439136358"
+                }
+            ],
+            "pageCount": 435,
+            "printType": "BOOK",
+            "categories": [
+                "Juvenile Fiction"
+            ],
+            "averageRating": 4.5,
+            "ratingsCount": 2122,
+            "imageLink": "http://books.google.com/books/content?id=Z9wWuAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+            "language": "en"
+        },
+        "borrowInfo": {
+            "copies": 5,
+            "available": 3
+        }
+    }, {
+        "volumeInfo": {
+            "title": "The Chronicles of Narnia (adult)",
+            "authors": [
+                "C. S. Lewis"
+            ],
+            "publisher": "Harper Collins",
+            "publishedDate": "2004-10-26",
+            "description": "Journeys to the end of the world, fantastic creatures, and epic battles between good and evil -- what more could any reader ask for in one book? The book that has it all is the lion, the witch and the wardrobe, written in 1949 by C. S. Lewis. But Lewis did not stop there. Six more books followed, and together they became known as The Chronicles of Narnia. For the past fifty years, The Chronicles of Narnia have transcended the fantasy genre to become part of the canon of classic literature. Each of the seven books is a masterpiece, drawing the reader into a world where magic meets reality, and the result is a fictional world whose scope has fascinated generations. This edition presents all seven books -- unabridged -- in one impressive volume. The books are presented here according to Lewis's preferred order, each chapter graced with an illustration by the original artist, Pauline Baynes. This edition also contains C. S. Lewis's essay \"On Three Ways of Writing for Children,\" in which he explains precisely how the magic of Narnia and the realm of fantasy appeal not only to children but to discerning readers of all ages. Deceptively simple and direct, The Chronicles of Narnia continue to captivate fans with adventures, characters, and truths that speak to all readers, even fifty years after the books were first published.",
+            "industryIdentifiers": [{
+                    "type": "ISBN_10",
+                    "identifier": "0060598247"
+                },
+                {
+                    "type": "ISBN_13",
+                    "identifier": "9780060598242"
+                }
+            ],
+            "pageCount": 784,
+            "printType": "BOOK",
+            "categories": [
+                "Fiction"
+            ],
+            "averageRating": 4.5,
+            "ratingsCount": 291,
+            "imageLink": "http://books.google.com/books/content?id=XQGhJhEPT10C&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+            "language": "en"
+        },
+        "borrowInfo": {
+            "copies": 5,
+            "available": 1
+        }
+    }, {
+        "volumeInfo": {
+            "title": "The Emperor's Children",
+            "authors": [
+                "Claire Messud"
+            ],
+            "publisher": "Vintage",
+            "publishedDate": "2007",
+            "description": "Three friends on the verge of their thirties--beautiful, sophisticated Marina Thwaite; Danielle, a quiet TV producer; and Julius, a freelance writer--make their way through New York City, until Marina's idealistic cousin, Bootie, arrives to complicate their lives.",
+            "industryIdentifiers": [{
+                    "type": "ISBN_13",
+                    "identifier": "9780307276667"
+                },
+                {
+                    "type": "ISBN_10",
+                    "identifier": "030727666X"
+                }
+            ],
+            "pageCount": 478,
+            "printType": "BOOK",
+            "categories": [
+                "Fiction"
+            ],
+            "averageRating": 3,
+            "ratingsCount": 60,
+            "imageLink": "http://books.google.com/books/content?id=ffSRKlY-kfcC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+            "language": "en"
+        },
+        "borrowInfo": {
+            "copies": 3,
+            "available": 3
+        }
     }]
 }
