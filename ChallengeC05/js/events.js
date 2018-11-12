@@ -7,11 +7,17 @@ $(function(){
       $(".dropdown-list").removeClass("show");
     }
   });
-  $('.book').hover(function(){
-    $(this).find(".book-hover").toggleClass("show");
-    $(this).find(".popup-book").toggleClass("show");
+
+  $('.book-section').on('mouseenter', '.book', function(){
+    $(this).find(".book-hover").addClass("show");
+    $(this).find(".popup-book").addClass("show");
   });
 
+  $('.book-section').on('mouseleave', '.book', function(){
+    $(this).find(".book-hover").removeClass("show");
+    $(this).find(".popup-book").removeClass("show");
+  });
+  
   $('.navbar-toggler').click(function(){
     $(this).parent().siblings(".navbar-collapse").toggleClass("show");
   })
