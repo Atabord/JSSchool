@@ -1,28 +1,37 @@
-$(function(){
-  $('.dropdown-button').focus(function(){
-    $(this).siblings(".dropdown-list").addClass("show");
+$(() => {
+  $('.dropdown-button').on('click', (event) => {
+    $(event.currentTarget).siblings('.dropdown-list').addClass('show');
   });
-  $(document).on('click', function(event) {
-    if (!$(event.target).closest('.dropdown-list').length) {
-      $(".dropdown-list").removeClass("show");
+
+  $('.dropdown-button').children().on('click', (event) => {
+    $(event.currentTarget).parent().siblings('.dropdown-list').addClass('show');
+  });
+
+  $(document).on('click', (event) => {
+    if (!$(event.target).siblings('.dropdown-list').length) {
+      if (!$(event.target).parent().siblings('.dropdown-list').length) {
+        if ($('.dropdown-list').hasClass('show')) {
+          $('.dropdown-list').removeClass('show');
+        }
+      }
     }
   });
 
-  $('.book-section').on('mouseenter', '.book', function(){
-    $(this).find(".book-hover").addClass("show");
-    $(this).find(".popup-book").addClass("show");
+  $('.book-section').on('click', '.book', (obj) => {
+    $(obj.currentTarget).find('.book-hover').toggleClass('show');
+    $(obj.currentTarget).find('.popup-book').toggleClass('show');
   });
 
-  $('.book-section').on('mouseleave', '.book', function(){
-    $(this).find(".book-hover").removeClass("show");
-    $(this).find(".popup-book").removeClass("show");
+  $('.book-section').on('click', '.book', (obj) => {
+    $(obj.currentTarget).siblings().find('.book-hover').removeClass('show');
+    $(obj.currentTarget).siblings().find('.popup-book').removeClass('show');
   });
-  
-  $('.navbar-toggler').click(function(){
-    $(this).parent().siblings(".navbar-collapse").toggleClass("show");
-  })
 
-  $('.collapse-button').click(function(){
-    $(this).next().toggle("linear");
-  })
+  $('.navbar-toggler').click(() => {
+    $(this).parent().siblings('.navbar-collapse').toggleClass('show');
+  });
+
+  $('.collapse-button').click(() => {
+    $(this).next().toggle('linear');
+  });
 });
