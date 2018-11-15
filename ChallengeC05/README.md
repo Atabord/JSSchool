@@ -25,6 +25,16 @@ Before running the web app, please be sure to follow the next commands:
         ```
             sass sass:css
         ```
+* To install npm dependencies:
+    * Download and install node
+    * In the current directory run the next command
+        ```
+            npm install
+        ```
+* To run ESlint
+    ```
+        npm run lint
+    ```
     
 
 ## Watch it runing in your device:
