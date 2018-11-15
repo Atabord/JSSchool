@@ -1,0 +1,18 @@
+{
+  "name": "challengec05",
+  "version": "1.0.0",
+  "description": "* Interact with the API for books which provide information of the books\r * Use the endpoint: https://www.googleapis.com/books/v1/volumes?q=isbn:9781451648546, to get book information\r * Create the model in JSON file to use as mocked data\r * Start building the main layout for the site in a normal index.html file using SCSS and js to get the first prototype of the app with mocked data\r * Create homepage of the bookstore app\r * Create book preview page\r * Create reservation process interface\r * Finally, add into your GIT repo and push all the new elements",
+  "main": "js\\\\index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": ".\\node_modules\\.bin\\eslint js\\showBooks.js",
+    "lintfix": ".\\node_modules\\.bin\\eslint js\\showBooks.js --fix"
+  },
+  "author": "Alejandro Taborda",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}
