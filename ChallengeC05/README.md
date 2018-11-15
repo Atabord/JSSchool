@@ -18,6 +18,15 @@ This interactivity help the page showing some pupups and navigation menu as bell
 
 ## Note: Ajax calls will only works using a server, so I used VS live-server plugin while developing the project
 
+## How to run it?
+Before running the web app, please be sure to follow the next commands:
+* To compile sass:
+    * install sass an then use the next command on the principal directory
+        ```
+            sass sass:css
+        ```
+    
+
 ## Watch it runing in your device:
 https://atabord.github.io/JSSchool/ChallengeC05/
 

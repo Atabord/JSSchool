@@ -281,7 +281,7 @@ header .profile-header .dropdown-menu .dropdown-list ul {
   padding: 0;
 }
 header .profile-header .dropdown-menu .dropdown-list ul a {
-  color: black;
+  color: #000;
   text-decoration: none;
 }
 header .profile-header img.jakob {
@@ -323,13 +323,13 @@ header .small-devices-navbar {
     visibility: hidden;
     position: absolute;
     background-color: #231f20;
-    color: #fff;
+    color: #FFF;
     right: 0;
     top: 81px;
     padding: 10px;
     z-index: 5;
     border-radius: 0px 10px;
-    box-shadow: 2px -3px 9px black;
+    box-shadow: 2px -3px 9px #000;
   }
   header .small-devices-navbar .navbar-collapse ul {
     padding: 0;
@@ -339,7 +339,7 @@ header .small-devices-navbar {
   }
   header .small-devices-navbar .navbar-collapse .collapse-button {
     background: none;
-    color: #fff;
+    color: #FFF;
     width: 100%;
     border: 0px;
     padding: 5px;
@@ -358,11 +358,11 @@ header .small-devices-navbar {
     padding: 10px;
   }
   header .small-devices-navbar .navbar-collapse li a {
-    color: #fff;
+    color: #FFF;
     text-decoration: none;
   }
   header .small-devices-navbar .navbar-collapse li a:visited {
-    color: #fff;
+    color: #FFF;
     text-decoration: none;
   }
   header .small-devices-navbar .navbar-collapse .dropdown-collapse-list {
@@ -497,7 +497,7 @@ section .section-header .breadcrumb a {
 }
 section .section-header .breadcrumb a:first-of-type::after {
   content: "";
-  border-right: 1px solid black;
+  border-right: 1px solid #000;
   margin: 10px;
 }
 section .section-header .breadcrumb-active {
@@ -563,7 +563,7 @@ section .book-section .book .in-use i {
   position: absolute;
   top: 5px;
   left: 40%;
-  color: white;
+  color: #FFF;
 }
 section .book-section .book .book-description {
   width: 176px;
@@ -636,7 +636,7 @@ section .book-section .book .popup-book .pupup-section-container .popup-title .p
   float: right;
 }
 section .book-section .book .popup-book .pupup-section-container p {
-  color: #fff;
+  color: #FFF;
   font-stretch: condensed;
   font-weight: normal;
   font-size: 13px;

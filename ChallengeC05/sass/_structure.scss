@@ -34,7 +34,7 @@ body {
 
 section {
   flex-basis: 72%;
-  background: #f5f6f8;
+  background: $main-background;
   border-top: 1px solid $primary-blue;
   padding: 28px 80px;
   @extend %onlyOverflowY;

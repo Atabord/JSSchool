@@ -27,7 +27,7 @@ section {
           
           &:first-of-type::after {
             content: '';
-            border-right: 1px solid black;
+            border-right: 1px solid $black;
             margin: 10px;
           }
       }
@@ -105,7 +105,7 @@ section {
           position: absolute;
           top: 5px;
           left: 40%;
-          color: white;
+          color: $white;
         }
       }
       
@@ -114,7 +114,7 @@ section {
         white-space: nowrap;
         
         .book-title {
-          color: #383838;
+          color: $book-title;
           font-stretch: condensed;
           font-weight: 500;
           font-size: 15px;
@@ -126,7 +126,7 @@ section {
         }
         
         .book-author {
-          color: #9e9e9e;
+          color: $secondary-grey;
           font-stretch: condensed;
           font-weight: 300;
           display: block;
@@ -142,7 +142,7 @@ section {
         visibility: hidden;
         width: 382px;
         height: 358px;
-        background: rgba(35,31,32,0.88);
+        background: $tooltip-background;
         color: $primary-grey;
         font-weight: bold;
         font-stretch: condensed;
@@ -160,7 +160,7 @@ section {
           border-style: solid;
           border-width: 15px 15px 15px 0px;
           border-color: transparent
-                  rgba(35,31,32,0.88)
+                  $tooltip-background
                   transparent
                   transparent;
         
@@ -191,7 +191,7 @@ section {
           }
           
           p {
-            color: #fff;
+            color: $white;
             font-stretch: condensed;
             font-weight: normal;
             font-size: 13px;
@@ -224,7 +224,7 @@ section {
             border-radius: 15px;
             padding: 10px;
             text-transform: uppercase;
-            color: #FFF;
+            color: $white;
           }
 
         }
@@ -253,17 +253,6 @@ section {
           }
         }
       }
-      
-      // &:nth-child(5n) {
-      //   .popup-book {
-      //     @extend %left-popup;
-      //   } 
-      // } 
-      // &:nth-child(5n-1) {
-      //   .popup-book {
-      //     @extend %left-popup;
-      //   }        
-      // }
       
       @include getLastChild() {
         .popup-book {
@@ -295,15 +284,15 @@ section {
     visibility: hidden;
     width: 176px;
     height: 250px;
-    background: rgba(35,31,32,0.88);
+    background: $tooltip-background;
     position: relative;
     top: -86%;
     margin: 0;
     padding: 15px;
 
     .icon-container {
-        color: #9e9e9e;
-        background: #FFF;
+        color: $secondary-grey;
+        background: $white;
         width: 30px;
         height: 30px;
         z-index: 1;
@@ -314,7 +303,7 @@ section {
     
     .main-icon-container {
         color: $primary-blue;
-        background: #FFF;
+        background: $white;
         width: 48px;
         height: 48px;
         z-index: 1;
@@ -337,7 +326,7 @@ section {
     }
 
     .hover-rate {
-      color: #eec75a;
+      color: $yellow-star;
       font-size: 12.5px;
       text-align: center;
     }
