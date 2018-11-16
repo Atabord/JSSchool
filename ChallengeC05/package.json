@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": ".\\node_modules\\.bin\\eslint js\\showBooks.js",
-    "lintfix": ".\\node_modules\\.bin\\eslint js\\showBooks.js --fix"
+    "lintfix": ".\\node_modules\\.bin\\eslint js\\showBooks.js --fix",
+    "server": "live-server --port=8000"
   },
   "author": "Alejandro Taborda",
   "license": "MIT",
@@ -14,5 +15,8 @@
     "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0"
+  },
+  "dependencies": {
+    "live-server": "^1.2.0"
   }
 }

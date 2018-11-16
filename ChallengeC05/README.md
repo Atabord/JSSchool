@@ -35,6 +35,11 @@ Before running the web app, please be sure to follow the next commands:
     ```
         npm run lint
     ```
+
+* To run live-server:
+    ```
+        npm run server
+    ```
     
 
 ## Watch it runing in your device:
