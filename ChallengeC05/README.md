@@ -20,29 +20,28 @@ This interactivity help the page showing some pupups and navigation menu as bell
 
 ## How to run it?
 Before running the web app, please be sure to follow the next commands:
-* To compile sass:
-    * install sass an then use the next command on the principal directory
-        ```
-            sass sass:css
-        ```
 * To install npm dependencies:
     * Download and install node
     * In the current directory run the next command
         ```
             npm install
         ```
-* To run ESlint
+* If you are developing and want To run ESlint:
     ```
         npm run lint
     ```
-
-* To run live-server:
+* And to us ESlint --fix just:
     ```
-        npm run server
+        npm run lintfix
+    ```
+
+* Then to compile Sass, webpack and run the server:
+    ```
+        npm start
     ```
     
 
-## Watch it runing in your device:
+## Or watch it runing in your device:
 https://atabord.github.io/JSSchool/ChallengeC05/
 
 

@@ -8,8 +8,9 @@
     "lint": ".\\node_modules\\.bin\\eslint src\\js\\showBooks.js src\\js\\events.js src\\js\\index.js",
     "lintfix": ".\\node_modules\\.bin\\eslint src\\js\\showBooks.js src\\js\\events.js src\\js\\index.js --fix",
     "compileSass": "sass sass:css",
+    "buildWebpack": "webpack", 
     "server": "live-server --port=8000",
-    "build": "webpack"
+    "start": "npm run compileSass && npm run buildWebpack && npm run server"
   },
   "author": "Alejandro Taborda",
   "license": "MIT",
