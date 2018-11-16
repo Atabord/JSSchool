@@ -7,7 +7,7 @@ function initBookShelfApp() {
   // function to get the JSON of an specific file
   async function getJson() {
     try {
-      const content = await fetch('./js/books.json')
+      const content = await fetch('./books.json')
         .then(async res => res.json());
       return content;
     } catch (err) {
@@ -90,4 +90,4 @@ function initBookShelfApp() {
   });
 }
 
-window.addEventListener('load', initBookShelfApp);
+module.exports = initBookShelfApp;

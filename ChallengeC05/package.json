@@ -2,21 +2,29 @@
   "name": "challengec05",
   "version": "1.0.0",
   "description": "* Interact with the API for books which provide information of the books\r * Use the endpoint: https://www.googleapis.com/books/v1/volumes?q=isbn:9781451648546, to get book information\r * Create the model in JSON file to use as mocked data\r * Start building the main layout for the site in a normal index.html file using SCSS and js to get the first prototype of the app with mocked data\r * Create homepage of the bookstore app\r * Create book preview page\r * Create reservation process interface\r * Finally, add into your GIT repo and push all the new elements",
-  "main": "js\\\\index.js",
+  "main": "src\\js\\index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": ".\\node_modules\\.bin\\eslint js\\showBooks.js",
-    "lintfix": ".\\node_modules\\.bin\\eslint js\\showBooks.js --fix",
-    "server": "live-server --port=8000"
+    "lint": ".\\node_modules\\.bin\\eslint src\\js\\showBooks.js src\\js\\events.js src\\js\\index.js",
+    "lintfix": ".\\node_modules\\.bin\\eslint src\\js\\showBooks.js src\\js\\events.js src\\js\\index.js --fix",
+    "compileSass": "sass sass:css",
+    "server": "live-server --port=8000",
+    "build": "webpack"
   },
   "author": "Alejandro Taborda",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "babel-loader": "^8.0.4",
     "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-import": "^2.14.0",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "live-server": "^1.2.0"
   }
 }
