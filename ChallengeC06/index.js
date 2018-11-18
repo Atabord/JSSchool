@@ -63,6 +63,7 @@ app.post('/books/new', (req, res) => {
     getBook(url);
 })
 
+// endpoint to get all the books
 app.get('/books', (req, res) => {
     var bookShelf = req.query.bookShelf;
     if (bookShelf){
@@ -88,6 +89,8 @@ app.get('/books', (req, res) => {
     }
 });
 
+
+// endpoint to get 1 specific book
 app.get('/books/:book', (req, res) => {
     let bookId = req.params.book;
     Book.findById(bookId, (err, book) => {
@@ -102,6 +105,7 @@ app.get('/books/:book', (req, res) => {
     });
 });
 
+// endpoint to lend an specific book
 app.patch('/books/:book/lend', (req, res) => {
     let bookId = req.params.book;
     Book.findById(bookId, (err, book) => {
@@ -113,6 +117,7 @@ app.patch('/books/:book/lend', (req, res) => {
         } else if(!book.availableCopies) {
             res.status(404).send({ message: `There aren't enought available books: ${book.availableCopies}` });
         } else {
+            // just rent them if there are available books
             Book.findOneAndUpdate({_id: bookId}, {$inc: {availableCopies: -1}}, (err, bookUpdated) => {
                 if(err) {
                     res.status(500).send({message: `Error making the request ${err}`});
