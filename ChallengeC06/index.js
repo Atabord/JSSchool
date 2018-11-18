@@ -64,7 +64,28 @@ app.post('/books/new', (req, res) => {
 })
 
 app.get('/books', (req, res) => {
-
+    var bookShelf = req.query.bookShelf;
+    if (bookShelf){
+        Book.find({bookshelf: bookShelf}, (err, books) => {
+            if(err) {
+                res.status(500).send({message: `Error making the request ${err}`});
+            } else if(!books) {
+                res.status(404).send({message: `We don't have books in that bookshelf right now`})
+            } else {
+                res.status(200).send({ books });
+            }
+        })    
+    } else {
+        Book.find({}, (err, books) => {
+            if(err) {
+                res.status(500).send({message: `Error making the request ${err}`});
+            } else if(!books) {
+                res.status(404).send({message: `We don't have books right now`})
+            } else {
+                res.status(200).send({ books });
+            }
+        })
+    }
 });
 
 app.get('/books/:book', (req, res) => {
