@@ -17,3 +17,31 @@
 * Create at least 3 endpoints to be consumed
 * Use express architecture to mount all services
 * Push all changes to your GitHub repo
+
+## How to Install and use the API
+### prerequisites
+  * clone the repository
+  * Install the dependencies:
+    ```
+        npm install
+    ```
+  * Set your own environmental variables in the file .env
+  * download MongoDB, install it, open a terminal and run:
+    ```
+        mongod
+    ```
+  * Run the project with:
+    ```
+        npm start
+    ```
+### Populating MongoDB
+    Call `/books/new` with the next body:
+
+| key   | value |
+| ----- | ----- |
+| isbn  | [Find the isbn of your favourite book here](https://isbnsearch.org/) |
+| place | Can be Quito, Cartagena, Medellin, Digital or Personal Loans |
+| copies | Number (e.g. 3) |
+
+ Example in Postman:
+ ![](images/newBook.png)

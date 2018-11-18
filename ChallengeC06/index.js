@@ -1,7 +1,71 @@
+'use strict'
 const express = require('express');
+const bodyParser = require('body-parser');
+const fetch = require('node-fetch');
+const mongoose = require('mongoose');
+require('dotenv').config();
+const Book = require('./models/books');
+
+
 const app = express();
+const port = process.env.PORT || 3000
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
+// post to create a new book
+app.post('/books/new', (req, res) => {
+    const isbn = req.body.isbn;
+    const place = req.body.place; //could be Quito, Cartagena, Medellín, Digital, Personal Loans
+    const copies = req.body.copies; //number of copies
+    const url = `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`
+
+    let book = new Book();
+    book.bookshelf = place;
+    book.copies = copies;
+    book.availableCopies = copies;
+
+    async function getBook(url) {
+        try {
+            const content = await fetch(url)
+                .then(async res => res.json());
+            console.log(content.items[0].volumeInfo.title)
+            book.title = content.items[0].volumeInfo.title;
+            book.authors = content.items[0].volumeInfo.authors;
+            book.publisher = content.items[0].volumeInfo.publisher;
+            book.publishedDate = content.items[0].volumeInfo.publishedDate;
+            book.description = content.items[0].volumeInfo.description;
+            book.isbn_13 = content.items[0].volumeInfo.industryIdentifiers[0].identifier;
+            book.isbn_10 = content.items[0].volumeInfo.industryIdentifiers[1].identifier;
+            book.pageCount = content.items[0].volumeInfo.pageCount;
+            book.printType = content.items[0].volumeInfo.printType;
+            book.categories = content.items[0].volumeInfo.categories;
+            book.averageRating = content.items[0].volumeInfo.averageRating;
+            book.imageLink = content.items[0].volumeInfo.imageLinks[1];
+            book.language = content.items[0].volumeInfo.language;
+            
+            book.save((err, bookStored) => {
+                if(err) {
+                    res.status(500)
+                        .send({message: `Error saving the book ${err}`});
+                } else {
+                    res.status(200)
+                        .send({book: bookStored});
+                }
+            })
+        } catch(err){
+            return err;
+        }
+    }
+    getBook(url);
+})
 
 
-app.listen(3000, () => {
-    console.log('Listening on port 3000');
+mongoose.connect(`mongodb://localhost:27017/bookshelf`, (err, res) => {
+    if(err) {
+        throw console.log(`error to connect with database ${err}`);
+    } else {
+        console.log('Database conecction established');
+        app.listen(port, () => console.log(`Listening on port ${port}`));
+    }
 })
