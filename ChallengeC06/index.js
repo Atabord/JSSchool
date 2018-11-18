@@ -102,6 +102,29 @@ app.get('/books/:book', (req, res) => {
     });
 });
 
+app.patch('/books/:book/lend', (req, res) => {
+    let bookId = req.params.book;
+    Book.findById(bookId, (err, book) => {
+        if(err) {
+            res.status(500).send({message: `Error making the request ${err}`});
+        } 
+        else if(!book) {
+            res.status(404).send({message: `That book doesn't exist`});
+        } else if(!book.availableCopies) {
+            res.status(404).send({ message: `There aren't enought available books: ${book.availableCopies}` });
+        } else {
+            Book.findOneAndUpdate({_id: bookId}, {$inc: {availableCopies: -1}}, (err, bookUpdated) => {
+                if(err) {
+                    res.status(500).send({message: `Error making the request ${err}`});
+                } 
+                else {
+                        res.status(200).send({message: `You have rented the book ${bookUpdated.title}`});                
+                } 
+            });
+        }
+    })
+});
+
 mongoose.connect(`mongodb://localhost:27017/bookshelf`, (err, res) => {
     if(err) {
         throw console.log(`error to connect with database ${err}`);
