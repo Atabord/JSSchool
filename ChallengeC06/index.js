@@ -20,11 +20,13 @@ app.post('/books/new', (req, res) => {
     const copies = req.body.copies; //number of copies
     const url = `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`
 
+    // saving the book information of place, copies and availables
     let book = new Book();
     book.bookshelf = place;
     book.copies = copies;
-    book.availableCopies = copies;
+    book.availableCopies = copies; // its default is the number of copies
 
+    // function to get the book information from google Api
     async function getBook(url) {
         try {
             const content = await fetch(url)
@@ -54,12 +56,30 @@ app.post('/books/new', (req, res) => {
                 }
             })
         } catch(err){
-            return err;
+            res.status(500)
+                .send({message: `Error making the request ${err}`});
         }
     }
     getBook(url);
 })
 
+app.get('/books', (req, res) => {
+
+});
+
+app.get('/books/:book', (req, res) => {
+    let bookId = req.params.book;
+    Book.findById(bookId, (err, book) => {
+        if(err) {
+            res.status(500).send({message: `Error making the request ${err}`});
+        } 
+        else if(!book) {
+            res.status(404).send({message: `That book doesn't exist`})
+        } else {
+            res.status(200).send({ book })
+        }
+    });
+});
 
 mongoose.connect(`mongodb://localhost:27017/bookshelf`, (err, res) => {
     if(err) {
