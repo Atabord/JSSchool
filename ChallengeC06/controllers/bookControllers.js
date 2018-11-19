@@ -109,7 +109,7 @@ function createBook(req, res) {
                     book.printType = content.items[0].volumeInfo.printType;
                     book.categories = content.items[0].volumeInfo.categories;
                     book.averageRating = content.items[0].volumeInfo.averageRating;
-                    book.imageLink = content.items[0].volumeInfo.imageLinks[1];
+                    book.imageLink = content.items[0].volumeInfo.imageLinks.thumbnail;
                     book.language = content.items[0].volumeInfo.language;
 
                     book.save((err, bookStored) => {
