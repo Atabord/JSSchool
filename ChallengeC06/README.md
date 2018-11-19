@@ -34,8 +34,35 @@
     ```
         npm start
     ```
+### Sign Up
+    Call `/users/signUp` using post and bringing information as follows:
+
+| key   | value |
+| ----- | ----- |
+| email  | an unique email (e.g. john@email.com) |
+| username | an unique username |
+| password | an unique password |
+
+![](images/signup.png)
+
+### Sign In
+    Call `/users/signIn` using post and bringing information as follows:
+
+| key   | value |
+| ----- | ----- |
+| username | your created username |
+| password | your created password |
+
+![](images/signin.png)
+
+### Now, use your token to access the following endpoints ad bellow:
+
+Remember to use Bearer prefix, espace and then your token
+
+![](images/token.png)
+
 ### Populating MongoDB
-    Call `/books/new` with the next body:
+    Call `/books/new` with Post method and the next body:
 
 | key   | value |
 | ----- | ----- |
@@ -45,3 +72,28 @@
 
  Example in Postman:
  ![](images/newBook.png)
+
+* Note: don't forget to pass your token through headers
+
+### Get All the books
+    Call `/books` with Get method and your token in the header info.
+
+### Get All the books in a specific bookShelf
+    Call `/books?bookShelf=[bookshelf wanted]` with Get method and your token in the header info.
+
+  ![](images/allinbookshelf.png)
+
+### Get one book
+    Call `/books/[book id]` with Get method and your token in the header info.
+
+    That id is specified in the returned json, you can find them while getting all the books
+
+![](images/findid.png)
+
+### Lend a book
+    Call `/books/[book id]/lend` with PATCH method and your token in the header info.
+
+ * I decided to make it with PATCH method because when you have rented it, the available copies will be reduced by one
+ * You can't lend a book with no available copies unless it is digital
+
+ ![](images/lendbook.png)

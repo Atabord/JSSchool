@@ -21,7 +21,7 @@ This is a repository made to store the tasks completed during the JS School Boot
   [Watch HTML, CSS and assets files here](../master/ChallengeC05)
 ***
 ### 5. Challenge C06
-  Backend endpoints
+  [Watch the Challenge and the api here](../master/ChallengeC06)
 ***
 ### 6. Challenge C07
   Migrate your prototype into a real application using React
