@@ -34,6 +34,11 @@
     ```
         npm start
     ```
+
+  * Preparing the environment: 
+  
+    open .env file and change the values when required, the environment is already setted with default values for developers
+
 ### Sign Up
     Call `/users/signUp` using post and bringing information as follows:
 
