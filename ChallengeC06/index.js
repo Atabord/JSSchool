@@ -11,4 +11,4 @@ mongoose.connect(config.db, (err, res) => {
         console.log('Database connection established');
         app.listen(config.port, () => console.log(`Listening on port ${config.port}`));
     }
-})
+});
