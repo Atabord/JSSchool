@@ -1,0 +1,105 @@
+$primary-blue: #6ec1e4;
+$secondary-blue: #5eb4dd;
+$dark-grey: #979797;
+$light-grey: #fcf8f3;
+$primary-grey: #858585;
+$secondary-grey: #9e9e9e;
+$primary-black: #231f20;
+$font-path: '../fonts/fonts_pluto_sans/OpenTypeOTF/';
+$form-search-background: rgba(245, 246, 248, 0.51);
+$white: #FFF;
+$black: #000;
+$low-opacity-black: rgba(0, 0, 0, 0.2);
+$dropdown-collapse-background: #262626;
+$book-title: #383838;
+$tooltip-background: rgba(35,31,32,0.88);
+$yellow-star: #eec75a;
+$main-background: #f5f6f8;
+
+@mixin font-declaration($src, $weight, $stretch:unset, $family: 'PlutoSans') {
+  font-family: $family;
+  font-weight: $weight;
+  font-stretch: $stretch;
+  src: url(#{$font-path}#{$src})
+}
+
+%onlyOverflowY {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+@mixin tablet {
+  @media screen and (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin profile-icon {
+  width: 36px;
+  height: 36px;
+  border: 2px solid $primary-blue;
+  border-radius: 20px;
+  margin: 10px 16px 10px 10px;      
+}
+
+
+@mixin getLastChild() {
+  @media screen and (min-width: 1476px) {
+    &:nth-child(5n) {
+      @content;
+    }
+  }
+
+  @media screen and (min-width: 1226px) and (max-width: 1475px) {
+    &:nth-child(4n) {
+      @content;
+    }
+  }
+
+  @media screen and (min-width: 977px) and (max-width: 1225px) {
+    &:nth-child(3n) {
+      @content;
+    }
+  }
+
+  @media screen and (min-width: 901px) and (max-width: 976px) {
+    &:nth-child(2n) {
+      @content;
+    }
+  }
+}
+
+@mixin getMidLastChild() {
+  @media screen and (min-width: 1500px) {
+    &:nth-child(5n-1) {
+      @content;
+    }
+  }
+
+  @media screen and (min-width: 1251px) and (max-width: 1499px) {
+    &:nth-child(4n-1) {
+      @content;
+    }
+  }
+
+  @media screen and (min-width: 977px) and (max-width: 1225px) {
+    &:nth-child(3n-1) {
+      .popup-book {
+        left: -60%;
+        top: -80%;
+
+        &::before {
+          transform: rotate(90deg);
+          left: 48%;
+          top: -6%;
+        }
+      }
+    }
+  }
+}

@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src/js/index.js",
     "lintfix": "eslint src/js/index.js --fix",
+    "compileSass": "sass src/sass:dist/src/css",
     "buildDev": "webpack --watch",
     "build": "webpack",
     "server": "webpack-dev-server --inline --hot"
@@ -22,6 +23,7 @@
     "file-loader": "^2.0.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "sass": "^1.15.1",
     "webpack-dev-server": "^3.1.10"
   },
   "devDependencies": {
