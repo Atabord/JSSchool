@@ -1,10 +1,11 @@
 const Book = require('../models/books');
 const fetch = require('node-fetch');
 const jwt = require('jsonwebtoken');
+const config = require('../config');
 
 //function to get all books or all books on a bookshelf
 function getAllBooks(req, res) {
-    jwt.verify(req.token, 'my_secret_key', (err, data) => {
+    jwt.verify(req.token, config.SECRET_KEY, (err, data) => {
         if (err) {
             res.sendStatus(403);
         } else {
@@ -50,7 +51,7 @@ function getAllBooks(req, res) {
 
 //function to get one book
 function getOneBook(req, res) {
-    jwt.verify(req.token, 'my_secret_key', (err, data) => {
+    jwt.verify(req.token, config.SECRET_KEY, (err, data) => {
         if (err) {
             res.sendStatus(403);
         } else {
@@ -76,7 +77,7 @@ function getOneBook(req, res) {
 
 //function to createbooks
 function createBook(req, res) {
-    jwt.verify(req.token, 'my_secret_key', (err, data) => {
+    jwt.verify(req.token, config.SECRET_KEY, (err, data) => {
         if (err) {
             res.sendStatus(403);
         } else {
@@ -84,7 +85,6 @@ function createBook(req, res) {
             const place = req.body.place; //could be Quito, Cartagena, Medellín, Digital, Personal Loans
             const copies = req.body.copies; //number of copies
             const url = `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`
-            console.log(url);
 
             // saving the book information of place, copies and availables
             let book = new Book();
@@ -96,8 +96,7 @@ function createBook(req, res) {
             async function getBook(url) {
                 try {
                     const content = await fetch(url)
-                        .then(async res => res.json());
-                    console.log(content.items[0].volumeInfo.title)
+                        .then(async res => res.json());                    
                     book.title = content.items[0].volumeInfo.title;
                     book.authors = content.items[0].volumeInfo.authors;
                     book.publisher = content.items[0].volumeInfo.publisher;
@@ -128,7 +127,7 @@ function createBook(req, res) {
                 } catch (err) {
                     res.status(500)
                         .send({
-                            message: `Error making the request ${err}`
+                            message: `Error making the request try with another isbn number`
                         });
                 }
             }
@@ -139,7 +138,7 @@ function createBook(req, res) {
 
 //function to lend a book
 function lendBook(req, res) {
-    jwt.verify(req.token, 'my_secret_key', (err, data) => {
+    jwt.verify(req.token, config.SECRET_KEY, (err, data) => {
         if (err) {
             res.sendStatus(403);
         } else {
@@ -188,9 +187,57 @@ function lendBook(req, res) {
     })
 }
 
+// this function receibe resolve and reject instead of just response
+function createMultipleBooks(req, resolve, reject) {
+    const isbn = req.body.isbn;
+    const place = req.body.place; //could be Quito, Cartagena, Medellín, Digital, Personal Loans
+    const copies = req.body.copies; //number of copies
+    const url = `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`
+
+    // saving the book information of place, copies and availables
+    let book = new Book();
+    book.bookshelf = place;
+    book.copies = copies;
+    book.availableCopies = copies; // its default is the number of copies
+
+    // function to get the book information from google Api
+    async function getBook(url) {
+        try {
+            const content = await fetch(url)
+                .then(async res => res.json());
+            book.title = content.items[0].volumeInfo.title;
+            book.authors = content.items[0].volumeInfo.authors;
+            book.publisher = content.items[0].volumeInfo.publisher;
+            book.publishedDate = content.items[0].volumeInfo.publishedDate;
+            book.description = content.items[0].volumeInfo.description;
+            book.isbn_13 = content.items[0].volumeInfo.industryIdentifiers[0].identifier;
+            book.isbn_10 = content.items[0].volumeInfo.industryIdentifiers[1].identifier;
+            book.pageCount = content.items[0].volumeInfo.pageCount;
+            book.printType = content.items[0].volumeInfo.printType;
+            book.categories = content.items[0].volumeInfo.categories;
+            book.averageRating = content.items[0].volumeInfo.averageRating;
+            book.imageLink = content.items[0].volumeInfo.imageLinks.thumbnail;
+            book.language = content.items[0].volumeInfo.language;
+
+            book.save((err, bookStored) => {
+                if (err) {
+                    reject(`Error saving the book ${bookStored.title}`);                    
+                } else {
+                    resolve(`'${bookStored.title}' saved`);                     
+                }
+            })
+        } catch (err) {
+            reject(`Error making the request, try with another isbn number`);            
+        }
+    }
+    getBook(url);
+}
+
+
 module.exports = {
     getAllBooks,
     getOneBook,
     createBook,
+    createMultipleBooks,
     lendBook
 }

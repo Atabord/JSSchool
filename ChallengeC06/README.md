@@ -30,6 +30,11 @@
     ```
         mongod
     ```
+  * To autofill the database:
+    ```
+      npm run populate
+    ```
+  
   * Run the project with:
     ```
         npm start
