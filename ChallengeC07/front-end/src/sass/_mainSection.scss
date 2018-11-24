@@ -14,39 +14,10 @@ section {
       flex-basis: 15%;
     }
 
-    .breadcrumb{
-      flex-basis: 70%;
-      justify-content: center;
-      text-align: center;
-      
-      a {
-          color: $primary-grey;
-          font-stretch: condensed;
-          font-weight: normal;
-          text-decoration: none;
-          
-          &:first-of-type::after {
-            content: '';
-            border-right: 1px solid $black;
-            margin: 10px;
-          }
-      }
-    }
-    
-    .breadcrumb-active{
-      font-weight: 500 !important;
-      color: $dark-grey !important;
-    }
-
     @include phone {
       flex-flow: column;
 
       h2 {
-        text-align: center;
-        flex-basis: unset;
-      }
-
-      .breadcrumb {
         text-align: center;
         flex-basis: unset;
       }
@@ -101,7 +72,7 @@ section {
           position: relative;
         }
 
-        i {
+        svg {
           position: absolute;
           top: 5px;
           left: 40%;
@@ -130,9 +101,10 @@ section {
           font-stretch: condensed;
           font-weight: 300;
           display: block;
+          overflow: hidden;
         }
         
-        i {
+        svg {
           color: $primary-blue;
           font-size: 12.5px;
         }
@@ -215,7 +187,7 @@ section {
             text-overflow: ellipsis;
           }
           
-          i {
+          svg {
             color: $secondary-blue;
           }
 
@@ -279,7 +251,6 @@ section {
     }
   }
   
-  
   .book-hover {
     visibility: hidden;
     width: 176px;
@@ -289,17 +260,6 @@ section {
     top: -86%;
     margin: 0;
     padding: 15px;
-
-    .icon-container {
-        color: $secondary-grey;
-        background: $white;
-        width: 30px;
-        height: 30px;
-        z-index: 1;
-        border-radius: 15px;
-        position: relative;
-        padding: 8px;
-    }
     
     .main-icon-container {
         color: $primary-blue;

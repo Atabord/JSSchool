@@ -22,7 +22,7 @@ body {
     flex-basis: 15%;
     background: $primary-black;
     width: 240px;
-    @extend %onlyOverflowY;
+    overflow: hidden;
 
     @include tablet {
       width: auto;

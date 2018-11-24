@@ -1,4 +1,4 @@
-section, .sidebar {
+section {
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -124,6 +124,7 @@ body {
   flex-basis: 15%;
   background: #231f20;
   width: 240px;
+  overflow: hidden;
 }
 @media screen and (max-width: 900px) {
   .sidebar {
@@ -229,18 +230,16 @@ header .main-header .form-search {
   font-size: 14px;
   font-weight: normal;
   line-height: 24px;
-  padding: 5px 0 0 10px;
 }
-header .main-header .form-search i {
+header .main-header .form-search svg {
   margin: 10px 5px 0 10px;
   font-size: 18px;
 }
 header .main-header .form-search input[type=search] {
   border: 0px;
   background-color: transparent;
-  width: 90%;
+  width: 85%;
   height: 80%;
-  margin-left: 5px;
 }
 header .main-header .form-search input[type=search]::placeholder {
   opacity: 1;
@@ -271,7 +270,7 @@ header .profile-header .dropdown-menu .dropdown-button {
   display: inline-block;
   line-height: 19px;
 }
-header .profile-header .dropdown-menu .dropdown-button i {
+header .profile-header .dropdown-menu .dropdown-button svg {
   margin-left: 10px;
 }
 header .profile-header .dropdown-menu .dropdown-list {
@@ -410,9 +409,6 @@ nav {
   padding: 36px 39px;
 }
 
-.menu-section:last-of-type {
-  margin-top: 54px;
-}
 .menu-section ul {
   padding: 0;
 }
@@ -440,7 +436,7 @@ nav {
 .nav-list-item a:hover {
   text-decoration: underline;
 }
-.nav-list-item a i {
+.nav-list-item a svg {
   margin-right: 10px;
 }
 
@@ -491,35 +487,11 @@ section .section-header h2 {
   margin: 0;
   flex-basis: 15%;
 }
-section .section-header .breadcrumb {
-  flex-basis: 70%;
-  justify-content: center;
-  text-align: center;
-}
-section .section-header .breadcrumb a {
-  color: #858585;
-  font-stretch: condensed;
-  font-weight: normal;
-  text-decoration: none;
-}
-section .section-header .breadcrumb a:first-of-type::after {
-  content: "";
-  border-right: 1px solid #000;
-  margin: 10px;
-}
-section .section-header .breadcrumb-active {
-  font-weight: 500 !important;
-  color: #979797 !important;
-}
 @media screen and (max-width: 480px) {
   section .section-header {
     flex-flow: column;
   }
   section .section-header h2 {
-    text-align: center;
-    flex-basis: unset;
-  }
-  section .section-header .breadcrumb {
     text-align: center;
     flex-basis: unset;
   }
@@ -566,7 +538,7 @@ section .book-section .book .in-use {
 section .book-section .book .in-use img {
   position: relative;
 }
-section .book-section .book .in-use i {
+section .book-section .book .in-use svg {
   position: absolute;
   top: 5px;
   left: 40%;
@@ -592,8 +564,9 @@ section .book-section .book .book-description .book-author {
   font-stretch: condensed;
   font-weight: 300;
   display: block;
+  overflow: hidden;
 }
-section .book-section .book .book-description i {
+section .book-section .book .book-description svg {
   color: #6ec1e4;
   font-size: 12.5px;
 }
@@ -663,7 +636,7 @@ section .book-section .book .popup-book .pupup-section-container .pupup-summary-
   overflow: hidden;
   text-overflow: ellipsis;
 }
-section .book-section .book .popup-book .pupup-section-container i {
+section .book-section .book .popup-book .pupup-section-container svg {
   color: #5eb4dd;
 }
 section .book-section .book .popup-book .pupup-section-container button.borrow-book {
@@ -771,16 +744,6 @@ section .book-hover {
   top: -86%;
   margin: 0;
   padding: 15px;
-}
-section .book-hover .icon-container {
-  color: #9e9e9e;
-  background: #FFF;
-  width: 30px;
-  height: 30px;
-  z-index: 1;
-  border-radius: 15px;
-  position: relative;
-  padding: 8px;
 }
 section .book-hover .main-icon-container {
   color: #6ec1e4;

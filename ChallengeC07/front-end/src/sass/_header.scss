@@ -59,9 +59,8 @@ header {
       font-size: 14px;
       font-weight: normal;
       line-height: 24px;
-      padding: 5px 0 0 10px;
       
-      i {
+      svg {
         margin: 10px 5px 0 10px;
         font-size: 18px;
       }
@@ -69,9 +68,8 @@ header {
       input[type='search'] {
         border: 0px;
         background-color: transparent;
-        width: 90%;
+        width: 85%;
         height: 80%;
-        margin-left: 5px;
         
         &::placeholder {
           opacity: 1;
@@ -107,7 +105,7 @@ header {
         display: inline-block;
         line-height: 19px;
       
-        i {
+        svg {
           margin-left: 10px;
         }
         

@@ -12,10 +12,6 @@ nav {
 }
 
 .menu-section {
-  &:last-of-type {
-    margin-top: 54px;
-  }
-  
   ul {
     padding: 0;
   }
@@ -47,7 +43,7 @@ nav {
       text-decoration: underline;
     }
     
-    i {
+    svg {
       margin-right: 10px;
     }
   }
