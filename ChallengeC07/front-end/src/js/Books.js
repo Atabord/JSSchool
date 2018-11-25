@@ -59,15 +59,22 @@ class Books extends Component {
     }
 
     render() {
+        console.log('Hello books '+this.props.filterBy);
         const { error, isLoaded, books } = this.state;
+
         if (error) {
           return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
           return <div>Loading...</div>;
         } else {
+            
+            let filteredBooks = books.filter((book) => {
+                return book.title.indexOf(this.props.filterBy) !== -1;
+            });
+
             return (
                 <div className="book-section" id="books-container">
-                    {books.map(book => (    
+                    {filteredBooks.map(book => (    
                         <div className="book" key={book._id} onClick={() => this.togglePopup(book._id)}>
                             <img src={book.imageLink} alt={book.title} className="book-main-image" />
                             <div className="in-use">

@@ -8,9 +8,11 @@ class App extends Component {
     constructor(props){
         super(props)
         this.state = {
-            url:"http://localhost:3000/books"
+            url:"http://localhost:3000/books",
+            search: ''
         };
         this.onChangeUrl = this.onChangeUrl.bind(this);
+        this.updateSearch = this.updateSearch.bind(this);
     }
 
     onChangeUrl(newUrl) {
@@ -19,13 +21,17 @@ class App extends Component {
         })
     }
 
+    updateSearch() {
+        this.setState({search: event.target.value});
+    }
+
     render() {
         return (
             <div>
-                <Header />
+                <Header searching={this.updateSearch}/>
                 <div className="container">
                     <Nav changeUrl={this.onChangeUrl}/>
-                    <Section url={this.state.url} />
+                    <Section url={this.state.url} filter={this.state.search}/>
                     <Sidebar />
                 </div>
             </div>

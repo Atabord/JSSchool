@@ -5,6 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBars, faAngleDown, faGlobe, faTabletAlt, faUserTag } from '@fortawesome/free-solid-svg-icons';
 
 class Header extends Component {
+    constructor(props){
+        super(props);
+    };
+
     render(){
         return (
             <header>
@@ -16,7 +20,10 @@ class Header extends Component {
                 <form className="only-large-devices" action="index.html" method="post">
                     <div className="form-search">
                         <FontAwesomeIcon icon={faSearch} />
-                        <input type="search" placeholder="Search..." />
+                        <input type="search" 
+                                placeholder="Search..."                                 
+                                onChange={this.props.searching}
+                                />
                     </div>
                 </form>
                 </div>
@@ -48,32 +55,18 @@ class Header extends Component {
                         </div>
                         </form>
                         <div className="dropdown-collapse">
-                        <button type="button" name="button" className="collapse-button">
-                            <img src={jakob} alt="Profile Image" className="jakob" />
-                            <span>Jakob Treml <FontAwesomeIcon icon={faAngleDown} /></span>
-                        </button>
-                        <div className="dropdown-collapse-list">
-                            <ul>
-                                <li><a href="#">Profile</a></li>
-                                <li><a href="#">Help</a></li>
-                                <li><a href="#">Logout</a></li>
-                            </ul>
-                        </div>
-                        </div>
-                        <div className="dropdown-collapse">
                             <button type="button" name="button" className="collapse-button">
-                                <span>MAIN <FontAwesomeIcon icon={faAngleDown} /></span>
+                                <img src={jakob} alt="Profile Image" className="jakob" />
+                                <span>Jakob Treml <FontAwesomeIcon icon={faAngleDown} /></span>
                             </button>
                             <div className="dropdown-collapse-list">
                                 <ul>
-                                    <li className="nav-list-item"><a href="#"><FontAwesomeIcon icon={faGlobe} /> Quito</a></li>
-                                    <li className="nav-list-item"><a href="#"><FontAwesomeIcon icon={faGlobe} /> Cartagena</a></li>
-                                    <li className="nav-list-item"><a href="#"><FontAwesomeIcon icon={faGlobe} /> Medellín</a></li>
-                                    <li className="nav-list-item"><a href="#"><FontAwesomeIcon icon={faTabletAlt} /> Digital</a></li>
-                                    <li className="nav-list-item"><a href="#"><FontAwesomeIcon icon={faUserTag} /> Personal Loans</a></li>
+                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="#">Help</a></li>
+                                    <li><a href="#">Logout</a></li>
                                 </ul>
                             </div>
-                        </div>
+                        </div>        
                     </div>
                 </div>
             </header>

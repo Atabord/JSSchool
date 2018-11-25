@@ -6,11 +6,12 @@ class ListItem extends Component {
     constructor(props){
         super(props)
     }
+
     render() {
         return(
             <li className="nav-list-item">
                 <button onClick={this.props.clicked} value={"http://localhost:3000/books"+this.props.url}>
-                    <FontAwesomeIcon icon={this.props.icon} /> {this.props.bookshelf}
+                    <FontAwesomeIcon icon={this.props.icon}/> {this.props.bookshelf}
                 </button>
         </li>
         )
@@ -34,7 +35,7 @@ class Nav extends Component {
 
     render() {
         return(
-          <nav className="sidebar only-large-devices">
+          <nav className="sidebar">
             <div className="menu-section">
               <h2 className="nav-list-header">Main</h2>
               <ul>

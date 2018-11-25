@@ -5,6 +5,7 @@ import Books from './Books';
 
 
 class Section extends Component {
+    
     render() {
         return(
             <section>
@@ -19,7 +20,7 @@ class Section extends Component {
                     </a>
                 </div>
                 </div>
-                <Books url={this.props.url}/>
+                <Books url={this.props.url} filterBy={this.props.filter}/>
             </section>
         )
     }
