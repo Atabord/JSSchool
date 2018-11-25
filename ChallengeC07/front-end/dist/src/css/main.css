@@ -124,7 +124,7 @@ body {
   flex-basis: 15%;
   background: #231f20;
   width: 240px;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 @media screen and (max-width: 900px) {
   .sidebar {
@@ -429,14 +429,21 @@ nav {
   font-weight: normal;
   font-stretch: condensed;
 }
-.nav-list-item a {
+.nav-list-item button {
   color: #6ec1e4;
   text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
 }
-.nav-list-item a:hover {
+.nav-list-item button:hover {
   text-decoration: underline;
 }
-.nav-list-item a svg {
+.nav-list-item button:focus {
+  outline: none;
+}
+.nav-list-item button svg {
   margin-right: 10px;
 }
 
@@ -485,7 +492,7 @@ section .section-header h2 {
   font-stretch: condensed;
   font-size: 20px;
   margin: 0;
-  flex-basis: 15%;
+  flex-basis: 50%;
 }
 @media screen and (max-width: 480px) {
   section .section-header {
@@ -504,8 +511,7 @@ section .section-header h2 {
   }
 }
 section .list-icons {
-  /* margin: */
-  flex-basis: 15%;
+  flex-basis: 50%;
 }
 section .list-icons a {
   color: #6ec1e4;
@@ -571,7 +577,6 @@ section .book-section .book .book-description svg {
   font-size: 12.5px;
 }
 section .book-section .book .popup-book {
-  visibility: hidden;
   width: 382px;
   height: 358px;
   background: rgba(35, 31, 32, 0.88);
@@ -736,7 +741,6 @@ section .book-section .book .popup-book .pupup-section-container button.borrow-b
   }
 }
 section .book-hover {
-  visibility: hidden;
   width: 176px;
   height: 250px;
   background: rgba(35, 31, 32, 0.88);

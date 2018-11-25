@@ -11,7 +11,7 @@ section {
       font-stretch: condensed;
       font-size: 20px;
       margin: 0;
-      flex-basis: 15%;
+      flex-basis: 50%;
     }
 
     @include phone {
@@ -34,8 +34,7 @@ section {
   }
   
   .list-icons {
-    /* margin: */
-    flex-basis: 15%;
+    flex-basis: 50%;
     
     a {
       color: $primary-blue;
@@ -110,8 +109,7 @@ section {
         }
       }
       
-      .popup-book{
-        visibility: hidden;
+      .popup-book{        
         width: 382px;
         height: 358px;
         background: $tooltip-background;
@@ -252,7 +250,6 @@ section {
   }
   
   .book-hover {
-    visibility: hidden;
     width: 176px;
     height: 250px;
     background: $tooltip-background;

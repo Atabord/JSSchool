@@ -19,7 +19,7 @@ class Section extends Component {
                     </a>
                 </div>
                 </div>
-                <Books />
+                <Books url={this.props.url}/>
             </section>
         )
     }
