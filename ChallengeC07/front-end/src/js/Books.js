@@ -19,6 +19,7 @@ class Books extends Component {
         this.searchBooks = this.searchBooks.bind(this);
     }
     
+    //function to handle show and hide of popup
     togglePopup(clickedId) {
         this.setState({
           popup: !this.state.popup,
@@ -26,6 +27,7 @@ class Books extends Component {
         })
       }
 
+    //function to search books on database
     searchBooks() {
         fetch(this.props.url)
             .then(res => res.json())
@@ -45,10 +47,12 @@ class Books extends Component {
                 )
     }
 
+    //this function will search the books only when the component has been mounted
     componentDidMount(){
         this.searchBooks();
     }
 
+    //this function allow us to search the books when the url has changed
     componentDidUpdate(){
         if(this.state.url != this.props.url){
             this.setState({
@@ -68,8 +72,9 @@ class Books extends Component {
           return <div>Loading...</div>;
         } else {
             
+            //it returns a filtered array of books which matches the search
             let filteredBooks = books.filter((book) => {
-                return book.title.indexOf(this.props.filterBy) !== -1;
+                return book.title.toLowerCase().indexOf(this.props.filterBy.toLowerCase()) !== -1;
             });
 
             return (
