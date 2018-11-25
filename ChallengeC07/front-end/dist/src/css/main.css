@@ -431,14 +431,17 @@ nav {
 }
 .nav-list-item button {
   color: #6ec1e4;
-  text-decoration: none;
   background: none;
   border: none;
   padding: 0;
   text-align: left;
+  font-size: 14px;
+  height: 19px;
+  line-height: 19px;
 }
 .nav-list-item button:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 .nav-list-item button:focus {
   outline: none;
@@ -572,11 +575,57 @@ section .book-section .book .book-description .book-author {
   display: block;
   overflow: hidden;
 }
+section .book-section .book .book-description .book-location {
+  color: #000;
+  font-stretch: condensed;
+  font-weight: 500;
+  font-size: 14px;
+  display: block;
+}
 section .book-section .book .book-description svg {
   color: #6ec1e4;
   font-size: 12.5px;
 }
-section .book-section .book .popup-book {
+section .book-section .book .popup-container {
+  position: absolute;
+  top: 0%;
+}
+section .book-section .book .popup-container .book-hover {
+  width: 176px;
+  height: 250px;
+  background: rgba(35, 31, 32, 0.88);
+  position: relative;
+  margin: 0;
+  padding: 15px;
+}
+section .book-section .book .popup-container .book-hover .main-icon-container {
+  color: #6ec1e4;
+  background: #FFF;
+  width: 48px;
+  height: 48px;
+  z-index: 1;
+  position: relative;
+  border-radius: 25px;
+  padding: 15px;
+  clear: both;
+  margin: auto;
+  margin-top: 85px;
+}
+section .book-section .book .popup-container .book-hover .book-rate {
+  text-transform: uppercase;
+  color: #fcf8f3;
+  font-stretch: condensed;
+  font-weight: 500;
+  font-size: 11px;
+  margin-top: 57px;
+  text-align: center;
+}
+section .book-section .book .popup-container .book-hover .hover-rate {
+  color: #eec75a;
+  font-size: 12.5px;
+  text-align: center;
+}
+section .book-section .book .popup-container .popup-book {
   width: 382px;
   height: 358px;
   background: rgba(35, 31, 32, 0.88);
@@ -586,13 +635,13 @@ section .book-section .book .popup-book {
   font-size: 12px;
   line-height: 16px;
   padding: 30px;
-  position: relative;
+  position: absolute;
   z-index: 5;
   left: 113%;
-  top: -154%;
+  top: 0%;
   border-radius: 5px;
 }
-section .book-section .book .popup-book::before {
+section .book-section .book .popup-container .popup-book::before {
   content: "";
   border-style: solid;
   border-width: 15px 15px 15px 0px;
@@ -601,10 +650,10 @@ section .book-section .book .popup-book::before {
   left: -13px;
   top: 31%;
 }
-section .book-section .book .popup-book .pupup-section-container {
+section .book-section .book .popup-container .popup-book .pupup-section-container {
   margin-bottom: 20px;
 }
-section .book-section .book .popup-book .pupup-section-container .popup-title {
+section .book-section .book .popup-container .popup-book .pupup-section-container .popup-title {
   color: #5eb4dd;
   font-size: 13px;
   margin: 0;
@@ -613,14 +662,14 @@ section .book-section .book .popup-book .pupup-section-container .popup-title {
   text-transform: uppercase;
   display: inline block !important;
 }
-section .book-section .book .popup-book .pupup-section-container .popup-title .popup-book-year {
+section .book-section .book .popup-container .popup-book .pupup-section-container .popup-title .popup-book-year {
   color: #858585;
   font-stretch: condensed;
   font-weight: normal;
   font-size: 13px;
   float: right;
 }
-section .book-section .book .popup-book .pupup-section-container p {
+section .book-section .book .popup-container .popup-book .pupup-section-container p {
   color: #FFF;
   font-stretch: condensed;
   font-weight: normal;
@@ -628,23 +677,23 @@ section .book-section .book .popup-book .pupup-section-container p {
   line-height: 17px;
   margin: 1px;
 }
-section .book-section .book .popup-book .pupup-section-container p .popup-author {
+section .book-section .book .popup-container .popup-book .pupup-section-container p .popup-author {
   color: #858585;
 }
-section .book-section .book .popup-book .pupup-section-container .popup-section-title {
+section .book-section .book .popup-container .popup-book .pupup-section-container .popup-section-title {
   text-transform: uppercase;
   margin: 0px;
 }
-section .book-section .book .popup-book .pupup-section-container .pupup-summary-text {
+section .book-section .book .popup-container .popup-book .pupup-section-container .pupup-summary-text {
   width: 98%;
   height: 80px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-section .book-section .book .popup-book .pupup-section-container svg {
+section .book-section .book .popup-container .popup-book .pupup-section-container svg {
   color: #5eb4dd;
 }
-section .book-section .book .popup-book .pupup-section-container button.borrow-book {
+section .book-section .book .popup-container .popup-book .pupup-section-container button.borrow-book {
   background-color: #5eb4dd;
   border-radius: 15px;
   padding: 10px;
@@ -652,24 +701,24 @@ section .book-section .book .popup-book .pupup-section-container button.borrow-b
   color: #FFF;
 }
 @media screen and (max-width: 900px) {
-  section .book-section .book .popup-book {
+  section .book-section .book .popup-container .popup-book {
     left: 0;
-    top: -80%;
+    top: 115%;
   }
-  section .book-section .book .popup-book::before {
+  section .book-section .book .popup-container .popup-book::before {
     left: 10%;
     top: -6%;
     transform: rotate(90deg);
   }
 }
 @media screen and (max-width: 480px) {
-  section .book-section .book .popup-book {
-    left: -30%;
-    top: -80%;
+  section .book-section .book .popup-container .popup-book {
+    left: -20%;
+    top: 115%;
     padding: 10px;
     width: 150%;
   }
-  section .book-section .book .popup-book::before {
+  section .book-section .book .popup-container .popup-book::before {
     left: 40%;
     top: -6%;
     transform: rotate(90deg);
@@ -732,49 +781,13 @@ section .book-section .book .popup-book .pupup-section-container button.borrow-b
 @media screen and (min-width: 977px) and (max-width: 1225px) {
   section .book-section .book:nth-child(3n-1) .popup-book {
     left: -60%;
-    top: -80%;
+    top: 115%;
   }
   section .book-section .book:nth-child(3n-1) .popup-book::before {
     transform: rotate(90deg);
     left: 48%;
     top: -6%;
   }
-}
-section .book-hover {
-  width: 176px;
-  height: 250px;
-  background: rgba(35, 31, 32, 0.88);
-  position: relative;
-  top: -86%;
-  margin: 0;
-  padding: 15px;
-}
-section .book-hover .main-icon-container {
-  color: #6ec1e4;
-  background: #FFF;
-  width: 48px;
-  height: 48px;
-  z-index: 1;
-  position: relative;
-  border-radius: 25px;
-  padding: 15px;
-  clear: both;
-  margin: auto;
-  margin-top: 85px;
-}
-section .book-hover .book-rate {
-  text-transform: uppercase;
-  color: #fcf8f3;
-  font-stretch: condensed;
-  font-weight: 500;
-  font-size: 11px;
-  margin-top: 57px;
-  text-align: center;
-}
-section .book-hover .hover-rate {
-  color: #eec75a;
-  font-size: 12.5px;
-  text-align: center;
 }
 
 .left {
