@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import inUse from '../images/inUse.png';
+import QuickInfo from './quickInfo';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookOpen } from '@fortawesome/free-solid-svg-icons';
 
@@ -11,7 +12,10 @@ class Books extends Component {
             isLoaded: false,
             books: [],
             ishover: false,
-            popup: false
+            popup: false,
+            hoveredBook: null,
+            url: this.props.url,
+            clickedBook: null
         }
         this.handleHover = this.handleHover.bind(this);
         this.handleUnhover = this.handleUnhover.bind(this);
@@ -19,9 +23,10 @@ class Books extends Component {
         this.searchBooks = this.searchBooks.bind(this);
     }
 
-    handleHover() {
+    handleHover(hoverId) {
         this.setState({
-          ishover: true
+          ishover: true,
+          hoveredBook: hoverId
         })
       }
 
@@ -31,9 +36,10 @@ class Books extends Component {
         })
     }
     
-    togglePopup() {
+    togglePopup(clickedId) {
         this.setState({
-          popup: !this.state.popup
+          popup: !this.state.popup,
+          clickedBook: clickedId
         })
       }
 
@@ -56,8 +62,20 @@ class Books extends Component {
                 )
     }
 
-    render() {
+    componentDidMount(){
         this.searchBooks();
+    }
+
+    componentDidUpdate(){
+        if(this.state.url != this.props.url){
+            this.setState({
+                url:this.props.url
+            })   
+            this.searchBooks();
+        }  
+    }
+
+    render() {
         const { error, isLoaded, books } = this.state;
         if (error) {
           return <div>Error: {error.message}</div>;
@@ -67,7 +85,7 @@ class Books extends Component {
             return (
                 <div className="book-section" id="books-container">
                     {books.map(book => (    
-                        <div className="book" key={book._id} onClick={this.togglePopup} onMouseEnter={this.handleHover} onMouseLeave={this.handleUnhover}>
+                        <div className="book" key={book._id} onClick={() => this.togglePopup(book._id)} onMouseEnter={() => this.handleHover(book._id)} onMouseLeave={this.handleUnhover}>
                             <img src={book.imageLink} alt={book.title} className="book-main-image" />
                             <div className="in-use">
                                 <img src={inUse} alt="Borrowed Book" />
@@ -77,8 +95,8 @@ class Books extends Component {
                                 <h3 className="book-title">{book.title}</h3>
                                 <span className="book-author">{book.authors}</span>
                                 {book.averageRating}
-                            </div>
-                            {this.state.ishover &&                             
+                            </div>                 
+                            {this.state.ishover && (this.state.hoveredBook == book._id) &&
                                 <div className="book-hover">
                                     <div className="main-icon-container">
                                         <FontAwesomeIcon icon={faBookOpen} />
@@ -88,28 +106,9 @@ class Books extends Component {
                                         {book.averageRating}
                                     </div>
                                 </div>
-                            }
-                            {this.state.popup &&
-                                <div className="popup-book">
-                                    <div className="pupup-section-container">
-                                        <h3 className="popup-title">{book.title} <span className="popup-book-year">{book.publishedDate}</span></h3>
-                                        <p>Novel by <span className="popup-author">{book.authors}</span></p>
-                                        <p>{book.pageCount}</p>
-                                    </div>
-                                    <div className="pupup-section-container">
-                                        <h4 className="popup-section-title">Summary</h4>
-                                        <p className="pupup-summary-text">
-                                            {book.description}
-                                        </p>
-                                    </div>
-                                    <div className="pupup-section-container">
-                                        <h4 className="popup-section-title">Rating</h4>
-                                        {book.averageRating}
-                                    </div>
-                                    <div className="pupup-section-container">
-                                        <button className="borrow-book">Borrow</button>
-                                    </div>
-                                </div>                            
+                            }           
+                            {this.state.popup && (this.state.clickedBook == book._id) &&
+                                <QuickInfo book={book}/>                            
                             }
                         </div>
                         

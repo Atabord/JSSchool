@@ -14,7 +14,6 @@ class App extends Component {
     }
 
     onChangeUrl(newUrl) {
-        console.log(newUrl);
         this.setState({
             url: newUrl
         })
