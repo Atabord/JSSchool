@@ -9,15 +9,15 @@ class Stars extends Component {
         let starIcons = []
         const ratingNumber = Math.floor(Number(this.props.rating));
         for (let i = 0; i < ratingNumber; i += 1) {
-            starIcons.push(<FontAwesomeIcon icon={solidStar} />);
+            starIcons.push(<FontAwesomeIcon icon={solidStar} key={`Star ${i}`}/>);
         }
         if (ratingNumber !== 5) {
           for (let i = 0; i < (5 - ratingNumber); i += 1) {            
-            starIcons.push(<FontAwesomeIcon icon={regStar} />)
+            starIcons.push(<FontAwesomeIcon icon={regStar} key={`Star ${i}.2`}/>)
           }
         }
 
-        return <div> {starIcons} </div>
+        return starIcons
     }
 
     render(){
