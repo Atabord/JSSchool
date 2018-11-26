@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookOpen } from '@fortawesome/free-solid-svg-icons';
+import Stars from './Stars';
 
 class QuickInfo extends Component {
     render() {
@@ -13,7 +14,7 @@ class QuickInfo extends Component {
                     </div>
                     <p className="book-rate">Rate this book</p>
                     <div className="hover-rate">
-                        {book.averageRating}
+                        <Stars rating={book.averageRating} />
                     </div>
                 </div>
                 <div className="popup-book">
@@ -30,7 +31,7 @@ class QuickInfo extends Component {
                     </div>
                     <div className="pupup-section-container">
                         <h4 className="popup-section-title">Rating</h4>
-                        {book.averageRating}
+                        <Stars rating={book.averageRating} />
                     </div>
                     <div className="pupup-section-container">
                         <button className="borrow-book">Borrow</button>
