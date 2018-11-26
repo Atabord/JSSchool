@@ -11,7 +11,8 @@
     "SassDev": "sass --watch src/sass:dist/src/css",
     "buildDev": "webpack --watch",
     "build": "webpack",
-    "server": "webpack-dev-server --inline --hot"
+    "server": "webpack-dev-server --inline --hot",
+    "start": "npm run compileSass && npm run build && npm run server"
   },
   "keywords": [],
   "author": "Alejandro Taborda",

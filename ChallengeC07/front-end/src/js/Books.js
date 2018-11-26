@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import inUse from '../images/inUse.png';
 import QuickInfo from './quickInfo';
+import Stars from './Stars';
 
 class Books extends Component {
     constructor(props) {
@@ -63,7 +64,6 @@ class Books extends Component {
     }
 
     render() {
-        console.log('Hello books '+this.props.filterBy);
         const { error, isLoaded, books } = this.state;
 
         if (error) {
@@ -90,7 +90,7 @@ class Books extends Component {
                                 <h3 className="book-title">{book.title}</h3>
                                 <span className="book-author">{book.authors}</span>
                                 <span className="book-location">location: {book.bookshelf}</span>
-                                {book.averageRating}
+                                <Stars rating={book.averageRating} />
                             </div>                 
                             {this.state.popup && (this.state.clickedBook == book._id) &&
                                 <QuickInfo book={book}/>                            
