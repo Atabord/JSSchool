@@ -428,6 +428,7 @@ nav {
   margin-bottom: 21px;
   font-weight: normal;
   font-stretch: condensed;
+  flex: 1;
 }
 .nav-list-item button {
   color: #6ec1e4;

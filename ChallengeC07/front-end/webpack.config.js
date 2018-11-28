@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: '.\\src\\js\\index.js',
+  entry: path.join(__dirname,'src','js','index.js'), 
   output: {
     filename: 'boundle.js',
     path: path.resolve(__dirname, 'dist'),
