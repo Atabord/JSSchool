@@ -37,7 +37,7 @@ function signIn(req, res) {
             if(!user.comparePassword(password)) {
                 res.status(400).send({message: 'wrong password'});
             } else {
-                res.status(200).send({token: jwt.sign({ user }, config.SECRET_KEY)});
+                res.status(200).send({token: jwt.sign({ user }, config.SECRET_KEY, { expiresIn: '4h'})});
             }
         }
     })
