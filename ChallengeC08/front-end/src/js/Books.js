@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import inUse from '../images/inUse.png';
-import QuickInfo from './quickInfo';
-import Stars from './Stars';
+import Book from './Book';
 
 class Books extends Component {
     constructor(props) {
@@ -10,27 +8,14 @@ class Books extends Component {
             error: null,
             isLoaded: false,
             books: [],
-            ishover: false,
-            popup: false,
-            hoveredBook: null,
-            url: this.props.url,
-            clickedBook: null
+            url: this.props.url
         }
-        this.togglePopup = this.togglePopup.bind(this);
         this.searchBooks = this.searchBooks.bind(this);
     }
-    
-    //function to handle show and hide of popup
-    togglePopup(clickedId) {
-        this.setState({
-          popup: !this.state.popup,
-          clickedBook: clickedId
-        })
-      }
 
     //function to search books on database
     searchBooks() {
-        fetch(this.props.url, {headers:{'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjViZmZjNDI0Yjc2NjI5NmM0MGI0ZTc0OCIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJ1c2VybmFtZSI6InVzZXIxIiwicGFzc3dvcmQiOiIkMmIkMTAkWU1tZVNza3hnbWhpdy5nN0hBTTdiZWIyUko5NlQuTjBNTC93WmRySk9vd3lIdXRTS0JQNEciLCJfX3YiOjB9LCJpYXQiOjE1NDM0ODg1ODAsImV4cCI6MTU0MzUwMjk4MH0.Aj1oKmdfuYMQtkvROFAhaTbEbMIWdNf7J6UzBK8uVgs"}})
+        fetch(this.props.url, {headers:{'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjViZmZjNTU2M2Y3YmMwNmM5ODk3NWVkMCIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJ1c2VybmFtZSI6InVzZXIxIiwicGFzc3dvcmQiOiIkMmIkMTAkNjcwV283TS5vTHY1Li9vYlRua1E3ZVdWUGxsVnJMblNXN1QzVkFqc2twSkdmdTdBZjBiREsiLCJfX3YiOjB9LCJpYXQiOjE1NDM1MDM5OTUsImV4cCI6MTU0MzUxODM5NX0.Z8jNy13sHzLe6rQMtY609RhaE46wuByeshnpJYgHYnk"}})
             .then(res => res.json())
                 .then(
                     (result) => {
@@ -80,23 +65,7 @@ class Books extends Component {
             return (
                 <div className="book-section" id="books-container">
                     {filteredBooks.map(book => (    
-                        <div className="book" key={book._id} onClick={() => this.togglePopup(book._id)}>
-                            <img src={book.imageLink} alt={book.title} className="book-main-image" />
-                            <div className="in-use">
-                                <img src={inUse} alt="Borrowed Book" />
-                                <i className="fas fa-user-check"></i>
-                            </div>
-                            <div className="book-description">
-                                <h3 className="book-title">{book.title}</h3>
-                                <span className="book-author">{book.authors}</span>
-                                <span className="book-location">location: {book.bookshelf}</span>
-                                <Stars rating={book.averageRating} />
-                            </div>                 
-                            {this.state.popup && (this.state.clickedBook == book._id) &&
-                                <QuickInfo book={book}/>                            
-                            }
-                        </div>
-                        
+                        <Book book = { book } key={ book._id }/>
                     )) }
                 </div>
             )
