@@ -1,0 +1,63 @@
+@font-face {
+  @include font-declaration('PlutoSansBlack.otf', bolder);
+}
+
+@font-face {
+  @include font-declaration('PlutoSansHeavy.otf', 800);
+}
+
+@font-face {
+  @include font-declaration('PlutoSansBold.otf', bold);
+}
+
+@font-face {
+  @include font-declaration('PlutoSansMedium.otf', 500);
+}
+
+@font-face {
+  @include font-declaration('PlutoSansRegular.otf', normal);
+}
+
+@font-face {
+  @include font-declaration('PlutoSansLight.otf', 300);
+}
+
+@font-face {
+  @include font-declaration('PlutoSansExtraLight.otf', 200);
+}
+
+@font-face {
+  @include font-declaration('PlutoSansThin.otf', lighter);
+}
+
+@font-face {
+  @include font-declaration('PlutoSansCondBlack.otf', bolder, condensed);
+}
+
+@font-face {
+  @include font-declaration('PlutoSansCondHeavy.otf', 800, condensed);
+}
+
+@font-face {
+  @include font-declaration('PlutoSansCondBold.otf', bold, condensed);
+}
+
+@font-face {
+  @include font-declaration('PlutoSansCondMedium.otf', 500, condensed);
+}
+
+@font-face {
+  @include font-declaration('PlutoSansCondRegular.otf', normal, condensed);
+}
+
+@font-face {
+  @include font-declaration('PlutoSansCondLight.otf', 300, condensed);
+}
+
+@font-face {
+  @include font-declaration('PlutoSansCondExLight.otf', 200, condensed);
+}
+
+@font-face {
+  @include font-declaration('PlutoSansCondThin.otf', lighter, condensed);
+}
