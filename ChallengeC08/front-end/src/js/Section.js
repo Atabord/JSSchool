@@ -5,12 +5,18 @@ import Books from './Books';
 
 
 class Section extends Component {
+    constructor() {
+        super();
+        this.state = {
+            contentTitle: 'Home'
+        }
+    }
     
     render() {
         return(
             <section>
                 <div className="section-header">
-                <h2>New Releases</h2>
+                <h2>{ this.state.contentTitle }</h2>
                 <div className="list-icons">
                     <a href="#">
                         <FontAwesomeIcon icon={faThLarge} />

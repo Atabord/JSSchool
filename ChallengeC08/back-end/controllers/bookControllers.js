@@ -3,13 +3,24 @@ const fetch = require('node-fetch');
 const jwt = require('jsonwebtoken');
 const config = require('../config');
 
+
+let PAGINATE = {
+    booksPerPage : 15,
+    pageNumber: 0
+}
+
 //function to get all books or all books on a bookshelf
 function getAllBooks(req, res) {
     jwt.verify(req.token, config.SECRET_KEY, (err, data) => {
         if (err) {
             res.sendStatus(403);
         } else {
-            const { search, bookShelf } = req.query;
+            const { search, bookShelf, page } = req.query;
+            PAGINATE.pageNumber = (page - 1) || 0;
+            const pagination  = {
+                page: page,
+            }
+            // This is to find books by title and authors matching with a query
             if(search){
                 const regexp = new RegExp(search, "i");
                 Book.find({
@@ -25,11 +36,16 @@ function getAllBooks(req, res) {
                         })
                     } else {
                         res.status(200).send({
-                            books
+                            books,
+                            pagination
                         });
                     }
                 })
+                .limit(PAGINATE.booksPerPage)
+                .skip(PAGINATE.booksPerPage * PAGINATE.pageNumber)
+                .sort('title');
             } else if (bookShelf) {
+                // this is to find the books depending on the bookshelf
                 Book.find({
                     bookshelf: bookShelf
                 }, (err, books) => {
@@ -43,11 +59,16 @@ function getAllBooks(req, res) {
                         })
                     } else {
                         res.status(200).send({
-                            books
+                            books,
+                            pagination
                         });
                     }
                 })
+                .limit(PAGINATE.booksPerPage)
+                .skip(PAGINATE.booksPerPage * PAGINATE.pageNumber)
+                .sort('title');
             } else {
+                // else, return all the books
                 Book.find({}, (err, books) => {
                     if (err) {
                         res.status(500).send({
@@ -59,10 +80,14 @@ function getAllBooks(req, res) {
                         })
                     } else {
                         res.status(200).send({
-                            books
+                            books, 
+                            pagination
                         });
                     }
                 })
+                .limit(PAGINATE.booksPerPage)
+                .skip(PAGINATE.booksPerPage * PAGINATE.pageNumber)
+                .sort('title');
             }
         }
     })

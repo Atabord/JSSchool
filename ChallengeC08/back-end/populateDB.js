@@ -9,71 +9,127 @@ const books = [
         {
             body: {
                 isbn: '9780143127550',
-                place: 'Quito',
+                place: ['Quito', 'Medellin'],
                 copies: 3
             }
         },
         {
             body: {
                 isbn: '9781476770390',
-                place: 'Quito',
+                place: ['Quito'],
                 copies: 3
             }
         },
         {
             body: {
                 isbn: '9781501173219',
-                place: 'Cartagena',
+                place: ['Cartagena', 'Quito'],
+                copies: 3
+            }
+        },
+        {
+            body: {
+                isbn: '9780547928210',
+                place: ['Cartagena', 'Quito'],
                 copies: 3
             }
         },
         {
             body: {
                 isbn: '9780156012195',
-                place: 'Cartagena',
+                place: ['Cartagena'],
                 copies: 3
             }
         },
         {
             body: {
                 isbn: '9780439064866',
-                place: 'Medellin',
+                place: ['Medellin'],
                 copies: 3
             }
         },
         {
             body: {
+                isbn: '9780596517748',
+                place: ['Digital'],
+                copies: 0
+            }
+        },
+        {
+            body: {
                 isbn: '9780618640157',
-                place: 'Medellin',
+                place: ['Medellin'],
                 copies: 4
             }
         },
         {
             body: {
                 isbn: '9780439136358',
-                place: 'Digital',
+                place: ['Digital'],
                 copies: 0
             }
         },
         {
             body: {
                 isbn: '9780547928227',
-                place: 'Digital',
+                place: ['Digital'],
                 copies: 0
             }
         },
         {
             body: {
                 isbn: '9780060598242',
-                place: 'Personal Loans',
+                place: ['Personal Loans'],
                 copies: 3
             }
         },
         {
             body: {
                 isbn: '9780307276667',
-                place: 'Quito',
+                place: ['Quito'],
                 copies: 3
+            }
+        },
+        {
+            body: {
+                isbn: '9780590353403',
+                place: ['Quito', 'Medellin'],
+                copies: 4
+            }
+        },
+        {
+            body: {
+                isbn: '9780439139595',
+                place: ['Cartagena', 'Medellin'],
+                copies: 2
+            }
+        },
+        {
+            body: {
+                isbn: '9780439358064',
+                place: ['Cartagena', 'Quito'],
+                copies: 2
+            }
+        },
+        {
+            body: {
+                isbn: '9780439785969',
+                place: ['Digital'],
+                copies: 0
+            }
+        },
+        {
+            body: {
+                isbn: '9780201633610',
+                place: ['Digital'],
+                copies: 0
+            }
+        },
+        {
+            body: {
+                isbn: '9780545010221',
+                place: ['Quito'],
+                copies: 2
             }
         },
     ]

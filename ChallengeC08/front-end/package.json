@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint src/js/index.js",
-    "lintfix": "eslint src/js/index.js --fix",
+    "lint": "eslint src/js/*",
+    "lintfix": "eslint src/js/* --fix",
     "compileSass": "sass src/sass:dist/src/css",
     "SassDev": "sass --watch src/sass:dist/src/css",
     "buildDev": "webpack --watch",
@@ -23,6 +23,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.5.0",
     "@fortawesome/react-fontawesome": "^0.1.3",
     "file-loader": "^2.0.0",
+    "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "sass": "^1.15.1",

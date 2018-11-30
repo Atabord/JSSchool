@@ -25,19 +25,19 @@ function signUp(req, res) {
 
 function signIn(req, res) {
     const username = req.body.username;
-    const password = req.body.password;
-
+    const password = req.body.password;    
+    
     User.findOne({username: username}, (err, user) => {
         if(err) {
             res.status(500).send({message: `Error making the request ${err}`});
         } else if(!user) {
-            res.status(404).send({message: `That user doesn't exist`});
+            res.status(422).send({message: `That user doesn't exist`});
         } else {
             // res.status(200).send({ user });
             if(!user.comparePassword(password)) {
-                res.status(400).send({message: 'wrong password'});
+                res.status(401).send({message: 'Wrong password'});
             } else {
-                res.status(200).send({token: jwt.sign({ user }, config.SECRET_KEY, { expiresIn: '4h'})});
+                res.status(200).send({token: jwt.sign({ user }, config.SECRET_KEY, { expiresIn: config.EXP_TIME })});
             }
         }
     })

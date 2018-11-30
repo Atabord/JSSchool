@@ -32,8 +32,8 @@ class Book extends Component {
                 </div>
                 <div className="book-description">
                     <h3 className="book-title">{book.title}</h3>
-                    <span className="book-author">{book.authors}</span>
-                    <span className="book-location">location: {book.bookshelf}</span>
+                    <span className="book-author">{book.authors.join(", ")}</span>
+                    <span className="book-location">{book.bookshelf.join(", ")}</span>
                     <Stars rating={book.averageRating} />
                 </div>                 
                 {this.state.popup && (this.state.clickedBook == book._id) &&

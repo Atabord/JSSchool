@@ -15,7 +15,7 @@ class Books extends Component {
 
     //function to search books on database
     searchBooks() {
-        fetch(this.props.url, {headers:{'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjViZmZjNTU2M2Y3YmMwNmM5ODk3NWVkMCIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJ1c2VybmFtZSI6InVzZXIxIiwicGFzc3dvcmQiOiIkMmIkMTAkNjcwV283TS5vTHY1Li9vYlRua1E3ZVdWUGxsVnJMblNXN1QzVkFqc2twSkdmdTdBZjBiREsiLCJfX3YiOjB9LCJpYXQiOjE1NDM1MDM5OTUsImV4cCI6MTU0MzUxODM5NX0.Z8jNy13sHzLe6rQMtY609RhaE46wuByeshnpJYgHYnk"}})
+        fetch(this.props.url, {headers:{'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVjMDEwOWE4OTkxMDFhNWY0Y2Q2ZTkyOCIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJ1c2VybmFtZSI6InVzZXIxIiwicGFzc3dvcmQiOiIkMmIkMTAkU2dIVEZQclJITGFDMzdpME12VjZUdXdlZWx6SnY5V3lHMkUxRVJPSkpqQVBKRDBHekszLmEiLCJfX3YiOjB9LCJpYXQiOjE1NDM1OTI4MTEsImV4cCI6MTU0NDAyNDgxMX0.89OGZmv1bIW0sy6ZCQ1U-hkEyW2xc-wIZGzf77fUVKg"}})
             .then(res => res.json())
                 .then(
                     (result) => {

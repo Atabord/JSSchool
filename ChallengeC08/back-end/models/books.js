@@ -19,7 +19,7 @@ const BookSchema = Schema({
     language: String,
     copies: Number,
     availableCopies: Number,
-    bookshelf: { type: String, enum: ['Quito', 'Cartagena', 'Medellin', 'Digital', 'Personal Loans']}
+    bookshelf: { type: [String], enum: ['Quito', 'Cartagena', 'Medellin', 'Digital', 'Personal Loans']}
 })
 
 module.exports	= mongoose.model('Book', BookSchema);

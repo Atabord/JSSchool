@@ -99,6 +99,92 @@ section {
   font-stretch: condensed;
   src: url(../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondThin.otf);
 }
+.form-container {
+  background-color: rgba(35, 31, 32, 0.8);
+  display: flex;
+  flex-flow: column wrap;
+  margin: auto;
+  position: absolute;
+  left: calc(50vw - 150px);
+  top: 20%;
+  min-height: 350px;
+  width: 300px;
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
+}
+@media screen and (max-width: 900px) {
+  .form-container {
+    width: 80vw;
+    left: calc(50vw - 40vw);
+  }
+}
+@media screen and (max-width: 480px) {
+  .form-container {
+    width: 100%;
+    left: unset;
+  }
+}
+.form-container .login-logo {
+  width: 240px;
+  margin: 5px auto;
+  display: block;
+}
+.form-container .login-title {
+  text-align: center;
+}
+.form-container .alert {
+  border-radius: 30px;
+  background: rgba(255, 0, 60, 0.8);
+  width: 90%;
+  display: block;
+  margin: 5px auto;
+}
+.form-container .alert p {
+  text-align: center;
+  margin: 5px;
+}
+.form-container .login-form {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  text-align: center;
+  align-content: middle;
+  width: 100%;
+}
+.form-container .login-form input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  color: white;
+  height: 30px;
+  width: 80%;
+  font-size: 18px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+.form-container .login-form input::placeholder {
+  color: white;
+}
+.form-container .login-form input:focus {
+  outline: none;
+}
+.form-container .login-form button {
+  border: 2px solid #6ec1e4;
+  border-radius: 5px;
+  background: none;
+  font-size: 18px;
+  width: 100px;
+  margin: auto;
+  height: 30px;
+  transition-duration: 0.3s;
+  color: #6ec1e4;
+}
+.form-container .login-form button:hover {
+  background: white;
+  color: black;
+}
+
 * {
   box-sizing: border-box;
 }
