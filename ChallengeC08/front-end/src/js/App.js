@@ -4,22 +4,23 @@ import Nav from './Nav';
 import Section from './Section';
 import Sidebar from './Sidebar';
 import Login from './Login';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+
 
 class App extends Component {
     constructor(props){
         super(props)
         this.state = {
-            url:"http://localhost:3000/books",
             search: '',
-            isLogged: false
+            isLogged: true
         };
-        this.onChangeUrl = this.onChangeUrl.bind(this);
+        this.handleLog = this.handleLog.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
     }
 
-    onChangeUrl(newUrl) {
+    handleLog(status){
         this.setState({
-            url: newUrl
+            isLogged: status
         })
     }
 
@@ -29,20 +30,35 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-                {this.state.isLogged ? (
-                    <div>
-                        <Header searching={this.updateSearch}/>
-                        <div className="container">
-                            <Nav changeUrl={this.onChangeUrl}/>
-                            <Section url={this.state.url} filter={this.state.search}/>
-                            <Sidebar />
-                        </div>
-                    </div>
-                ) : (
-                    <Login />
-                )}
-            </div>
+            <Router>
+                <div>
+                    <Route path="/" exact render = {
+                        () => (<Redirect to="/bookshelf" />)
+                    }/>
+
+                    <Route path='/bookshelf' render = {
+                        () => {
+                            if (this.state.isLogged) {
+                                return(
+                                    <div>
+                                        <Header searching={this.updateSearch}/>
+                                        <div className="container">
+                                            <Nav changeUrl={this.onChangeUrl}/>
+                                            <Section filter={this.state.search} logged={this.state.isLogged} handleLog={this.handleLog}/>
+                                            <Sidebar />
+                                        </div>
+                                    </div>
+                                )
+                            } else {
+                                return(<Redirect to="/login" />)
+                            }
+                        }
+                    }/>
+                    <Route path='/login' exact render = {
+                        () => (<Login handleLog={this.handleLog}/>)
+                    } />
+                </div>
+            </Router>
         )
     }
 }

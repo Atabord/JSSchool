@@ -18,11 +18,19 @@ function getAllBooks(req, res) {
             const { search, bookShelf, page } = req.query;
             PAGINATE.pageNumber = (page - 1) || 0;
             const pagination  = {
-                page: page,
+                page: PAGINATE.pageNumber + 1,
+                totalPages: 0,
             }
             // This is to find books by title and authors matching with a query
             if(search){
                 const regexp = new RegExp(search, "i");
+                Book.countDocuments({
+                    $or: [{ title: regexp }, {authors: regexp} ]
+                }, (err, count) => {
+                    err ? 
+                        res.status(500).send({message: `Error making the request ${err}`})
+                    : pagination.totalPages = (Math.ceil(count/PAGINATE.booksPerPage));
+                });
                 Book.find({
                     $or: [{ title: regexp }, {authors: regexp} ]
                 }, (err, books) => {
@@ -46,6 +54,13 @@ function getAllBooks(req, res) {
                 .sort('title');
             } else if (bookShelf) {
                 // this is to find the books depending on the bookshelf
+                Book.countDocuments({
+                    bookshelf: bookShelf
+                }, (err, count) => {
+                    err ? 
+                        res.status(500).send({message: `Error making the request ${err}`})
+                    : pagination.totalPages = (Math.ceil(count/PAGINATE.booksPerPage));
+                });
                 Book.find({
                     bookshelf: bookShelf
                 }, (err, books) => {
@@ -69,6 +84,11 @@ function getAllBooks(req, res) {
                 .sort('title');
             } else {
                 // else, return all the books
+                Book.countDocuments({}, (err, count) => {
+                    err ? 
+                        res.status(500).send({message: `Error making the request ${err}`})
+                    : pagination.totalPages = (Math.ceil(count/PAGINATE.booksPerPage));
+                });
                 Book.find({}, (err, books) => {
                     if (err) {
                         res.status(500).send({

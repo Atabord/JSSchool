@@ -8,6 +8,8 @@ class Books extends Component {
             error: null,
             isLoaded: false,
             books: [],
+            pagination: {},
+            isLogged: this.props.logged,
             url: this.props.url
         }
         this.searchBooks = this.searchBooks.bind(this);
@@ -15,13 +17,20 @@ class Books extends Component {
 
     //function to search books on database
     searchBooks() {
-        fetch(this.props.url, {headers:{'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVjMDEwOWE4OTkxMDFhNWY0Y2Q2ZTkyOCIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJ1c2VybmFtZSI6InVzZXIxIiwicGFzc3dvcmQiOiIkMmIkMTAkU2dIVEZQclJITGFDMzdpME12VjZUdXdlZWx6SnY5V3lHMkUxRVJPSkpqQVBKRDBHekszLmEiLCJfX3YiOjB9LCJpYXQiOjE1NDM1OTI4MTEsImV4cCI6MTU0NDAyNDgxMX0.89OGZmv1bIW0sy6ZCQ1U-hkEyW2xc-wIZGzf77fUVKg"}})
-            .then(res => res.json())
+        fetch(this.props.url, {headers:{'Authorization': sessionStorage.getItem("token")}})
+            .then(res => {
+                if(res.status === 403){
+                    this.props.handleLog(false);
+                } else {
+                    return res.json()
+                }           
+            })
                 .then(
                     (result) => {
                         this.setState({
                             isLoaded: true,
-                            books: result.books
+                            books: result.books,
+                            pagination: result.pagination
                         });
                     },
                     (error) => {
@@ -48,6 +57,16 @@ class Books extends Component {
         }  
     }
 
+    getPagination(){
+        const { totalPages } = this.state.pagination;
+        let buttons = []
+        for (let i = 1; i <= totalPages; i++) {            
+            buttons.push(<button key={`page ${i}`}>{i}</button>)
+            console.log(i);
+        }
+        return buttons;
+    }
+
     render() {
         const { error, isLoaded, books } = this.state;
 
@@ -66,7 +85,10 @@ class Books extends Component {
                 <div className="book-section" id="books-container">
                     {filteredBooks.map(book => (    
                         <Book book = { book } key={ book._id }/>
-                    )) }
+                    )) }                    
+                    <div className="pagination-container">
+                        {this.getPagination()}
+                    </div>
                 </div>
             )
         }

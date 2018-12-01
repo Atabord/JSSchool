@@ -516,6 +516,16 @@ nav {
   font-stretch: condensed;
   flex: 1;
 }
+.nav-list-item a {
+  color: #6ec1e4;
+  text-decoration: none;
+}
+.nav-list-item a:hover {
+  text-decoration: underline;
+}
+.nav-list-item a svg {
+  margin-right: 10px;
+}
 .nav-list-item button {
   color: #6ec1e4;
   background: none;
@@ -875,6 +885,12 @@ section .book-section .book .popup-container .popup-book .pupup-section-containe
     left: 48%;
     top: -6%;
   }
+}
+section .book-section .pagination-container {
+  display: flex;
+  width: 100%;
+  margin: auto;
+  justify-content: center;
 }
 
 .left {

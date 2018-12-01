@@ -36,6 +36,19 @@ nav {
   font-stretch: condensed;
   flex: 1;
   
+  a {
+    color: $primary-blue;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+    
+    svg {
+      margin-right: 10px;
+    }
+  }
+
   button {
     color: $primary-blue;
     background: none;
