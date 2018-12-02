@@ -1,5 +1,5 @@
 .form-container {
-    background-color: rgba(35, 31, 32, 0.8);
+    background-color: $tooltip-background;
     display: flex;
     flex-flow: column wrap;
     margin: auto;
@@ -8,7 +8,7 @@
     top: 20%;
     min-height: 350px;
     width: 300px;
-    color: white;
+    color: $white;
     padding: 10px;
     border-radius: 20px;
 
@@ -34,7 +34,7 @@
     
     .alert {
         border-radius: 30px;
-        background: rgba(255, 0, 60, 0.8);
+        background: $alert;
         width: 90%;
         display: block;
         margin: 5px auto;
@@ -56,8 +56,8 @@
         input {
             background: none;
             border: none;
-            border-bottom: 1px solid white;
-            color: white;
+            border-bottom: 1px solid $white;
+            color: $white;
             height: 30px;
             width: 80%;
             font-size: 18px;
@@ -65,7 +65,7 @@
             margin-bottom: 10px;
             
             &::placeholder {
-                color: white;
+                color: $white;
             }
             
             &:focus {
@@ -74,7 +74,7 @@
         }
         
         button {
-            border: 2px solid #6ec1e4;
+            border: 2px solid $primary-blue;
             border-radius: 5px;
             background: none;
             font-size: 18px;
@@ -82,11 +82,11 @@
             margin: auto;
             height: 30px;
             transition-duration: 0.3s;
-            color: #6ec1e4;
+            color: $primary-blue;
             
             &:hover {
-                background: white;
-                color: black;
+                background: $white;
+                color: $black;
             }
         }
     }

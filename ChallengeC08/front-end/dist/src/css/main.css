@@ -100,7 +100,7 @@ section {
   src: url(../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondThin.otf);
 }
 .form-container {
-  background-color: rgba(35, 31, 32, 0.8);
+  background-color: rgba(35, 31, 32, 0.88);
   display: flex;
   flex-flow: column wrap;
   margin: auto;
@@ -109,7 +109,7 @@ section {
   top: 20%;
   min-height: 350px;
   width: 300px;
-  color: white;
+  color: #FFF;
   padding: 10px;
   border-radius: 20px;
 }
@@ -155,8 +155,8 @@ section {
 .form-container .login-form input {
   background: none;
   border: none;
-  border-bottom: 1px solid white;
-  color: white;
+  border-bottom: 1px solid #FFF;
+  color: #FFF;
   height: 30px;
   width: 80%;
   font-size: 18px;
@@ -164,7 +164,7 @@ section {
   margin-bottom: 10px;
 }
 .form-container .login-form input::placeholder {
-  color: white;
+  color: #FFF;
 }
 .form-container .login-form input:focus {
   outline: none;
@@ -181,8 +181,8 @@ section {
   color: #6ec1e4;
 }
 .form-container .login-form button:hover {
-  background: white;
-  color: black;
+  background: #FFF;
+  color: #000;
 }
 
 .notFoundContainer {
@@ -909,6 +909,16 @@ section .book-section .pagination-container {
   width: 100%;
   margin: auto;
   justify-content: center;
+}
+section .book-section .pagination-container a {
+  text-decoration: none;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #6ec1e4;
+  background: #231f20;
+  color: #6ec1e4;
+  text-align: center;
+  padding: 5px;
 }
 
 .left {

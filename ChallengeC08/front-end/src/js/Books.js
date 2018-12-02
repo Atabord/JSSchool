@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import Book from './Book';
 
 class Books extends Component {
@@ -61,8 +62,7 @@ class Books extends Component {
         const { totalPages } = this.state.pagination;
         let buttons = []
         for (let i = 1; i <= totalPages; i++) {            
-            buttons.push(<button key={`page ${i}`}>{i}</button>)
-            console.log(i);
+            buttons.push(<NavLink to={`${this.props.path}/${i}`} key={`page ${i}`}>{i}</NavLink>)
         }
         return buttons;
     }
