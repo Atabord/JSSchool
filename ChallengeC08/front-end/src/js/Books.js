@@ -57,12 +57,13 @@ class Books extends Component {
             this.searchBooks();
         }  
     }
+    
 
     getPagination(){
         const { totalPages } = this.state.pagination;
-        let buttons = []
+        let buttons = [];
         for (let i = 1; i <= totalPages; i++) {            
-            buttons.push(<NavLink to={`${this.props.path}/${i}`} key={`page ${i}`}>{i}</NavLink>)
+            buttons.push(<NavLink to={`${this.props.path}/${i}`} key={`page ${i}`}>{i}</NavLink>);
         }
         return buttons;
     }
