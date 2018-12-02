@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import mainLogo from '../../src/images/logo-jobsity.png';
 import jakob from '../../src/images/profile.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faBars, faAngleDown, faGlobe, faTabletAlt, faUserTag } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faBars, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 class Header extends Component {
     constructor(props){

@@ -4,7 +4,8 @@ import Nav from './Nav';
 import Section from './Section';
 import Sidebar from './Sidebar';
 import Login from './Login';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import NotFound from './404';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 
 
 class App extends Component {
@@ -32,31 +33,35 @@ class App extends Component {
         return (
             <Router>
                 <div>
-                    <Route path="/" exact render = {
-                        () => (<Redirect to="/bookshelf" />)
-                    }/>
+                    <Switch>
+                        <Route path="/" exact render = {
+                            () => (<Redirect to="/bookshelf" />)
+                        }/>
 
-                    <Route path='/bookshelf' render = {
-                        () => {
-                            if (this.state.isLogged) {
-                                return(
-                                    <div>
-                                        <Header searching={this.updateSearch}/>
-                                        <div className="container">
-                                            <Nav changeUrl={this.onChangeUrl}/>
-                                            <Section filter={this.state.search} logged={this.state.isLogged} handleLog={this.handleLog}/>
-                                            <Sidebar />
+                        <Route path='/bookshelf' render = {
+                            () => {
+                                if (this.state.isLogged) {
+                                    return(
+                                        <div>
+                                            <Header searching={this.updateSearch}/>
+                                            <div className="container">
+                                                <Nav changeUrl={this.onChangeUrl}/>
+                                                <Section filter={this.state.search} logged={this.state.isLogged} handleLog={this.handleLog}/>
+                                                <Sidebar />
+                                            </div>
                                         </div>
-                                    </div>
-                                )
-                            } else {
-                                return(<Redirect to="/login" />)
+                                    )
+                                } else {
+                                    return(<Redirect to="/login" />)
+                                }
                             }
-                        }
-                    }/>
-                    <Route path='/login' exact render = {
-                        () => (<Login handleLog={this.handleLog}/>)
-                    } />
+                        }/>
+                        <Route path='/login' exact render = {
+                            () => (<Login handleLog={this.handleLog}/>)
+                        } />
+
+                        <Route component={NotFound}/>
+                    </Switch>
                 </div>
             </Router>
         )

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThLarge, faThList } from '@fortawesome/free-solid-svg-icons';
-import { BrowserRouter as Router, Route, NavLink, Redirect, Prompt } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Books from './Books';
+import NotFound from './404';
 
 
 class Section extends Component {
@@ -27,49 +28,51 @@ class Section extends Component {
                     </a>
                 </div>
             </div>
-
-            <Route path='/bookshelf' exact render = {
-                () => {
-                    return(
-                        <Books url={process.env.HOME} filterBy={this.props.filter} logged={this.props.logged} handleLog={this.props.handleLog}/>
-                    )
-                }
-            }/>
-            <Route path='/bookshelf/Quito' exact render = {
-                () => {
-                    return(
-                        <Books url={process.env.QUITO} filterBy={this.props.filter} logged={this.props.logged} handleLog={this.props.handleLog}/>
-                    )
-                }
-            }/>
-            <Route path='/bookshelf/Cartagena' exact render = {
-                () => {
-                    return(
-                        <Books url={process.env.CARTAGENA} filterBy={this.props.filter} logged={this.props.logged} handleLog={this.props.handleLog}/>
-                    )
-                }
-            }/>
-            <Route path='/bookshelf/Medellin' exact render = {
-                () => {
-                    return(
-                        <Books url={process.env.MEDELLIN} filterBy={this.props.filter} logged={this.props.logged} handleLog={this.props.handleLog}/>
-                    )
-                }
-            }/>
-            <Route path='/bookshelf/Digital' exact render = {
-                () => {
-                    return(
-                        <Books url={process.env.DIGITAL} filterBy={this.props.filter} logged={this.props.logged} handleLog={this.props.handleLog}/>
-                    )
-                }
-            }/>
-            <Route path='/bookshelf/Personal-Loans' exact render = {
-                () => {
-                    return(
-                        <Books url={process.env.PERSONAL_LOANS} filterBy={this.props.filter} logged={this.props.logged} handleLog={this.props.handleLog}/>
-                    )
-                }
-            }/>
+            <Switch>
+                <Route path='/bookshelf' exact render = {
+                    () => {
+                        return(
+                            <Books url={process.env.HOME} filterBy={this.props.filter} logged={this.props.logged} handleLog={this.props.handleLog}/>
+                        )
+                    }
+                }/>
+                <Route path='/bookshelf/Quito' exact render = {
+                    () => {
+                        return(
+                            <Books url={process.env.QUITO} filterBy={this.props.filter} logged={this.props.logged} handleLog={this.props.handleLog}/>
+                        )
+                    }
+                }/>
+                <Route path='/bookshelf/Cartagena' exact render = {
+                    () => {
+                        return(
+                            <Books url={process.env.CARTAGENA} filterBy={this.props.filter} logged={this.props.logged} handleLog={this.props.handleLog}/>
+                        )
+                    }
+                }/>
+                <Route path='/bookshelf/Medellin' exact render = {
+                    () => {
+                        return(
+                            <Books url={process.env.MEDELLIN} filterBy={this.props.filter} logged={this.props.logged} handleLog={this.props.handleLog}/>
+                        )
+                    }
+                }/>
+                <Route path='/bookshelf/Digital' exact render = {
+                    () => {
+                        return(
+                            <Books url={process.env.DIGITAL} filterBy={this.props.filter} logged={this.props.logged} handleLog={this.props.handleLog}/>
+                        )
+                    }
+                }/>
+                <Route path='/bookshelf/Personal-Loans' exact render = {
+                    () => {
+                        return(
+                            <Books url={process.env.PERSONAL_LOANS} filterBy={this.props.filter} logged={this.props.logged} handleLog={this.props.handleLog}/>
+                        )
+                    }
+                }/>
+                <Route component={NotFound}/>
+            </Switch>
         </section>
         )
     }
