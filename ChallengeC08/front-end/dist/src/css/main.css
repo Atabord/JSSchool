@@ -808,12 +808,18 @@ section .book-section .book .popup-container .popup-book .pupup-section-containe
 section .book-section .book .popup-container .popup-book .pupup-section-container svg {
   color: #5eb4dd;
 }
-section .book-section .book .popup-container .popup-book .pupup-section-container button.borrow-book {
-  background-color: #5eb4dd;
+section .book-section .book .popup-container .popup-book .pupup-section-container .borrow-book {
+  border: 1px solid #5eb4dd;
   border-radius: 15px;
   padding: 10px;
+  text-decoration: none;
   text-transform: uppercase;
   color: #FFF;
+  transition-duration: 0.3s;
+}
+section .book-section .book .popup-container .popup-book .pupup-section-container .borrow-book:hover {
+  background: #231f20;
+  color: #5eb4dd;
 }
 @media screen and (max-width: 900px) {
   section .book-section .book .popup-container .popup-book {

@@ -30,7 +30,7 @@ class Nav extends Component {
                   <ListItem url='/bookshelf/Cartagena/1' icon={faGlobe} pageName='Cartagena' />
                   <ListItem url='/bookshelf/Medellin/1' icon={faGlobe} pageName='Medellín' />
                   <ListItem url='/bookshelf/Digital/1' icon={faTabletAlt} pageName='Digital' />
-                  <ListItem url='/bookshelf/Personal-Loans/1' icon={faUserTag} pageName='Personal Loans' />                  
+                  <ListItem url='/bookshelf/Personal_Loans/1' icon={faUserTag} pageName='Personal Loans' />                  
                 </ul>
             </div>
           </nav>

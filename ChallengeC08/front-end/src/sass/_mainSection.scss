@@ -240,12 +240,19 @@ section {
               color: $secondary-blue;
             }
   
-            button.borrow-book {
-              background-color: $secondary-blue;
+            .borrow-book {
+              border:1px solid $secondary-blue;
               border-radius: 15px;
               padding: 10px;
+              text-decoration: none;
               text-transform: uppercase;
               color: $white;
+              transition-duration: 0.3s;
+
+              &:hover {
+                background: $primary-black;
+                color: $secondary-blue;
+              }
             }
   
           }

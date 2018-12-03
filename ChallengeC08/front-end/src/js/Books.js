@@ -10,7 +10,7 @@ class Books extends Component {
             isLoaded: false,
             books: [],
             pagination: {},
-            isLogged: this.props.logged,
+            search: this.props.search,
             url: this.props.url
         }
         this.searchBooks = this.searchBooks.bind(this);
@@ -18,12 +18,16 @@ class Books extends Component {
 
     //function to search books on database
     searchBooks() {
-        fetch(this.props.url, {headers:{'Authorization': sessionStorage.getItem("token")}})
+        let { url } = this.props;
+        fetch(url, {headers:{'Authorization': sessionStorage.getItem("token")}})
             .then(res => {
                 if(res.status === 403){
                     this.props.handleLog(false);
+                } else if (res.status === 404) {
+                    this.props.notFound(true);
                 } else {
-                    return res.json()
+                    this.props.notFound(false);
+                    return res.json();
                 }           
             })
                 .then(
@@ -50,15 +54,16 @@ class Books extends Component {
 
     //this function allow us to search the books when the url has changed
     componentDidUpdate(){
-        if(this.state.url != this.props.url){
+        let { url } = this.state;
+        if(url != this.props.url){
             this.setState({
                 url:this.props.url
             })   
             this.searchBooks();
-        }  
+        } 
     }
-    
 
+    // this function obtain the total pages and make links with that number of pages
     getPagination(){
         const { totalPages } = this.state.pagination;
         let buttons = [];
@@ -70,21 +75,15 @@ class Books extends Component {
 
     render() {
         const { error, isLoaded, books } = this.state;
-
         if (error) {
           return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
           return <div>Loading...</div>;
         } else {
             
-            //it returns a filtered array of books which matches the search
-            let filteredBooks = books.filter((book) => {
-                return book.title.toLowerCase().indexOf(this.props.filterBy.toLowerCase()) !== -1;
-            });
-
             return (
                 <div className="book-section" id="books-container">
-                    {filteredBooks.map(book => (    
+                    {books.map(book => (    
                         <Book book = { book } key={ book._id }/>
                     )) }                    
                     <div className="pagination-container">

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookOpen } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import Stars from './Stars';
 
 class QuickInfo extends Component {
     render() {
-        let book = this.props.book;
+        const { book } = this.props;
         return( 
             <div className="popup-container">
                 <div className="book-hover">
@@ -34,7 +35,7 @@ class QuickInfo extends Component {
                         <Stars rating={book.averageRating} />
                     </div>
                     <div className="pupup-section-container">
-                        <button className="borrow-book">Borrow</button>
+                        <Link to={`/bookshelf/book/${book._id}`} className="borrow-book">Borrow</Link>
                     </div>
                 </div>
             </div>                          

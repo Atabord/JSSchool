@@ -13,21 +13,30 @@ class App extends Component {
         super(props)
         this.state = {
             search: '',
+            searchVal:'',
             isLogged: true
         };
         this.handleLog = this.handleLog.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
+        this.handleChangeSearch = this.handleChangeSearch.bind(this);
+    };
+
+    handleChangeSearch(event){
+        this.setState({
+            searchVal: event.target.value
+        })
     }
 
     handleLog(status){
         this.setState({
             isLogged: status
         })
-    }
+    };
 
-    updateSearch() {
-        this.setState({search: event.target.value});
-    }
+    updateSearch(event) {
+        event.preventDefault();
+        this.setState({search: this.state.searchVal});
+    };
 
     render() {
         return (
@@ -43,10 +52,14 @@ class App extends Component {
                                 if (this.state.isLogged) {
                                     return(
                                         <div>
-                                            <Header searching={this.updateSearch}/>
+                                            <Header searching={this.updateSearch} 
+                                                handleChange={this.handleChangeSearch} 
+                                                searchVal={this.state.searchVal}/>
                                             <div className="container">
                                                 <Nav changeUrl={this.onChangeUrl}/>
-                                                <Section filter={this.state.search} logged={this.state.isLogged} handleLog={this.handleLog}/>
+                                                <Section search={this.state.search} 
+                                                    logged={this.state.isLogged} 
+                                                    handleLog={this.handleLog}/>
                                                 <Sidebar />
                                             </div>
                                         </div>
@@ -66,6 +79,6 @@ class App extends Component {
             </Router>
         )
     }
-}
+};
 
 export default App;

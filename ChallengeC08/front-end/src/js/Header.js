@@ -9,12 +9,6 @@ class Header extends Component {
         super(props);
     };
 
-
-    // preventing form submit
-    handleSubmit(event) {
-        event.preventDefault();
-    }
-
     render(){
         return (
             <header>
@@ -23,12 +17,13 @@ class Header extends Component {
                 </div>
                 <div className="main-header hide-on-small">
                 <h1 className="">Bookshelf</h1>
-                <form className="only-large-devices" onSubmit={this.handleSubmit} >
+                <form className="only-large-devices" onSubmit={this.props.searching} >
                     <div className="form-search">
                         <FontAwesomeIcon icon={faSearch} />
                         <input type="search" 
-                                placeholder="Search..."                                 
-                                onChange={this.props.searching}
+                                placeholder="Search..."
+                                value={this.props.searchVal}
+                                onChange={this.props.handleChange}
                                 />
                     </div>
                 </form>

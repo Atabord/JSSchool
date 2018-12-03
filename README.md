@@ -24,10 +24,10 @@ This is a repository made to store the tasks completed during the JS School Boot
   [Watch the Challenge and the api here](../master/ChallengeC06)
 ***
 ### 6. Challenge C07
-  Migrate your prototype into a real application using React
+  [Watch the Challenge and the api here](../master/ChallengeC07)
 ***
 ### 7. Challenge C08
-  Secure your application
+  [Watch the Challenge and the api here](../master/ChallengeC08)
 ***
 ### 8. Challenge C09
   REDUX integration
