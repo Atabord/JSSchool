@@ -100,7 +100,6 @@ class Section extends Component {
                 {this.createRoutes()}
                 <Route path='/bookshelf/book/:id' exact render= {
                     ({match}) => {
-                        console.log(`${process.env.HOME}/${match.params.id}`);
                         return(
                             <BookInfo url={`${process.env.HOME}/${match.params.id}`} 
                                 search={this.props.search} 
