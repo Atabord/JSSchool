@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 
+// this component returns the information of just one book finding it by Id
 class BookInfo extends Component {
     constructor(props) {
         super(props);
@@ -20,18 +21,21 @@ class BookInfo extends Component {
         this.handleMessage = this.handleMessage.bind(this);
     };
 
+    // function to handle change on datepicker
     handleDateChange(date){
         this.setState({
             returnDate: date
         });
     };
 
+    // function to show message after lending a book
     handleMessage(message) {
         this.setState({
             message: message
         })
     }
 
+    // function to handle submit of lend to the database
     handleSubmit(event) {
         event.preventDefault();
         const { book } = this.state;
@@ -60,6 +64,7 @@ class BookInfo extends Component {
             })
     }
 
+    // function to search information of just one book
     searchBook() {
         let { url } = this.props;
         fetch(url, {headers:{'Authorization': sessionStorage.getItem("token")}})
@@ -105,6 +110,7 @@ class BookInfo extends Component {
         } ;
     };
 
+    // function to limit the date of return the book
     addDays(maxDate) {
         var d = new Date();
         d.setDate(d.getDate() + maxDate);
@@ -123,14 +129,14 @@ class BookInfo extends Component {
                     <h3>{book.title}</h3>
                     <Stars rating={book.averageRating} />
                     <img src={book.imageLink} alt={book.title} />
-                    <p className="">Author(s): {book.authors.join(", ")}</p>
-                    <p className="">Location(s): {book.bookshelf.join(", ")}</p>
+                    <p>Author(s): {book.authors.join(", ")}</p>
+                    <p>Location(s): {book.bookshelf.join(", ")}</p>
                     <p>Available Copies: {book.availableCopies}</p>
-                    <p className="">Category(ies): {book.categories.join(", ")}</p>
-                    <p className="">Publisher: {book.publisher}</p>
-                    <p className="">Published Date: {book.publishedDate}</p>
-                    <p className="">Pages: {book.pageCount}</p>
-                    <p className="">Description: {book.description}</p>
+                    <p>Category(ies): {book.categories.join(", ")}</p>
+                    <p>Publisher: {book.publisher}</p>
+                    <p>Published Date: {book.publishedDate}</p>
+                    <p>Pages: {book.pageCount}</p>
+                    <p>Description: {book.description}</p>
                     <h3>Borrow this book</h3>
                     {this.state.message && 
                         <div className="alert"> 

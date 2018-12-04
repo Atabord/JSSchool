@@ -4,6 +4,7 @@ import { faUser, faUnlock } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../images/logo-jobsity.png';
 import { Redirect } from 'react-router-dom';
 
+// this component returns the login page
 class Login extends Component {
     constructor(){
         super();
@@ -18,24 +19,28 @@ class Login extends Component {
         this.handleErrors = this.handleErrors.bind(this);
     }
 
+    // this function handles the change of every input of the login form
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
 
+    // this function allows us to show the user avery single error when trying to login
     handleErrors(error){
         this.setState({
             error
         })
     }
 
+    // this is to tell the page to redirect after login
     changeRedirect(status){
         this.setState({
             redirect: status
         })
     }
 
+    // this function will handle submit
     handleSubmit(event) {
         event.preventDefault();
         
@@ -46,6 +51,7 @@ class Login extends Component {
             password: this.state.password
         };
 
+        // fetching to send the user info and receive its response
         fetch('http://localhost:3000/users/signIn', 
             {
                 method: 'POST',
@@ -55,7 +61,9 @@ class Login extends Component {
             .then(res => res.json())
                 .then(
                     (result) => {
+                        // the server response will have a token if success, else it will send an error message
                         if(result.token) {
+                            // if success, save the token in the sessionStorage
                             sessionStorage.setItem('token', `Bearer ${result.token}`);
                             this.props.handleLog(true);
                             this.changeRedirect(true);
@@ -64,7 +72,7 @@ class Login extends Component {
                         }
                     },
                     (err) => {
-                        console.log(err);
+                        this.handleErrors(err);
                     }
                 )
     }

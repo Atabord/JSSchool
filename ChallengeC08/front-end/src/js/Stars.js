@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as solidStar } from '@fortawesome/free-solid-svg-icons';
 import {faStar as regStar} from '@fortawesome/free-regular-svg-icons';
 
+// This component will create the stars depending on the book raiting
 class Stars extends Component {
     
     getStars(){

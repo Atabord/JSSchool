@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import Book from './Book';
 
+// this component returns a page with all the books requested 
 class Books extends Component {
     constructor(props) {
         super(props);

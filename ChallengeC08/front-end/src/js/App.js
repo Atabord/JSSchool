@@ -12,30 +12,25 @@ class App extends Component {
     constructor(props){
         super(props)
         this.state = {
-            search: '',
             searchVal:'',
             isLogged: true
         };
         this.handleLog = this.handleLog.bind(this);
-        this.updateSearch = this.updateSearch.bind(this);
         this.handleChangeSearch = this.handleChangeSearch.bind(this);
     };
 
+    // function to handle Change of searchBar value
     handleChangeSearch(event){
         this.setState({
             searchVal: event.target.value
         })
     }
 
+    // function to handle login to the app, or logout in case of expired or undefined token
     handleLog(status){
         this.setState({
             isLogged: status
         })
-    };
-
-    updateSearch(event) {
-        event.preventDefault();
-        this.setState({search: this.state.searchVal});
     };
 
     render() {
@@ -52,13 +47,11 @@ class App extends Component {
                                 if (this.state.isLogged) {
                                     return(
                                         <div>
-                                            <Header searching={this.updateSearch} 
-                                                handleChange={this.handleChangeSearch} 
+                                            <Header handleChange={this.handleChangeSearch} 
                                                 searchVal={this.state.searchVal}/>
                                             <div className="container">
                                                 <Nav changeUrl={this.onChangeUrl}/>
-                                                <Section search={this.state.search} 
-                                                    logged={this.state.isLogged} 
+                                                <Section logged={this.state.isLogged}                                    
                                                     handleLog={this.handleLog}/>
                                                 <Sidebar />
                                             </div>

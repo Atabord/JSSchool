@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Logo from '../images/logo-jobsity.png';
 import { Link } from 'react-router-dom';
 
+// This component will return a 404 page
 class NotFound extends Component {
     render() {
         return(

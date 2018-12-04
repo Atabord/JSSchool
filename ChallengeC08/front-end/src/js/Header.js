@@ -3,11 +3,20 @@ import mainLogo from '../../src/images/logo-jobsity.png';
 import jakob from '../../src/images/profile.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBars, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { withRouter } from 'react-router-dom';
 
+// this component returns a page with all the elements on the header
 class Header extends Component {
     constructor(props){
         super(props);
+        this.submitSearch = this.submitSearch.bind(this);
     };
+
+    // function to submit the search and redirect to its specific page
+    submitSearch(){
+        event.preventDefault();
+        this.props.history.push(`/bookshelf/search/${this.props.searchVal}`)
+    }
 
     render(){
         return (
@@ -17,10 +26,11 @@ class Header extends Component {
                 </div>
                 <div className="main-header hide-on-small">
                 <h1 className="">Bookshelf</h1>
-                <form className="only-large-devices" onSubmit={this.props.searching} >
+                <form className="only-large-devices" onSubmit={this.submitSearch} >
                     <div className="form-search">
                         <FontAwesomeIcon icon={faSearch} />
-                        <input type="search" 
+                        <input type="search"
+                                name="search"
                                 placeholder="Search..."
                                 value={this.props.searchVal}
                                 onChange={this.props.handleChange}
@@ -75,4 +85,4 @@ class Header extends Component {
     }
 }
 
-export default Header;
+export default withRouter(Header);

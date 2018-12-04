@@ -4,6 +4,7 @@ import { faBookOpen } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import Stars from './Stars';
 
+// This component will return the info of the book to show it in a popup
 class QuickInfo extends Component {
     render() {
         const { book } = this.props;
