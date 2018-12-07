@@ -1,0 +1,113 @@
+.nav-list-header {
+  color: $white;
+  font-weight: bold;
+  font-stretch: condensed;
+  font-size: 13px;
+  text-transform: uppercase;
+  margin-top: 0px;
+}
+
+nav {
+  padding: 36px 39px;
+}
+
+.menu-section {
+  ul {
+    padding: 0;
+  }
+
+  @include tablet {
+    flex: 1;
+
+    &:last-of-type {
+      margin-top: 0;
+    }
+
+    ul {
+      display: flex;
+    }
+  }
+} 
+
+
+.nav-list-item {
+  margin-bottom: 21px;
+  font-weight: normal;
+  font-stretch: condensed;
+  flex: 1;
+  
+  a {
+    color: $primary-blue;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+    
+    svg {
+      margin-right: 10px;
+    }
+  }
+
+  button {
+    color: $primary-blue;
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: left;
+    font-size: 14px;
+    height: 19px;
+    line-height: 19px;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    
+    &:focus{
+      outline: none;
+    }
+
+    svg {
+      margin-right: 10px;
+    }
+  }
+}
+
+.active {
+  color: $light-grey !important;
+}
+
+aside {
+  padding: 38px 31px 38px 34px;
+  font-stretch: condensed;
+  color: $light-grey;
+  
+  h2 {
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 17px;
+    text-transform: uppercase;
+    margin-bottom: 26px;
+    margin-top: 0;
+  }
+  
+  ol {
+    padding: 0;
+    font-size: 12px;
+    font-weight: 300;
+    
+    li {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      list-style-position: inside;
+      margin-bottom: 26px;
+      
+      a {
+       color: $light-grey;
+       text-overflow: ellipsis;
+      }
+    }
+  }
+}

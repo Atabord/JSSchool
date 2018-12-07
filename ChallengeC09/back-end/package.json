@@ -1,0 +1,26 @@
+{
+  "name": "challengec06",
+  "version": "1.0.0",
+  "description": "Backend enpoints for bookshelf app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "startDev": "nodemon index.js",
+    "populate": "node populateDB.js"
+  },
+  "author": "Alejandro Taborda",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.3.12",
+    "node-fetch": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.6"
+  }
+}
