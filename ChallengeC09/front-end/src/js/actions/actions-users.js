@@ -7,9 +7,7 @@ import {
 } from './actionTypes';
 
 export function login(data) {
-  console.log(data);
   return ((dispatch) => {
-    console.log(dispatch);
     dispatch({ type: LOG_IN_REQUEST });
     return fetch(`${process.env.URL}users/signIn`, apiService(data, 'POST'))
       .then(res => res.json())

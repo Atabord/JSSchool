@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router, Route, Redirect, Switch,
 } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { verifyToken } from './actions/actions-users';
 import Header from './Header';
 import Nav from './Nav';
 import Section from './Section';
@@ -22,6 +24,11 @@ class App extends Component {
     this.handleChangeSearch = this.handleChangeSearch.bind(this);
   }
 
+  componentDidMount() {
+    const { verifyToken } = this.props;
+    verifyToken();
+  }
+
   // function to handle Change of searchBar value
   handleChangeSearch(event) {
     this.setState({
@@ -37,7 +44,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.isLogged);
+    const { isLogged } = this.props;
     return (
       <Router>
         <div>
@@ -46,15 +53,15 @@ class App extends Component {
               path="/"
               exact
               render={
-                            () => (<Redirect to="/bookshelf" />)
-                        }
+                  () => (<Redirect to="/bookshelf" />)
+              }
             />
 
             <Route
               path="/bookshelf"
               render={
                 () => {
-                  if (this.props.isLogged) {
+                  if (isLogged) {
                     return (
                       <div>
                         <Header
@@ -97,4 +104,8 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(App);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ verifyToken }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

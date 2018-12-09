@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import allReducers from './reducers';
 import App from './App';
 
 
-// This is where all the data of my app is
-const store = createStore(allReducers, {}, applyMiddleware(thunk));
+/* eslint-disable no-underscore-dangle */
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(allReducers, {}, composeEnhancers(applyMiddleware(thunk)));
+/* eslint-enable */
 
 ReactDOM.render(
   <Provider store={store}>
