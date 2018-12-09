@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThLarge, faThList } from '@fortawesome/free-solid-svg-icons';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { changeUrl } from './actions/actions-books';
 import Books from './Books';
 import BookInfo from './bookInfo';
 import NotFound from './404';
@@ -37,8 +41,8 @@ class Section extends Component {
         exact
         key={`/bookshelf${page}`}
         render={
-                () => (<Redirect to={`/bookshelf${page}/1`} />)
-            }
+          () => (<Redirect to={`/bookshelf${page}/1`} />)
+        }
       />);
     });
     return routes;
@@ -48,23 +52,21 @@ class Section extends Component {
   createRoutes() {
     const { pages } = this.state;
     const routes = [];
+    const { changeUrl } = this.props;
 
     pages.map((page) => {
       let env = page.substring(1);
-      env = `${process.env.BOOKSHELF}${env}`;
-      
+      env = `?bookShelf=${env}`;
       routes.push(
         <Route
           path={`/bookshelf${page}/:page(\\d)`}
           key={page}
           render={
-                    ({ match }) => {
-                      
+                    ({ match }) => {                      
+                      changeUrl(`${env}&page=${match.params.page}`);
                       if (this.state.notFound === false) {
                         return (
                           <Books
-                            url={`${env}&page=${match.params.page}`}
-                            handleLog={this.props.handleLog}
                             path={`/bookshelf${page}`}
                             notFound={this.handleNotFount}
                           />
@@ -82,15 +84,16 @@ class Section extends Component {
   }
 
   render() {
+    const { changeUrl } = this.props;
     return (
       <section>
         <div className="section-header">
           <h2>{ this.state.contentTitle }</h2>
           <div className="list-icons">
-            <a href="#">
+            <a href="/">
               <FontAwesomeIcon icon={faThLarge} />
             </a>
-            <a href="#">
+            <a href="/">
               <FontAwesomeIcon icon={faThList} />
             </a>
           </div>
@@ -101,14 +104,15 @@ class Section extends Component {
             path="/bookshelf/:page(\d)?"
             exact
             render={
-                    ({ match }) => (
-                      <Books
-                        url={`${process.env.HOME}?page=${match.params.page}`}
-                        handleLog={this.props.handleLog}
-                        path="/bookshelf"
-                        notFound={this.handleNotFount}
-                      />
-                    )
+                    ({ match }) => {
+                      changeUrl(`?page=${match.params.page}`);
+                      return (
+                        <Books
+                          path="/bookshelf"
+                          notFound={this.handleNotFount}
+                        />
+                      );
+                    }
                 }
           />
           {this.createRoutes()}
@@ -131,11 +135,10 @@ class Section extends Component {
             exact
             render={
                     ({ match }) => {
-                      const { name } = match.params;
+                      const { name, page = null } = match.params;
+                      changeUrl(`?search=${name}&page=${page}`);
                       return (
                         <Books
-                          url={`${process.env.SEARCH}${name}`}
-                          handleLog={this.props.handleLog}
                           path={`/bookshelf/search/${name}`}
                           notFound={this.handleNotFount}
                         />
@@ -150,4 +153,8 @@ class Section extends Component {
   }
 }
 
-export default Section;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ changeUrl }, dispatch);
+}
+
+export default withRouter(connect(null, mapDispatchToProps)(Section));

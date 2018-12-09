@@ -4,6 +4,7 @@ import {
   SUCCESS_FETCH_BOOKS,
   FAIL_FETCH_BOOKS,
   REQUEST_BOOKS,
+  CHANGE_URL,
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -27,13 +28,18 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isLoaded: true,
-        books: action.payload,
+        ...action.payload,
       };
     case FAIL_FETCH_BOOKS:
       return {
         ...state,
         isLoaded: true,
         error: action.payload,
+      };
+    case CHANGE_URL:
+      return {
+        ...state,
+        url: action.payload,
       };
     default:
       return state;

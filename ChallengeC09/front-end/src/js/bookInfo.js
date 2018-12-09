@@ -21,6 +21,22 @@ class BookInfo extends Component {
     this.handleMessage = this.handleMessage.bind(this);
   }
 
+  // this function will search the book only when the component has been mounted
+  componentDidMount() {
+    this.searchBook();
+  }
+
+  // this function allow us to search the book when the url has changed
+  componentDidUpdate() {
+    const { url } = this.state;
+    if (url != this.props.url) {
+      this.setState({
+        url: this.props.url,
+      });
+      this.searchBook();
+    }
+  }
+
   // function to handle change on datepicker
   handleDateChange(date) {
     this.setState({
@@ -60,7 +76,7 @@ class BookInfo extends Component {
           ? this.handleMessage(result.message)
           : this.handleMessage('There are not available books now');
       }, (err) => {
-        console.log(err);
+        this.handleMessage(err);
       });
   }
 
@@ -92,22 +108,6 @@ class BookInfo extends Component {
           });
         },
       );
-  }
-
-  // this function will search the book only when the component has been mounted
-  componentDidMount() {
-    this.searchBook();
-  }
-
-  // this function allow us to search the book when the url has changed
-  componentDidUpdate() {
-    const { url } = this.state;
-    if (url != this.props.url) {
-      this.setState({
-        url: this.props.url,
-      });
-      this.searchBook();
-    }
   }
 
   // function to limit the date of return the book
@@ -178,7 +178,7 @@ class BookInfo extends Component {
         <form onSubmit={this.handleSubmit}>
           <DatePicker
             selected={returnDate}
-            onChange={this.handleChange}
+            onChange={this.handleDateChange}
             minDate={new Date()}
             maxDate={this.addDays(15)}
             placeholderText="Select the return date (max 15 days)"

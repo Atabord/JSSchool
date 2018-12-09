@@ -5,9 +5,10 @@ import {
   SUCCESS_FETCH_BOOKS,
   FAIL_FETCH_BOOKS,
   REQUEST_BOOKS,
+  CHANGE_URL,
 } from './actionTypes';
 
-export default function searchBook(url, data, method = 'GET') {
+export function searchBook(url, data, method = 'GET') {
   return ((dispatch) => {
     dispatch({ type: REQUEST_BOOKS });
     return fetch(`${process.env.URL}books${url}`, apiService(data, method))
@@ -25,3 +26,8 @@ export default function searchBook(url, data, method = 'GET') {
       .catch(err => dispatch({ type: FAIL_FETCH_BOOKS, payload: err }));
   });
 }
+
+export const changeUrl = url => ({
+  type: CHANGE_URL,
+  payload: url,
+});
