@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import Book from './Book';
+import searchBook from './actions/actions-books';
 
 // this component returns a page with all the books requested
 class Books extends Component {
@@ -13,12 +16,13 @@ class Books extends Component {
       pagination: {},
       url: this.props.url,
     };
-    this.searchBooks = this.searchBooks.bind(this);
   }
 
   // this function will search the books only when the component has been mounted
   componentDidMount() {
-    this.searchBooks();
+    const { searchBook } = this.props;
+    const { url } = this.state;
+    searchBook(url);
   }
 
   // this function allow us to search the books when the url has changed
@@ -34,9 +38,9 @@ class Books extends Component {
 
   // this function obtain the total pages and make links with that number of pages
   getPagination() {
-    const { pagination } = this.state;
+    const { books, path } = this.props;
+    const { pagination } = books;
     const { totalPages } = pagination;
-    const { path } = this.props;
     const buttons = [];
     for (let i = 1; i <= totalPages; i += 1) {
       buttons.push(<NavLink to={`${path}/${i}`} key={`page ${i}`}>{i}</NavLink>);
@@ -44,41 +48,9 @@ class Books extends Component {
     return buttons;
   }
 
-
-  // function to search books on database
-  searchBooks() {
-    const { url } = this.props;
-    const { handleLog, notFound } = this.props;
-    fetch(url, { headers: { Authorization: sessionStorage.getItem('token') } })
-      .then((res) => {
-        if (res.status === 403) {
-          handleLog(false);
-        } else if (res.status === 404) {
-          notFound(true);
-        } else {
-          notFound(false);
-          return res.json();
-        }
-      })
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            books: result.books,
-            pagination: result.pagination,
-          });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error,
-          });
-        },
-      );
-  }
-
   render() {
-    const { error, isLoaded, books } = this.state;
+    const { books, isLoaded, error } = this.props;
+    console.log(books.books);
     if (error) {
       return (
         <div>
@@ -92,7 +64,7 @@ class Books extends Component {
 
     return (
       <div className="book-section" id="books-container">
-        {books.map(book => (
+        {books.books.map(book => (
           <Book book={book} key={book._id} />
         )) }
         <div className="pagination-container">
@@ -103,4 +75,26 @@ class Books extends Component {
   }
 }
 
-export default Books;
+function mapStateToProps(state) {
+  const {
+    error,
+    isLoaded,
+    books,
+    pagination,
+    url,
+  } = state.books;
+
+  return {
+    error,
+    isLoaded,
+    books,
+    pagination,
+    url,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ searchBook }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Books);

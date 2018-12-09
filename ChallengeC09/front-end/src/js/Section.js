@@ -51,14 +51,15 @@ class Section extends Component {
 
     pages.map((page) => {
       let env = page.substring(1);
-      env === 'Personal_Loans' ? env = process.env.PERSONAL_LOANS
-        : env = `${process.env.BOOKSHELF}${env}`;
+      env = `${process.env.BOOKSHELF}${env}`;
+      
       routes.push(
         <Route
           path={`/bookshelf${page}/:page(\\d)`}
           key={page}
           render={
                     ({ match }) => {
+                      
                       if (this.state.notFound === false) {
                         return (
                           <Books

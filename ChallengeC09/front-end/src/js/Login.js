@@ -26,13 +26,6 @@ class Login extends Component {
     });
   }
 
-  // this is to tell the page to redirect after login
-  changeRedirect(status) {
-    this.setState({
-      redirect: status,
-    });
-  }
-
   // this function will handle submit
   handleSubmit(event) {
     event.preventDefault();

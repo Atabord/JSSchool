@@ -146,7 +146,7 @@ function createBook(req, res) {
             res.sendStatus(403);
         } else {
             const isbn = req.body.isbn;
-            const place = req.body.place; //could be Quito, Cartagena, Medellín, Digital, Personal Loans
+            const place = req.body.place; //could be Quito, Cartagena, Medellín, Digital, Personal_Loans
             const copies = req.body.copies; //number of copies
             const url = `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`
 

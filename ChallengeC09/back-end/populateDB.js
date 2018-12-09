@@ -79,7 +79,7 @@ const books = [
         {
             body: {
                 isbn: '9780060598242',
-                place: ['Personal Loans'],
+                place: ['Personal_Loans'],
                 copies: 3
             }
         },
@@ -123,13 +123,6 @@ const books = [
                 isbn: '9780201633610',
                 place: ['Digital'],
                 copies: 0
-            }
-        },
-        {
-            body: {
-                isbn: '9780545010221',
-                place: ['Quito'],
-                copies: 2
             }
         },
     ]

@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 // this function receibe resolve and reject instead of just response
 function createMultipleBooks(req, resolve, reject) {
     const isbn = req.body.isbn;
-    const place = req.body.place; //could be Quito, Cartagena, Medellín, Digital, Personal Loans
+    const place = req.body.place; //could be Quito, Cartagena, Medellín, Digital, Personal_Loans
     const copies = req.body.copies; //number of copies
     const url = `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`
 
