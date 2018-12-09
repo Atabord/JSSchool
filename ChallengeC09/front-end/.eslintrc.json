@@ -11,11 +11,16 @@
         "ecmaVersion": 6,
         "sourceType": "module",
         "ecmaFeatures": {
-            "jsx": true
+            "jsx": true,
+            "experimentalObjectRestSpread": true
         }
     },
     "rules": {
-        "semi": 2
+        "semi": 2,
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "allowShortCircuit": true, 
+        "allowTernary": true
     },
-    "extends": ["airbnb", "plugin:react/recommended"]
+    "extends": ["airbnb", "plugin:react/recommended"],
+    "parser": "babel-eslint"
 }

@@ -29,7 +29,10 @@
     "react": "^16.6.3",
     "react-datepicker": "^2.0.0",
     "react-dom": "^16.6.3",
+    "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "sass": "^1.15.1",
     "style-loader": "^0.23.1",
     "webpack-dev-server": "^3.1.10"
@@ -39,6 +42,7 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "eslint": "^5.9.0",
     "eslint-config-airbnb": "^17.1.0",
