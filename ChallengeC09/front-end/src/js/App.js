@@ -8,9 +8,9 @@ import { verifyToken } from './actions/actions-users';
 import Header from './Header';
 import Nav from './Nav';
 import Section from './Section';
-import Sidebar from './Sidebar';
+import Sidebar from './components/Sidebar';
 import Login from './Login';
-import NotFound from './404';
+import NotFound from './components/404';
 
 
 class App extends Component {

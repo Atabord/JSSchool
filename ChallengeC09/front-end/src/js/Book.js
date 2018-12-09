@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import inUse from '../images/inUse.png';
-import QuickInfo from './quickInfo';
-import Stars from './Stars';
+import QuickInfo from './components/quickInfo';
+import Stars from './components/Stars';
 
 class Book extends Component {
   constructor() {

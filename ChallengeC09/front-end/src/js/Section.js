@@ -8,7 +8,7 @@ import { withRouter } from 'react-router-dom';
 import { changeUrl } from './actions/actions-books';
 import Books from './Books';
 import BookInfo from './bookInfo';
-import NotFound from './404';
+import NotFound from './components/404';
 
 // this component will return the main section of the page depending on its route
 class Section extends Component {

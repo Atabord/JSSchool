@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
-import Stars from './Stars';
+import Stars from './components/Stars';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -18,6 +18,7 @@ class BookInfo extends Component {
     };
     this.searchBook = this.searchBook.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
     this.handleMessage = this.handleMessage.bind(this);
   }
 
@@ -176,12 +177,12 @@ class BookInfo extends Component {
         )
         }
         <form onSubmit={this.handleSubmit}>
+          <p>Select a date for the returning date</p>
           <DatePicker
             selected={returnDate}
             onChange={this.handleDateChange}
             minDate={new Date()}
             maxDate={this.addDays(15)}
-            placeholderText="Select the return date (max 15 days)"
           />
           <button type="submit">Borrow</button>
         </form>
