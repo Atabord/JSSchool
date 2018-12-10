@@ -27,6 +27,7 @@ export default {
     fontWeight: 'normal',
     fontStretch: 'condensed',
     flex: 1,
+    listStyleType: 'none',
 
     '& a': {
       color: `${colors.primaryBlue}`,
