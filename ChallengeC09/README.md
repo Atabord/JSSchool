@@ -1,15 +1,9 @@
-# Challenge CO8
-## Secure your application
+# Challenge CO9
+## REDUX integration
 
-* Add a login page in your frontend application
-* Add support for login and security in your backend application
-* Implement a reservation form for a book and use a DateTime picker to define a return date.
-* The DateTime picker has to be validated, it can't be a date more than 15 days from now.
-* Implement routes for cities, digital, searches, book detail
-* Implement pagination. This has to be integrated with the backend.
-* Implement a 404 page.
-* Implement a redirection to login form if the user is not authenticated.
-* Push all changes to your GitHub repo.
+* Add redux to your application
+* Include CSS into the components use JSS
+* Push all your changes into the GitHub repo
 
 ## How to Install and use the API
 ### prerequisites
@@ -53,8 +47,8 @@
 
 | key   | value |
 | ----- | ----- |
-| isbn  | [Find the isbn of your favourite book here](https://isbnsearch.org/) |
-| place | Can be Quito, Cartagena, Medellin, Digital or Personal Loans |
+| isbn  | [Find the isbn of your favorite book here](https://isbnsearch.org/) |
+| place | Can be Quito, Cartagena, Medellin, Digital or Personal_Loans |
 | copies | Number (e.g. 3) |
 
 
@@ -102,7 +96,7 @@ This command will compile the sass files, run the webpack tasks and start the we
 
 Open http://localhost:8081/ in your favorite browser to watch the app runing.
 
-The users created by autopopulating the database are:
+The users created by auto-populating the database are:
 | user | password | email |
 |------ |-------- | ------ |
 | user1 | password1 | user1@example.com |

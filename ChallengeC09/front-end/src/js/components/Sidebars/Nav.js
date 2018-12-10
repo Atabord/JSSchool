@@ -8,6 +8,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import injectSheet from 'react-jss';
+import styles from './styles';
 
 const ListItem = ({ url, icon, pageName }) => (
   <li className="nav-list-item">
@@ -24,11 +26,10 @@ ListItem.propTypes = {
   pageName: PropTypes.string.isRequired,
 };
 
-
-const Nav = () => (
+const Nav = ({ classes }) => (
   <nav className="sidebar">
-    <div className="menu-section">
-      <h2 className="nav-list-header">Main</h2>
+    <div className={classes.menuSection}>
+      <h2 className={classes.navListHeader}>Main</h2>
       <ul>
         <ListItem url="/bookshelf/1" icon={faHome} pageName="Home" />
         <ListItem url="/bookshelf/Quito/1" icon={faGlobe} pageName="Quito" />
@@ -41,4 +42,4 @@ const Nav = () => (
   </nav>
 );
 
-export default Nav;
+export default injectSheet(styles)(Nav);
