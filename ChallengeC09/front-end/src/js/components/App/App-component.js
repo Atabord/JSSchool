@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router, Route, Redirect, Switch,
 } from 'react-router-dom';
-import Header from './Header';
-import Nav from './Nav';
-import Section from '../containers/Section';
-import Sidebar from './Sidebar';
-import Login from '../containers/Login';
+import Header from '../Header/Header';
+import Nav from '../Sidebars/Nav';
+import Section from '../../containers/Section';
+import Sidebar from '../Sidebars/Sidebar';
+import Login from '../../containers/Login';
 import NotFound from './404';
 
 class App extends Component {

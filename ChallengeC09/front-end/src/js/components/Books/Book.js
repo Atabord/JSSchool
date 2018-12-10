@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import inUse from '../../images/inUse.png';
+import inUse from '../../../images/inUse.png';
 import QuickInfo from './quickInfo';
 import Stars from './Stars';
 

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThLarge, faThList } from '@fortawesome/free-solid-svg-icons';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import Books from '../containers/Books';
-import BookInfo from '../containers/bookInfo';
-import NotFound from './404';
+import Books from '../../containers/Books';
+import BookInfo from '../../containers/bookInfo';
+import NotFound from '../App/404';
 
 // this component will return the main section of the page depending on its route
 class Section extends Component {

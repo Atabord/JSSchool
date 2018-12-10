@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { verifyToken } from '../actions/actions-users';
-import App from '../components/App-component';
+import App from '../components/App/App-component';
 
 function mapStateToProps(state) {
   return {

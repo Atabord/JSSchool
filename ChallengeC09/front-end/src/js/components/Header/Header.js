@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faBars, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { withRouter } from 'react-router-dom';
-import jakob from '../../images/profile.png';
-import mainLogo from '../../images/logo-jobsity.png';
+import jakob from '../../../images/profile.png';
+import mainLogo from '../../../images/logo-jobsity.png';
 
 // this component returns a page with all the elements on the header
 class Header extends Component {

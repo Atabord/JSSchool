@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faUnlock } from '@fortawesome/free-solid-svg-icons';
-import Logo from '../../images/logo-jobsity.png';
+import Logo from '../../../images/logo-jobsity.png';
 
 // this component returns the login page
 class Login extends Component {

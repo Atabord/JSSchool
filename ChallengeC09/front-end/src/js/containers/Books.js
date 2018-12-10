@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { searchBook } from '../actions/actions-books';
-import Books from '../components/Books-component';
+import Books from '../components/Books/Books-component';
 
 function mapStateToProps(state) {
   const {
