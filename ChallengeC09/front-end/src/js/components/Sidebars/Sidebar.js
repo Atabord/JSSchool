@@ -1,7 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
+import styles from './sidebarStyles';
 
-const Sidebar = () => (
-  <aside className="sidebar">
+const Sidebar = ({ classes }) => (
+  <aside className={`sidebar ${classes.sidebarAside}`}>
     <h2>Most Read Books</h2>
     <ol>
       <li><a href="/">Hooked: How to Build Habit-Forming Products</a></li>
@@ -13,4 +16,8 @@ const Sidebar = () => (
   </aside>
 );
 
-export default Sidebar;
+Sidebar.propTypes = {
+  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};
+
+export default injectSheet(styles)(Sidebar);
