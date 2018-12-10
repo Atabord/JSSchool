@@ -1,6 +1,6 @@
 import shared from '../../sharedStyles/styles';
 
-const { colors } = shared;
+const { colors, sidebarStyles } = shared;
 
 export default {
   nav: {
@@ -46,7 +46,9 @@ export default {
       },
     },
   },
-
+  sidebar: {
+    ...sidebarStyles.sidebar,
+  },
   '@media screen and (max-width: 900px)': {
     menuSection: {
       flex: 1,
@@ -59,5 +61,6 @@ export default {
         display: 'flex',
       },
     },
+    ...sidebarStyles.sidebarTablet,
   },
 };

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faUnlock } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
+import styles from './loginStyles';
 import Logo from '../../../images/logo-jobsity.png';
 
 // this component returns the login page
@@ -39,24 +42,24 @@ class Login extends Component {
   }
 
   render() {
-    const { isLogged, loginError } = this.props;
+    const { isLogged, loginError, classes } = this.props;
     if (isLogged === true) {
       return <Redirect to="/" />;
     }
     return (
-      <div className="form-container" onSubmit={this.handleSubmit}>
-        <img id="logo" className="login-logo" src={Logo} alt="Jobsity Logo" />
-        <h1 className="login-title">Login</h1>
+      <div className={classes.formContainer} onSubmit={this.handleSubmit}>
+        <img id="logo" className={classes.loginLogo} src={Logo} alt="Jobsity Logo" />
+        <h1 className={classes.loginTitle}>Login</h1>
         {loginError
             && (
-              <div className="alert">
+              <div className={classes.alert}>
                 <p>
                   {loginError}
                 </p>
               </div>
             )
         }
-        <form className="login-form">
+        <form className={classes.loginForm}>
           <div>
             <FontAwesomeIcon icon={faUser} />
             <input type="text" name="username" id="username" placeholder="Username" onChange={e => this.handleChange(e)} required />
@@ -72,4 +75,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default injectSheet(styles)(Login);

@@ -18,20 +18,6 @@ body {
   }
 }
 
-.sidebar {
-    flex-basis: 15%;
-    background: $primary-black;
-    width: 240px;
-    overflow-x: hidden;
-
-    @include tablet {
-      width: auto;
-      height: auto;
-      padding: 10px;
-      flex-basis: 20%;
-    }
-}
-
 section {
   flex-basis: 72%;
   background: $main-background;

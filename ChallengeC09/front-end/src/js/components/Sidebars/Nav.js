@@ -32,7 +32,7 @@ ListItem.propTypes = {
 };
 
 const Nav = ({ classes }) => (
-  <nav className={`sidebar ${classes.nav}`}>
+  <nav className={`${classes.sidebar} ${classes.nav}`}>
     <div className={classes.menuSection}>
       <h2 className={classes.navListHeader}>Main</h2>
       <ul>

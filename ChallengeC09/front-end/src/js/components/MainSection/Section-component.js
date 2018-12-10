@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThLarge, faThList } from '@fortawesome/free-solid-svg-icons';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import Books from '../../containers/Books';
 import BookInfo from '../../containers/bookInfo';
 import NotFound from '../App/404';
+import styles from './styles';
 
 // this component will return the main section of the page depending on its route
 class Section extends Component {
@@ -80,12 +83,12 @@ class Section extends Component {
   }
 
   render() {
-    const { changeUrl } = this.props;
+    const { changeUrl, classes } = this.props;
     return (
       <section>
-        <div className="section-header">
+        <div className={classes.sectionHeader}>
           <h2>{ this.state.contentTitle }</h2>
-          <div className="list-icons">
+          <div className={classes.listIcons}>
             <a href="/">
               <FontAwesomeIcon icon={faThLarge} />
             </a>
@@ -152,4 +155,8 @@ class Section extends Component {
   }
 }
 
-export default Section;
+Section.propTypes = {
+  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};
+
+export default injectSheet(styles)(Section);

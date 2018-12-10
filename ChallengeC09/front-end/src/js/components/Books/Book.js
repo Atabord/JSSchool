@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserCheck } from '@fortawesome/free-solid-svg-icons';
+import styles from './styles';
 import inUse from '../../../images/inUse.png';
 import QuickInfo from './quickInfo';
 import Stars from './Stars';
@@ -23,19 +28,19 @@ class Book extends Component {
   }
 
   render() {
-    const { book } = this.props;
+    const { book, classes } = this.props;
     const { popup, clickedBook } = this.state;
     return (
-      <div className="book" key={book._id} onClick={() => this.togglePopup(book._id)}>
-        <img src={book.imageLink} alt={book.title} className="book-main-image" />
-        <div className="in-use">
+      <div className={`${classes.book} book`} key={book._id} onClick={() => this.togglePopup(book._id)}>
+        <img src={book.imageLink} alt={book.title} className={classes.bookMainImage} />
+        <div className={classes.inUse}>
           <img src={inUse} alt="Borrowed Book" />
-          <i className="fas fa-user-check" />
+          <FontAwesomeIcon icon={faUserCheck} />
         </div>
-        <div className="book-description">
-          <h3 className="book-title">{book.title}</h3>
-          <span className="book-author">{book.authors.join(', ')}</span>
-          <span className="book-location">{book.bookshelf.join(', ')}</span>
+        <div className={classes.bookDescription}>
+          <h3 className={classes.bookTitle}>{book.title}</h3>
+          <span className={classes.bookAuthor}>{book.authors.join(', ')}</span>
+          <span className={classes.bookLocation}>{book.bookshelf.join(', ')}</span>
           <Stars rating={book.averageRating} />
         </div>
         {popup && (clickedBook === book._id)
@@ -46,4 +51,8 @@ class Book extends Component {
   }
 }
 
-export default Book;
+Book.propTypes = {
+  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};
+
+export default injectSheet(styles)(Book);

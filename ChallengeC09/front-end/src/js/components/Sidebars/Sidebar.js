@@ -4,7 +4,7 @@ import injectSheet from 'react-jss';
 import styles from './sidebarStyles';
 
 const Sidebar = ({ classes }) => (
-  <aside className={`sidebar ${classes.sidebarAside}`}>
+  <aside className={`${classes.sidebar} ${classes.sidebarAside}`}>
     <h2>Most Read Books</h2>
     <ol>
       <li><a href="/">Hooked: How to Build Habit-Forming Products</a></li>

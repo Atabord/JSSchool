@@ -18,4 +18,20 @@ export default {
     yellowStar: '#eec75a',
     mainBackground: '#f5f6f8',
   },
+  sidebarStyles: {
+    sidebar: {
+      flexBasis: '15%',
+      background: '#231f20',
+      width: '240px',
+      overflowX: 'hidden',
+    },
+    sidebarTablet: {
+      sidebar: {
+        width: 'auto',
+        height: 'auto',
+        padding: '10px',
+        flexBasis: '20%',
+      },
+    },
+  },
 };

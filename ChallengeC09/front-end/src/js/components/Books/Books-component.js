@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import Book from './Book';
+import styles from './styles';
 
 // this component returns a page with all the books requested
 class Books extends Component {
-
   // this function will search the books only when the component has been mounted
   componentDidMount() {
     const { url, searchBook } = this.props;
@@ -31,7 +33,7 @@ class Books extends Component {
   }
 
   render() {
-    const { books, isLoaded, error } = this.props;
+    const { books, isLoaded, error, classes } = this.props;
 
     if (error) {
       return (
@@ -45,11 +47,11 @@ class Books extends Component {
     }
 
     return (
-      <div className="book-section" id="books-container">
+      <div className={classes.bookSection} id="books-container">
         {books.map(book => (
           <Book book={book} key={book._id} />
         )) }
-        <div className="pagination-container">
+        <div className={classes.paginationContainer}>
           {this.getPagination()}
         </div>
       </div>
@@ -57,4 +59,11 @@ class Books extends Component {
   }
 }
 
-export default Books;
+Books.propTypes = {
+  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  searchBook: PropTypes.func.isRequired,
+  url: PropTypes.string.isRequired,
+};
+
+
+export default injectSheet(styles)(Books);

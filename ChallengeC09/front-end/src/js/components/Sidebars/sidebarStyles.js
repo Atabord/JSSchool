@@ -1,9 +1,12 @@
 import shared from '../../sharedStyles/styles';
 
-const { colors } = shared;
+const { colors, sidebarStyles } = shared;
 
 export default {
 
+  sidebar: {
+    ...sidebarStyles.sidebar,
+  },
   sidebarAside: {
     padding: '38px 31px 38px 34px',
     fontStretch: 'condensed',
@@ -35,5 +38,8 @@ export default {
         },
       },
     },
+  },
+  '@media screen and (max-width: 900px)': {
+    ...sidebarStyles.sidebarTablet,
   },
 };
