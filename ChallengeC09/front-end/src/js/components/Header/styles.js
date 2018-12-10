@@ -69,6 +69,84 @@ export default {
       },
     },
   },
+  profileHeader: {
+    flexBasis: '15%',
+  },
+  dropdownMenu: {
+    width: '100%',
+    margin: '10px 5px',
+    display: 'flex',
+    borderLeft: `1px solid ${colors.darkGrey}`,
+  },
+  jakob: {
+    width: '36px',
+    height: '36px',
+    border: `2px solid ${colors.primaryBlue}`,
+    borderRadius: '20px',
+    margin: '10px 16px 10px 10px',
+  },
+  dropdownButton: {
+    backgroundColor: 'transparent',
+    border: 0,
+    fontStretch: 'condensed',
+    fontSize: '14px',
+    marginLeft: 'auto',
+    fontWeight: 'normal',
+    display: 'inline-block',
+    lineHeight: '19px',
+
+    '& svg': {
+      marginLeft: '10px',
+    },
+  },
+
+  dropdownList: {
+    visibility: 'hidden',
+    position: 'absolute',
+    backgroundColor: colors.lightGrey,
+    minWidth: '160px',
+    boxShadow: `0px 8px 16px 0px ${colors.lowOpacityBlack}`,
+    padding: '12px 16px',
+    zIndex: 1,
+
+    '& ul': {
+      margin: 0,
+      padding: 0,
+
+      '& a': {
+        color: colors.black,
+        textDecoration: 'none',
+      },
+    },
+  },
+  smallDevicesNavbar: {
+    display: 'none',
+  },
+
+  onlyOnSmall: {
+    display: 'none',
+  },
+
+  'ul': {
+    '& li': {
+      listStyle: 'none',
+    },
+  },
+  'ol': {
+    '& li': {
+      '& a': {
+        textDecoration: 'none',
+        
+        '&:hover': {
+          textDecoration: 'underline',
+        },
+        
+        '&:visited': {
+          textDecoration: 'none',
+        },
+      },
+    },
+  },
   // Tablet
   '@media screen and (max-width: 900px)': {
     logoHeader: {
@@ -175,84 +253,6 @@ export default {
       '& h1': {
         fontSize: '18px',
         textAlign: 'center',
-      },
-    },
-  },
-  profileHeader: {
-    flexBasis: '15%',
-  },
-  dropdownMenu: {
-    width: '100%',
-    margin: '10px 5px',
-    display: 'flex',
-    borderLeft: `1px solid ${colors.darkGrey}`,
-  },
-  jakob: {
-    width: '36px',
-    height: '36px',
-    border: `2px solid ${colors.primaryBlue}`,
-    borderRadius: '20px',
-    margin: '10px 16px 10px 10px',
-  },
-  dropdownButton: {
-    backgroundColor: 'transparent',
-    border: 0,
-    fontStretch: 'condensed',
-    fontSize: '14px',
-    marginLeft: 'auto',
-    fontWeight: 'normal',
-    display: 'inline-block',
-    lineHeight: '19px',
-
-    '& svg': {
-      marginLeft: '10px',
-    },
-  },
-
-  dropdownList: {
-    visibility: 'hidden',
-    position: 'absolute',
-    backgroundColor: colors.lightGrey,
-    minWidth: '160px',
-    boxShadow: `0px 8px 16px 0px ${colors.lowOpacityBlack}`,
-    padding: '12px 16px',
-    zIndex: 1,
-
-    '& ul': {
-      margin: 0,
-      padding: 0,
-
-      '& a': {
-        color: colors.black,
-        textDecoration: 'none',
-      },
-    },
-  },
-  smallDevicesNavbar: {
-    display: 'none',
-  },
-
-  onlyOnSmall: {
-    display: 'none',
-  },
-
-  'ul': {
-    '& li': {
-      listStyle: 'none',
-    },
-  },
-  'ol': {
-    '& li': {
-      '& a': {
-        textDecoration: 'none',
-        
-        '&:hover': {
-          textDecoration: 'underline',
-        },
-        
-        '&:visited': {
-          textDecoration: 'none',
-        },
       },
     },
   },

@@ -185,24 +185,6 @@ section {
   color: #000;
 }
 
-.notFoundContainer {
-  display: flex;
-  margin: auto;
-  text-align: center;
-  height: 90vh;
-  flex-flow: column;
-  justify-content: center;
-}
-.notFoundContainer h1 {
-  font-size: 10em;
-  margin: 10px;
-}
-@media screen and (max-width: 480px) {
-  .notFoundContainer h1 {
-    font-size: 5em;
-  }
-}
-
 * {
   box-sizing: border-box;
 }

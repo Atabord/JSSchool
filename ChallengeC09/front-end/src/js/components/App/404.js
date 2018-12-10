@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
+import styles from './notFoundStyles';
 
 // This component will return a 404 page
-const NotFound = () => (
-  <div className="notFoundContainer">
+const NotFound = ({ classes }) => (
+  <div className={classes.notFoundContainer}>
     <h1>404</h1>
     <h2>Page Not Found</h2>
     <p>
@@ -14,4 +17,8 @@ const NotFound = () => (
   </div>
 );
 
-export default NotFound;
+NotFound.propTypes = {
+  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};
+
+export default injectSheet(styles)(NotFound);
