@@ -2,13 +2,9 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThLarge, faThList } from '@fortawesome/free-solid-svg-icons';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { changeUrl } from './actions/actions-books';
-import Books from './Books';
-import BookInfo from './bookInfo';
-import NotFound from './components/404';
+import Books from '../containers/Books';
+import BookInfo from '../containers/bookInfo';
+import NotFound from './404';
 
 // this component will return the main section of the page depending on its route
 class Section extends Component {
@@ -120,13 +116,16 @@ class Section extends Component {
             path="/bookshelf/book/:id"
             exact
             render={
-                    ({ match }) => (
-                      <BookInfo
-                        url={`${process.env.HOME}/${match.params.id}`}
-                        handleLog={this.props.handleLog}
-                        notFound={this.handleNotFount}
-                      />
-                    )
+                    ({ match }) => {
+                      const { id } = match.params;
+                      changeUrl(`/${id}`);
+                      return (
+                        <BookInfo
+                          url={`${process.env.HOME}/${match.params.id}`}
+                          notFound={this.handleNotFount}
+                        />
+                      );
+                    }
                 }
           />
 
@@ -153,8 +152,4 @@ class Section extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ changeUrl }, dispatch);
-}
-
-export default withRouter(connect(null, mapDispatchToProps)(Section));
+export default Section;

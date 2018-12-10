@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import inUse from '../images/inUse.png';
-import QuickInfo from './components/quickInfo';
-import Stars from './components/Stars';
+import inUse from '../../images/inUse.png';
+import QuickInfo from './quickInfo';
+import Stars from './Stars';
 
 class Book extends Component {
   constructor() {
@@ -39,8 +39,8 @@ class Book extends Component {
           <Stars rating={book.averageRating} />
         </div>
         {popup && (clickedBook === book._id)
-                    && <QuickInfo book={book} />
-                }
+          && <QuickInfo book={book} />
+        }
       </div>
     );
   }

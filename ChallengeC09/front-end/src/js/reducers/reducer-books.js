@@ -1,6 +1,4 @@
 import {
-  FORBIDDEN_BOOKS,
-  NOT_FOUND,
   SUCCESS_FETCH_BOOKS,
   FAIL_FETCH_BOOKS,
   REQUEST_BOOKS,
@@ -12,6 +10,8 @@ const initialState = {
   isLoaded: false,
   books: [],
   pagination: {},
+  book: {},
+  message: '',
   url: '/',
 };
 
@@ -27,8 +27,8 @@ export default (state = initialState, action) => {
     case SUCCESS_FETCH_BOOKS:
       return {
         ...state,
-        isLoaded: true,
         ...action.payload,
+        isLoaded: true,
       };
     case FAIL_FETCH_BOOKS:
       return {

@@ -8,7 +8,7 @@ import {
   CHANGE_URL,
 } from './actionTypes';
 
-export function searchBook(url, data, method = 'GET') {
+export function searchBook(url, method = 'GET', data) {
   return ((dispatch) => {
     dispatch({ type: REQUEST_BOOKS });
     return fetch(`${process.env.URL}books${url}`, apiService(data, method))

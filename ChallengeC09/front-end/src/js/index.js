@@ -4,7 +4,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import allReducers from './reducers';
-import App from './App';
+import App from './containers/App';
 
 
 /* eslint-disable no-underscore-dangle */

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faBars, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { withRouter } from 'react-router-dom';
-import jakob from '../images/profile.png';
-import mainLogo from '../images/logo-jobsity.png';
+import jakob from '../../images/profile.png';
+import mainLogo from '../../images/logo-jobsity.png';
 
 // this component returns a page with all the elements on the header
 class Header extends Component {
@@ -44,14 +44,14 @@ class Header extends Component {
         <div className="profile-header only-large-devices">
           <div className="dropdown-menu">
             <button type="button" name="button" className="dropdown-button">
-Jakob Treml
+              Jakob Treml
               <FontAwesomeIcon icon={faAngleDown} />
             </button>
             <div className="dropdown-list">
               <ul>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Help</a></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="/">Profile</a></li>
+                <li><a href="/">Help</a></li>
+                <li><a href="/">Logout</a></li>
               </ul>
             </div>
             <img src={jakob} alt="Profile Image" className="jakob" />

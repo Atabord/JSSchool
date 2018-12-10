@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faUnlock } from '@fortawesome/free-solid-svg-icons';
-import { login } from './actions/actions-users';
-import Logo from '../images/logo-jobsity.png';
+import Logo from '../../images/logo-jobsity.png';
 
 // this component returns the login page
 class Login extends Component {
@@ -75,15 +72,4 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    isLogged: state.user.isLogged,
-    loginError: state.user.loginError,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ login }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default Login;

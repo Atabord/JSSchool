@@ -2,25 +2,19 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router, Route, Redirect, Switch,
 } from 'react-router-dom';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { verifyToken } from './actions/actions-users';
 import Header from './Header';
 import Nav from './Nav';
-import Section from './Section';
-import Sidebar from './components/Sidebar';
-import Login from './Login';
-import NotFound from './components/404';
-
+import Section from '../containers/Section';
+import Sidebar from './Sidebar';
+import Login from '../containers/Login';
+import NotFound from './404';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       searchVal: '',
-      isLogged: true,
     };
-    this.handleLog = this.handleLog.bind(this);
     this.handleChangeSearch = this.handleChangeSearch.bind(this);
   }
 
@@ -33,13 +27,6 @@ class App extends Component {
   handleChangeSearch(event) {
     this.setState({
       searchVal: event.target.value,
-    });
-  }
-
-  // function to handle login to the app, or logout in case of expired or undefined token
-  handleLog(status) {
-    this.setState({
-      isLogged: status,
     });
   }
 
@@ -69,10 +56,8 @@ class App extends Component {
                           searchVal={this.state.searchVal}
                         />
                         <div className="container">
-                          <Nav changeUrl={this.onChangeUrl} />
-                          <Section
-                            handleLog={this.handleLog}
-                          />
+                          <Nav />
+                          <Section />
                           <Sidebar />
                         </div>
                       </div>
@@ -86,7 +71,7 @@ class App extends Component {
               path="/login"
               exact
               render={
-                () => (<Login handleLog={this.handleLog} />)
+                () => (<Login />)
               }
             />
 
@@ -98,14 +83,4 @@ class App extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    isLogged: state.user.isLogged,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ verifyToken }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

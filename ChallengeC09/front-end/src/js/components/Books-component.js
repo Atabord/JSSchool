@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import Book from './Book';
-import { searchBook } from './actions/actions-books';
 
 // this component returns a page with all the books requested
 class Books extends Component {
@@ -60,26 +57,4 @@ class Books extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  const {
-    error,
-    isLoaded,
-    books,
-    pagination,
-    url,
-  } = state.books;
-
-  return {
-    error,
-    isLoaded,
-    books,
-    pagination,
-    url,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ searchBook }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Books);
+export default Books;
