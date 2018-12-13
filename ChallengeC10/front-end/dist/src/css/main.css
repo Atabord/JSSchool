@@ -1,0 +1,236 @@
+section {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: "PlutoSans";
+  font-weight: bolder;
+  font-stretch: unset;
+  src: url(../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansBlack.otf);
+}
+@font-face {
+  font-family: "PlutoSans";
+  font-weight: 800;
+  font-stretch: unset;
+  src: url(../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansHeavy.otf);
+}
+@font-face {
+  font-family: "PlutoSans";
+  font-weight: bold;
+  font-stretch: unset;
+  src: url(../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansBold.otf);
+}
+@font-face {
+  font-family: "PlutoSans";
+  font-weight: 500;
+  font-stretch: unset;
+  src: url(../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansMedium.otf);
+}
+@font-face {
+  font-family: "PlutoSans";
+  font-weight: normal;
+  font-stretch: unset;
+  src: url(../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansRegular.otf);
+}
+@font-face {
+  font-family: "PlutoSans";
+  font-weight: 300;
+  font-stretch: unset;
+  src: url(../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansLight.otf);
+}
+@font-face {
+  font-family: "PlutoSans";
+  font-weight: 200;
+  font-stretch: unset;
+  src: url(../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansExtraLight.otf);
+}
+@font-face {
+  font-family: "PlutoSans";
+  font-weight: lighter;
+  font-stretch: unset;
+  src: url(../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansThin.otf);
+}
+@font-face {
+  font-family: "PlutoSans";
+  font-weight: bolder;
+  font-stretch: condensed;
+  src: url(../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondBlack.otf);
+}
+@font-face {
+  font-family: "PlutoSans";
+  font-weight: 800;
+  font-stretch: condensed;
+  src: url(../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondHeavy.otf);
+}
+@font-face {
+  font-family: "PlutoSans";
+  font-weight: bold;
+  font-stretch: condensed;
+  src: url(../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondBold.otf);
+}
+@font-face {
+  font-family: "PlutoSans";
+  font-weight: 500;
+  font-stretch: condensed;
+  src: url(../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondMedium.otf);
+}
+@font-face {
+  font-family: "PlutoSans";
+  font-weight: normal;
+  font-stretch: condensed;
+  src: url(../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondRegular.otf);
+}
+@font-face {
+  font-family: "PlutoSans";
+  font-weight: 300;
+  font-stretch: condensed;
+  src: url(../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondLight.otf);
+}
+@font-face {
+  font-family: "PlutoSans";
+  font-weight: 200;
+  font-stretch: condensed;
+  src: url(../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondExLight.otf);
+}
+@font-face {
+  font-family: "PlutoSans";
+  font-weight: lighter;
+  font-stretch: condensed;
+  src: url(../fonts/fonts_pluto_sans/OpenTypeOTF/PlutoSansCondThin.otf);
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "PlutoSans";
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  height: calc(100vh - 80px);
+}
+@media screen and (max-width: 900px) {
+  .container {
+    flex-flow: column;
+  }
+}
+
+section {
+  flex-basis: 72%;
+  background: #f5f6f8;
+  border-top: 1px solid #6ec1e4;
+  padding: 28px 80px;
+}
+@media screen and (max-width: 900px) {
+  section {
+    flex-basis: 80%;
+  }
+}
+@media screen and (max-width: 480px) {
+  section {
+    padding: 28px 65px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .only-large-devices {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hide-on-small {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .only-on-small {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1476px) {
+  .book:nth-child(5n) .popup-book {
+    left: -228%;
+  }
+  .book:nth-child(5n) .popup-book::before {
+    transform: rotate(180deg);
+    left: 380px;
+  }
+}
+@media screen and (min-width: 1226px) and (max-width: 1475px) {
+  .book:nth-child(4n) .popup-book {
+    left: -228%;
+  }
+  .book:nth-child(4n) .popup-book::before {
+    transform: rotate(180deg);
+    left: 380px;
+  }
+}
+@media screen and (min-width: 977px) and (max-width: 1225px) {
+  .book:nth-child(3n) .popup-book {
+    left: -228%;
+  }
+  .book:nth-child(3n) .popup-book::before {
+    transform: rotate(180deg);
+    left: 380px;
+  }
+}
+@media screen and (min-width: 901px) and (max-width: 976px) {
+  .book:nth-child(2n) .popup-book {
+    left: -228%;
+  }
+  .book:nth-child(2n) .popup-book::before {
+    transform: rotate(180deg);
+    left: 380px;
+  }
+}
+@media screen and (min-width: 1500px) {
+  .book:nth-child(5n-1) .popup-book {
+    left: -228%;
+  }
+  .book:nth-child(5n-1) .popup-book::before {
+    transform: rotate(180deg);
+    left: 380px;
+  }
+}
+@media screen and (min-width: 1251px) and (max-width: 1499px) {
+  .book:nth-child(4n-1) .popup-book {
+    left: -228%;
+  }
+  .book:nth-child(4n-1) .popup-book::before {
+    transform: rotate(180deg);
+    left: 380px;
+  }
+}
+@media screen and (min-width: 977px) and (max-width: 1225px) {
+  .book:nth-child(3n-1) .popup-book {
+    left: -60%;
+    top: 115%;
+  }
+  .book:nth-child(3n-1) .popup-book::before {
+    transform: rotate(90deg);
+    left: 48%;
+    top: -6%;
+  }
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.show {
+  visibility: visible !important;
+}
+
+/*# sourceMappingURL=main.css.map */

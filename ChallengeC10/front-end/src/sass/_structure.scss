@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'PlutoSans';
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  height: calc(100vh - 80px);
+  
+  @include tablet {
+    flex-flow: column;
+  }
+}
+
+section {
+  flex-basis: 72%;
+  background: $main-background;
+  border-top: 1px solid $primary-blue;
+  padding: 28px 80px;
+  @extend %onlyOverflowY;
+
+  @include tablet {
+    flex-basis: 80%;
+  }
+
+  @include phone {
+    padding: 28px 65px;
+  }
+}
+
+.only-large-devices {
+  @include tablet {
+    display: none;
+  }
+}
+
+.hide-on-small {
+  @include phone {
+    display: none !important;
+  }
+}
+
+.only-on-small {
+  @include phone {
+    display: block;
+  }
+}

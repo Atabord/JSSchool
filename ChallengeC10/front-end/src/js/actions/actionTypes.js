@@ -1,0 +1,14 @@
+export const LOG_IN_REQUEST = 'LOG_IN_REQUEST';
+export const LOG_IN_SUCCESSFUL = 'LOG_IN_SUCCESSFUL';
+export const LOG_IN_FAIL = 'LOG_IN_FAIL';
+export const CHECK_INITIAL_TOKEN = 'CHECK_INITIAL_TOKEN';
+
+export const REQUEST_BOOKS = 'REQUEST_BOOKS';
+export const FORBIDDEN_BOOKS = 'FORBIDDEN_BOOKS';
+export const SUCCESS_FETCH_BOOKS = 'SUCCESS_FETCH_BOOKS';
+export const FAIL_FETCH_BOOKS = 'FAIL_FETCH_BOOKS';
+export const CHANGE_URL = 'CHANGE_URL';
+
+export const NOT_FOUND = 'NOT_FOUND';
+
+export const LOG_OUT = 'LOG_OUT';

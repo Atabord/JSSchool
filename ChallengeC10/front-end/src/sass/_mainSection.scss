@@ -1,0 +1,37 @@
+
+.book {
+    
+    @include getLastChild() {
+      .popup-book {
+        left: -228%;
+  
+        &::before {
+          transform: rotate(180deg);
+          left: 380px;
+        }
+      }
+    }
+  
+    @include getMidLastChild() {
+      .popup-book {
+        left: -228%;
+  
+        &::before {
+          transform: rotate(180deg);
+          left: 380px;
+        }
+      }
+    }
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.show {
+  visibility: visible !important;
+}
