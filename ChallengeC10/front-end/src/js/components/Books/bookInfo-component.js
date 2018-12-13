@@ -79,68 +79,72 @@ class BookInfo extends Component {
     }
     return (
       <div>
-        {Object.keys(book).length &&
-          (
-            <Fragment>
-              <h3>{book.title}</h3>
-              <Stars rating={book.averageRating} />
-              <img src={book.imageLink} alt={book.title} />
-              <p>
-                Author(s):
-                {book.authors.join(', ')}
-              </p>
-              <p>
-                Location(s):
-                {book.bookshelf.join(', ')}
-              </p>
-              <p>
-                Available Copies:
-                {book.availableCopies}
-              </p>
-              <p>
-                Category(ies):
-                {book.categories.join(', ')}
-              </p>
-              <p>
-                Publisher:
-                {book.publisher}
-              </p>
-              <p>
-                Published Date:
-                {book.publishedDate}
-              </p>
-              <p>
-                Pages:
-                {book.pageCount}
-              </p>
-              <p>
-                Description:
-                {book.description}
-              </p>
-              <h3>Borrow this book</h3>
-              {message && (
-                <div className="alert">
-                  <p>
-                    {message}
-                  </p>
-                </div>
-              )
+        {Object.keys(book).length
+        && (
+          <Fragment>
+            <h3>{book.title}</h3>
+            <Stars rating={book.averageRating} />
+            <img src={book.imageLink} alt={book.title} />
+            <p>
+              Author(s):
+              {book.authors.join(', ')}
+            </p>
+            <p>
+              Location(s):
+              {book.bookshelf.join(', ')}
+            </p>
+            <p>
+              Available Copies:
+              {book.availableCopies}
+            </p>
+            <p>
+              Category(ies):
+              {book.categories.join(', ')}
+            </p>
+            <p>
+              Publisher:
+              {book.publisher}
+            </p>
+            <p>
+              Published Date:
+              {book.publishedDate}
+            </p>
+            <p>
+              Pages:
+              {book.pageCount}
+            </p>
+            <p>
+              Description:
+              {book.description}
+            </p>
+            <h3>Borrow this book</h3>
+              {book.availableCopies || book.bookshelf.includes('Digital')
+                ? (
+                  <Fragment>
+                    {message && (
+                      <div className="alert">
+                        <p>
+                          {message}
+                        </p>
+                      </div>
+                    )
+                    }
+                    <form onSubmit={this.handleSubmit}>
+                      <p>Select a date for the returning date</p>
+                      <DatePicker
+                        selected={returnDate}
+                        onChange={this.handleDateChange}
+                        minDate={new Date()}
+                        maxDate={maxDate}
+                      />
+                      <button type="submit">Borrow</button>
+                    </form>
+                  </Fragment>
+                )
+                : <p>There are not available copies now</p>
               }
-              <form onSubmit={this.handleSubmit}>
-                <p>Select a date for the returning date</p>
-                <DatePicker
-                  selected={returnDate}
-                  onChange={this.handleDateChange}
-                  minDate={new Date()}
-                  maxDate={maxDate}
-                />
-                {book.availableCopies
-                  ? <button type="submit">Borrow</button>
-                  : <p>There are not available copies now</p>
-                }
-              </form>
-            </Fragment>
-          )
+          </Fragment>
+        )
         }
       </div>
     );

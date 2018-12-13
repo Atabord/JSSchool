@@ -16,6 +16,21 @@ class Book extends Component {
       clickedBook: null,
     };
     this.togglePopup = this.togglePopup.bind(this);
+    this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
+  // Set the wrapper ref
+  setWrapperRef(node) {
+    this.wrapperRef = node;
   }
 
   // function to handle show and hide of popup
@@ -27,11 +42,26 @@ class Book extends Component {
     });
   }
 
+  // Function to handle click outside div and close its popup.
+  handleClickOutside(event) {
+    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+      this.setState({
+        popup: false,
+        clickedBook: null,
+      });
+    }
+  }
+
   render() {
     const { book, classes } = this.props;
     const { popup, clickedBook } = this.state;
     return (
-      <div className={`${classes.book} book`} key={book._id} onClick={() => this.togglePopup(book._id)}>
+      <div 
+        className={`${classes.book} book`} 
+        key={book._id} 
+        ref={this.setWrapperRef}
+        onClick={() => this.togglePopup(book._id)}
+        >
         <img src={book.imageLink} alt={book.title} className={classes.bookMainImage} />
         <div className={classes.inUse}>
           <img src={inUse} alt="Borrowed Book" />
@@ -51,8 +81,13 @@ class Book extends Component {
   }
 }
 
+Book.defaultProps = {
+  book: {},
+};
+
 Book.propTypes = {
   classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  book: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
 export default injectSheet(styles)(Book);

@@ -217,13 +217,13 @@ function lendBook(req, res) {
                         message: `That book doesn't exist`
                     });
                 } else if (book.availableCopies <= 0) {
-                    if (book.bookshelf === 'Digital') {
+                    if (book.bookshelf.includes('Digital')) {
                         res.status(200).send({
                             message: `You have rented the book ${book.title}`
                         });
                     } else {
                         res.status(404).send({
-                            message: `There aren't enought available books: ${book.availableCopies}`
+                            message: `There aren't enough available books: ${book.availableCopies}`
                         });
                     }
                 } else {

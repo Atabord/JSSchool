@@ -35,6 +35,11 @@ export default {
         '& a': {
           color: `${colors.lightGrey}`,
           textOverflow: 'ellipsis',
+          textDecoration: 'none',
+
+          '&:hover': {
+            textDecoration: 'underline',
+          },
         },
       },
     },

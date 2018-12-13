@@ -22,6 +22,7 @@ export default (state = initialState, action) => {
         ...state,
         isLoaded: false,
         books: [],
+        message: '',
         pagination: {},
       };
     case SUCCESS_FETCH_BOOKS:

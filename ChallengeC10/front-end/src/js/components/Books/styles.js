@@ -140,10 +140,10 @@ export default {
     fontSize: '12px',
     lineHeight: '16px',
     padding: '30px',
-    position: 'absolute',
+    position: 'fixed',
     zIndex: 5,
-    left: '113%',
-    top: '0%',
+    left: 'calc(50% - 382px/2)',
+    top: 'calc(50% - 358px/2)',
     borderRadius: '5px',
 
     '&::before': {
@@ -219,27 +219,11 @@ export default {
       color: colors.secondaryBlue,
     },
   },
-  // Tablet
-  '@media screen and (max-width: 900px)': {
-    popupBook: {
-      left: 0,
-      top: '115%',
-
-      '&::before': {
-        left: '10%',
-        top: '-6%',
-        transform: 'rotate(90deg)',
-      },
-    },
-  },
-
   // Phone
   '@media screen and (max-width: 480px)': {
     popupBook: {
-      left: '-20%',
-      top: '115%',
-      padding: '10px',
-      width: '150%',
+      width: '80%',
+      left: '10%',
 
       '&::before': {
         left: '40%',
