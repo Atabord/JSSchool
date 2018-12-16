@@ -231,7 +231,27 @@ export default {
     borderRadius: '0 0 20px 20px',
     textAlign: 'center',
     zIndex: 5,
+    opacity: 1,
     boxShadow: '0px 3px 6px black',
+    // animation: '15s notification 1',
+  },
+  '@keyframes notification': {
+    '0%': {
+      opacity: 0,
+      top: '-100px',
+    },
+    '10%': {
+      opacity: 1,
+      top: '80px',
+    },
+    '90%': {
+      opacity: 1,
+      top: '80px',
+    },
+    '100%': {
+      opacity: 0,
+      top: '-100px',
+    },
   },
   // Phone
   '@media screen and (max-width: 480px)': {

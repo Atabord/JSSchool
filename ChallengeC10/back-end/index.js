@@ -7,13 +7,9 @@ const io = require('socket.io')(http);
 const config = require('./config');
 
 io.on('connection', (socket) => {
-    console.log('a user connected');
-    socket.on('lend', book => {
-        io.sockets.emit('lent book', book);
+    socket.on('lend message', (message) => {
+        io.sockets.emit('lent book', message);
     });
-    socket.on('disconnect', () => {
-        console.log('a user disconnected');
-    })
 });
 
 mongoose.connect(config.db, (err, res) => {

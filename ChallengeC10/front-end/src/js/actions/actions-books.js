@@ -1,4 +1,6 @@
+import socketIOClient from 'socket.io-client';
 import apiService from '../services/api-service';
+
 import {
   FORBIDDEN_BOOKS,
   NOT_FOUND,
@@ -21,8 +23,14 @@ export function searchBook(url, method = 'GET', data) {
         }
         return res.json();
       })
-      .then(result => dispatch({ type: SUCCESS_FETCH_BOOKS, payload: result }),
-        err => dispatch({ type: FAIL_FETCH_BOOKS, payload: err }))
+      .then((result) => {
+        if (method === 'PATCH') {
+          const socket = socketIOClient(process.env.URL);
+          socket.emit('lend message', result.message);
+        }
+        return dispatch({ type: SUCCESS_FETCH_BOOKS, payload: result });
+      },
+      err => dispatch({ type: FAIL_FETCH_BOOKS, payload: err }))
       .catch(err => dispatch({ type: FAIL_FETCH_BOOKS, payload: err }));
   });
 }

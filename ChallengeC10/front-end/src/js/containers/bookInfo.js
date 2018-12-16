@@ -9,7 +9,6 @@ function mapStateToProps(state) {
     isLoaded,
     book,
     pagination,
-    message,
     url,
   } = state.books;
   const {
@@ -20,7 +19,6 @@ function mapStateToProps(state) {
     error,
     isLoaded,
     book,
-    message,
     pagination,
     url,
     username,

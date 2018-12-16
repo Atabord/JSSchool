@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import socketIOClient from 'socket.io-client';
 import DatePicker from 'react-datepicker';
 import injectSheet from 'react-jss';
 import Stars from './Stars';
@@ -13,6 +14,8 @@ class BookInfo extends Component {
     this.state = {
       maxDate: this.addDays(15),
       returnDate: new Date(),
+      notify: '',
+      socket: socketIOClient(process.env.URL),
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
@@ -22,6 +25,10 @@ class BookInfo extends Component {
   componentDidMount() {
     const { url, searchBook } = this.props;
     searchBook(url);
+    const { socket } = this.state;
+    socket.on('lent book', (message) => {
+      this.setState({ notify: message });
+    });
   }
 
   // this function allow us to search the book when the url has changed
@@ -30,6 +37,11 @@ class BookInfo extends Component {
     if (url !== prevProps.url) {
       searchBook(url);
     }
+  }
+
+  componentWillUnmount() {
+    const { socket } = this.state;
+    socket.close();
   }
 
   // function to handle change on datepicker
@@ -52,7 +64,6 @@ class BookInfo extends Component {
     const { searchBook, book, username } = this.props;
     const { returnDate } = this.state;
     const data = { returnDate, username };
-    console.log(data);
     searchBook(`/${book._id}/lend`, 'PATCH', data);
   }
 
@@ -68,10 +79,9 @@ class BookInfo extends Component {
       error,
       isLoaded,
       book,
-      message,
       classes,
     } = this.props;
-    const { returnDate, maxDate } = this.state;
+    const { returnDate, notify, maxDate } = this.state;
 
     if (error) {
       return (
@@ -127,10 +137,10 @@ class BookInfo extends Component {
               {book.availableCopies || book.bookshelf.includes('Digital')
                 ? (
                   <Fragment>
-                    {message && (
+                    {notify && (
                       <div className={classes.alert}>
                         <p>
-                          {message}
+                          {notify}
                         </p>
                       </div>
                     )
