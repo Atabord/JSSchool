@@ -28,7 +28,8 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    books: [String],
 });
 
 UserSchema.methods.comparePassword = function(bpassword) {

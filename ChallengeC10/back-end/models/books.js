@@ -19,6 +19,8 @@ const BookSchema = Schema({
     language: String,
     copies: Number,
     availableCopies: Number,
+    users: [String],
+    returnDate: [Date],
     bookshelf: { type: [String], enum: ['Quito', 'Cartagena', 'Medellin', 'Digital', 'Personal_Loans']}
 })
 

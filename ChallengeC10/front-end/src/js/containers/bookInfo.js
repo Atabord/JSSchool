@@ -12,6 +12,9 @@ function mapStateToProps(state) {
     message,
     url,
   } = state.books;
+  const {
+    username,
+  } = state.user;
 
   return {
     error,
@@ -20,6 +23,7 @@ function mapStateToProps(state) {
     message,
     pagination,
     url,
+    username,
   };
 }
 

@@ -1,4 +1,5 @@
 const Book = require('../models/books');
+const User = require('../models/users');
 const fetch = require('node-fetch');
 const jwt = require('jsonwebtoken');
 const config = require('../config');
@@ -207,7 +208,8 @@ function lendBook(req, res) {
             res.sendStatus(403);
         } else {
             let bookId = req.params.book;
-            Book.findById(bookId, (err, book) => {
+            let { username, returnDate } = req.body;
+            Book.findByIdAndUpdate(bookId, { $push: { users: username, returnDate } },(err, book) => {
                 if (err) {
                     res.status(500).send({
                         message: `Error making the request ${err}`
@@ -218,8 +220,16 @@ function lendBook(req, res) {
                     });
                 } else if (book.availableCopies <= 0) {
                     if (book.bookshelf.includes('Digital')) {
-                        res.status(200).send({
-                            message: `You have rented the book ${book.title}`
+                        User.findOneAndUpdate({ username }, { $push: { books: book._id } }, (err, user) => {
+                            if (err) {
+                                res.status(500).send({
+                                   message: 'There was an error, try again later'
+                               })
+                            } else {
+                                res.status(200).send({
+                                    message: `${username} has rented the book ${book.title}`
+                                });
+                            }
                         });
                     } else {
                         res.status(404).send({
@@ -240,8 +250,16 @@ function lendBook(req, res) {
                                 message: `Error making the request ${err}`
                             });
                         } else {
-                            res.status(200).send({
-                                message: `You have rented the book ${bookUpdated.title}`
+                            User.findOneAndUpdate({ username }, { $push: { books: bookUpdated._id } }, (err, user) => {
+                                if (err) {
+                                    res.status(500).send({
+                                       message: 'There was an error, try again later'
+                                   })
+                                } else {
+                                    res.status(200).send({
+                                        message: `${username} has rented the book ${bookUpdated.title}`
+                                    });
+                                }
                             });
                         }
                     });

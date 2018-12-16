@@ -9,6 +9,7 @@ const initialState = {
   isLogged: false,
   loginLoading: false,
   loginError: null,
+  username: '',
 };
 
 export default (state = initialState, action) => {
@@ -17,6 +18,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isLogged: action.payload.isLogged,
+        username: action.payload.user,
       };
     case LOG_IN_REQUEST:
       return {
@@ -29,6 +31,7 @@ export default (state = initialState, action) => {
         isLogged: true,
         loginError: null,
         loginLoading: false,
+        username: action.payload,
       };
     case LOG_IN_FAIL:
       return {

@@ -8,6 +8,7 @@ export default {
     alert: 'rgba(255, 0, 60, 0.8)',
     secondaryGrey: '#9e9e9e',
     primaryBlack: '#231f20',
+    success: '#2ce50b',
     formSearchBackground: 'rgba(245, 246, 248, 0.51)',
     white: '#FFF',
     black: '#000',

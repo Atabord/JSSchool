@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import DatePicker from 'react-datepicker';
+import injectSheet from 'react-jss';
 import Stars from './Stars';
+import styles from './styles';
 import 'react-datepicker/dist/react-datepicker.css';
 
 /* eslint class-methods-use-this: ["error", { "exceptMethods": ["addDays"] }] */
@@ -47,8 +49,11 @@ class BookInfo extends Component {
   // function to handle submit of lend to the database
   handleSubmit(event) {
     event.preventDefault();
-    const { searchBook, book } = this.props;
-    searchBook(`/${book._id}/lend`, 'PATCH');
+    const { searchBook, book, username } = this.props;
+    const { returnDate } = this.state;
+    const data = { returnDate, username };
+    console.log(data);
+    searchBook(`/${book._id}/lend`, 'PATCH', data);
   }
 
   // function to limit the date of return the book
@@ -63,7 +68,8 @@ class BookInfo extends Component {
       error,
       isLoaded,
       book,
-      message
+      message,
+      classes,
     } = this.props;
     const { returnDate, maxDate } = this.state;
 
@@ -122,7 +128,7 @@ class BookInfo extends Component {
                 ? (
                   <Fragment>
                     {message && (
-                      <div className="alert">
+                      <div className={classes.alert}>
                         <p>
                           {message}
                         </p>
@@ -151,4 +157,4 @@ class BookInfo extends Component {
   }
 }
 
-export default BookInfo;
+export default injectSheet(styles)(BookInfo);

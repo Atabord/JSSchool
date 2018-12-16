@@ -219,6 +219,20 @@ export default {
       color: colors.secondaryBlue,
     },
   },
+  alert: {
+    position: 'fixed',
+    top: '80px',
+    left: '20%',
+    width: '60%',
+    background: colors.success,
+    fontStretch: 'condensed',
+    fontWeight: 500,
+    padding: '0 20px',
+    borderRadius: '0 0 20px 20px',
+    textAlign: 'center',
+    zIndex: 5,
+    boxShadow: '0px 3px 6px black',
+  },
   // Phone
   '@media screen and (max-width: 480px)': {
     popupBook: {

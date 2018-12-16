@@ -14,7 +14,7 @@ export function login(data) {
       .then((result) => {
         if (result.token) {
           sessionStorage.setItem('token', `Bearer ${result.token}`);
-          return dispatch({ type: LOG_IN_SUCCESSFUL });
+          return dispatch({ type: LOG_IN_SUCCESSFUL, payload: data.username });
         }
         return dispatch({ type: LOG_IN_FAIL, payload: result.message });
       },
@@ -23,7 +23,18 @@ export function login(data) {
   });
 }
 
-export const verifyToken = () => ({
-  type: CHECK_INITIAL_TOKEN,
-  payload: sessionStorage.getItem('token') ? { isLogged: true } : { isLogged: false },
-});
+export const verifyToken = () => {
+  let token = sessionStorage.getItem('token');
+  let user = '';
+  if (token) {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace('-', '+').replace('_', '/');
+    token = JSON.parse(window.atob(base64));
+    const { username } = token.user;
+    user = username;
+  }
+  return ({
+    type: CHECK_INITIAL_TOKEN,
+    payload: sessionStorage.getItem('token') ? { isLogged: true, user } : { isLogged: false },
+  });
+};
