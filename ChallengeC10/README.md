@@ -1,9 +1,11 @@
-# Challenge CO9
-## REDUX integration
+# Challenge C10
+## Real time integration
 
-* Add redux to your application
-* Include CSS into the components use JSS
-* Push all your changes into the GitHub repo
+* Add web socket integration in your frontend application
+* Add support in the backend app for use websockets
+* Build a real time visual feedback when a book is reserved and emit to all clients the book availability 
+* Add reactive programming to your interfaces to make more fuid design and response in actions
+* Push all your changes into the github repo
 
 ## How to Install and use the API
 ### prerequisites
