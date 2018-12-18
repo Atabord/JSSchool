@@ -16,18 +16,9 @@ class Section extends Component {
     this.state = {
       contentTitle: 'Home',
       pages: ['/Quito', '/Medellin', '/Cartagena', '/Digital', '/Personal_Loans'],
-      notFound: false,
     };
     this.createRedirects = this.createRedirects.bind(this);
     this.createRoutes = this.createRoutes.bind(this);
-    this.handleNotFount = this.handleNotFount.bind(this);
-  }
-
-  // If the page or bookshelf doesn't exist, this function will handle the notFound state
-  handleNotFount(status) {
-    this.setState({
-      notFound: status,
-    });
   }
 
   // this is to redirect every /bookshelf to its specific first page, when paginating
@@ -51,7 +42,7 @@ class Section extends Component {
   createRoutes() {
     const { pages } = this.state;
     const routes = [];
-    const { changeUrl } = this.props;
+    const { changeUrl, notFound } = this.props;
 
     pages.map((page) => {
       let env = page.substring(1);
@@ -63,11 +54,10 @@ class Section extends Component {
           render={
                     ({ match }) => {                      
                       changeUrl(`${env}&page=${match.params.page}`);
-                      if (this.state.notFound === false) {
+                      if (notFound === false) {
                         return (
                           <Books
                             path={`/bookshelf${page}`}
-                            notFound={this.handleNotFount}
                           />
                         );
                       }
@@ -83,11 +73,12 @@ class Section extends Component {
   }
 
   render() {
-    const { changeUrl, classes } = this.props;
+    const { changeUrl, classes, notFound } = this.props;
+    const { contentTitle } = this.state;
     return (
       <section>
         <div className={classes.sectionHeader}>
-          <h2>{ this.state.contentTitle }</h2>
+          <h2>{ contentTitle }</h2>
           <div className={classes.listIcons}>
             <a href="/">
               <FontAwesomeIcon icon={faThLarge} />
@@ -108,7 +99,6 @@ class Section extends Component {
                       return (
                         <Books
                           path="/bookshelf"
-                          notFound={this.handleNotFount}
                         />
                       );
                     }
@@ -125,7 +115,6 @@ class Section extends Component {
                       return (
                         <BookInfo
                           url={`${process.env.HOME}/${match.params.id}`}
-                          notFound={this.handleNotFount}
                         />
                       );
                     }
@@ -139,11 +128,15 @@ class Section extends Component {
                     ({ match }) => {
                       const { name, page = null } = match.params;
                       changeUrl(`?search=${name}&page=${page}`);
+                      if (notFound === false) {
+                        return (
+                          <Books
+                            path={`/bookshelf/search/${name}`}
+                          />
+                        );
+                      }
                       return (
-                        <Books
-                          path={`/bookshelf/search/${name}`}
-                          notFound={this.handleNotFount}
-                        />
+                        <Redirect to="/bookshelf/NotFound" />
                       );
                     }
                 }

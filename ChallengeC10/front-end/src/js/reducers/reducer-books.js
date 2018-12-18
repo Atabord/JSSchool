@@ -2,6 +2,7 @@ import {
   SUCCESS_FETCH_BOOKS,
   FAIL_FETCH_BOOKS,
   REQUEST_BOOKS,
+  NOT_FOUND,
   CHANGE_URL,
 } from '../actions/actionTypes';
 
@@ -12,6 +13,7 @@ const initialState = {
   pagination: {},
   book: {},
   message: '',
+  notFound: false,
   url: '/',
 };
 
@@ -24,11 +26,13 @@ export default (state = initialState, action) => {
         books: [],
         message: '',
         pagination: {},
+        notFound: false,
       };
     case SUCCESS_FETCH_BOOKS:
       return {
         ...state,
         ...action.payload,
+        notFound: false,
         isLoaded: true,
       };
     case FAIL_FETCH_BOOKS:
@@ -40,7 +44,13 @@ export default (state = initialState, action) => {
     case CHANGE_URL:
       return {
         ...state,
+        notFound: false,
         url: action.payload,
+      };
+    case NOT_FOUND:
+      return {
+        ...state,
+        notFound: true,
       };
     default:
       return state;

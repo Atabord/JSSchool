@@ -1,4 +1,6 @@
+import { ajax } from 'rxjs/ajax';
 import apiService from '../services/api-service';
+
 import {
   LOG_IN_REQUEST,
   LOG_IN_FAIL,
@@ -9,17 +11,28 @@ import {
 export function login(data) {
   return ((dispatch) => {
     dispatch({ type: LOG_IN_REQUEST });
-    return fetch(`${process.env.URL}users/signIn`, apiService(data, 'POST'))
-      .then(res => res.json())
-      .then((result) => {
-        if (result.token) {
-          sessionStorage.setItem('token', `Bearer ${result.token}`);
+    const options = apiService(data, 'POST');
+    const request$ = ajax({
+      url: `${process.env.URL}users/signIn`,
+      ...options,
+    });
+    request$.subscribe(
+      (res) => {
+        const { response } = res;
+        if (response.token) {
+          sessionStorage.setItem('token', `Bearer ${response.token}`);
           return dispatch({ type: LOG_IN_SUCCESSFUL, payload: data.username });
         }
-        return dispatch({ type: LOG_IN_FAIL, payload: result.message });
+        return dispatch({ type: LOG_IN_FAIL, payload: 'An error ocurred while sending request' });
       },
-      err => dispatch({ type: LOG_IN_FAIL, payload: err }))
-      .catch(err => dispatch({ type: LOG_IN_FAIL, payload: err }));
+      (err) => {
+        const { message } = err.response;
+        if (message) {
+          return dispatch({ type: LOG_IN_FAIL, payload: message });
+        }
+        return dispatch({ type: LOG_IN_FAIL, payload: err.message });
+      },
+    );
   });
 }
 

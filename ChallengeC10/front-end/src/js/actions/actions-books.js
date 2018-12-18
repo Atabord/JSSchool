@@ -1,4 +1,5 @@
 import socketIOClient from 'socket.io-client';
+import { ajax } from 'rxjs/ajax';
 import apiService from '../services/api-service';
 
 import {
@@ -13,25 +14,30 @@ import {
 export function searchBook(url, method = 'GET', data) {
   return ((dispatch) => {
     dispatch({ type: REQUEST_BOOKS });
-    return fetch(`${process.env.URL}books${url}`, apiService(data, method))
-      .then((res) => {
-        if (res.status === 403) {
-          return dispatch({ type: FORBIDDEN_BOOKS });
-        }
-        if (res.status === 404) {
-          return dispatch({ type: NOT_FOUND });
-        }
-        return res.json();
-      })
-      .then((result) => {
+    const options = apiService(data, method);
+    const request$ = ajax({
+      url: `${process.env.URL}books${url}`,
+      ...options,
+    });
+    request$.subscribe(
+      (res) => {
+        const { response } = res;
         if (method === 'PATCH') {
           const socket = socketIOClient(process.env.URL);
-          socket.emit('lend message', result.message);
+          socket.emit('lend message', response.message);
         }
-        return dispatch({ type: SUCCESS_FETCH_BOOKS, payload: result });
+        return dispatch({ type: SUCCESS_FETCH_BOOKS, payload: response });
       },
-      err => dispatch({ type: FAIL_FETCH_BOOKS, payload: err }))
-      .catch(err => dispatch({ type: FAIL_FETCH_BOOKS, payload: err }));
+      (err) => {
+        if (err.status === 403) {
+          return dispatch({ type: FORBIDDEN_BOOKS });
+        }
+        if (err.status === 404) {
+          return dispatch({ type: NOT_FOUND });
+        }
+        return dispatch({ type: FAIL_FETCH_BOOKS, payload: err })
+      },
+    );
   });
 }
 
