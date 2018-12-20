@@ -19,6 +19,7 @@ class Video extends Component {
     this.state = {
       muted: false,
       expanded: false,
+      timeToSlide: 0,
     };
     this.videoRef = React.createRef();
     this.handleVideoPlay = this.handleVideoPlay.bind(this);
@@ -36,33 +37,33 @@ class Video extends Component {
   }
 
   handleTimeChange(percentage) {
-    const { moveTime } = this.props;
-    const { duration, currentTime } = this.videoRef.current;
+    const { moveTime, currentTime } = this.props;
+    const { duration } = this.videoRef.current;
     const changeTo = duration * (percentage / 100);
-    this.videoRef.current.currentTime = currentTime;
     moveTime(changeTo);
+    this.videoRef.current.currentTime = currentTime;
   }
 
   handleTimeUpdate() {
-    const { moveTime } = this.props;
     const { currentTime, duration } = this.videoRef.current;
-    const time = currentTime * (100 / duration);
-    moveTime(time);
+    const timeToSlide = currentTime * (100 / duration);
+    this.setState({ timeToSlide });
   }
 
   render() {
-    const { muted, expanded } = this.state;
-    const { paused, classes, currentTime } = this.props;
+    const { muted, expanded, timeToSlide } = this.state;
+    const { paused, classes } = this.props;
     return (
       <div>
-        <video ref={this.videoRef} src={process.env.VIDEO_URL} onTimeUpdate={this.handleTimeUpdate}/>
-        <div className={classes.controlsContainer}>
+        <video ref={this.videoRef} src={process.env.VIDEO_URL} className={classes.w100} onTimeUpdate={this.handleTimeUpdate}/>
+        <div className={`${classes.controlsContainer} ${classes.w100}`}>
           <Slider
             tipFormatter={null}
             defaultValue={0}
             step={0.00001}
-            value={currentTime}
-            onChange={this.handleTimeChange} 
+            value={timeToSlide}
+            onChange={this.handleTimeChange}
+            className={classes.w100}
           />
           <button type="button" onClick={this.handleVideoPlay}>
             {paused
@@ -76,7 +77,7 @@ class Video extends Component {
               : <FontAwesomeIcon icon={faVolumeUp} />
             }
           </button>
-          <Slider defaultValue={80} step={5} />
+          <Slider defaultValue={100} step={5} className={classes.soundSlider} />
           <button type="button">
             {expanded
               ? <FontAwesomeIcon icon={faCompress} />
@@ -93,13 +94,16 @@ Video.defaultProps = {
   paused: true,
   classes: {},
   currentTime: 0,
+  timeToSlide: 0,
 };
 
 Video.propTypes = {
   paused: PropTypes.bool,
+  timeToSlide: PropTypes.number,
   classes: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   currentTime: PropTypes.number,
   playVideo: PropTypes.func.isRequired,
+  showCurrentTime: PropTypes.func.isRequired,
   moveTime: PropTypes.func.isRequired,
 };
 

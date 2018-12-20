@@ -1,4 +1,4 @@
-import { VIDEO_PLAY, VIDEO_MOVE_TIME } from '../actions/actionTypes';
+import { VIDEO_PLAY, VIDEO_MOVE_TIME, VIDEO_SHOW_TIME } from '../actions/actionTypes';
 
 const initialState = {
   paused: true,
