@@ -13,6 +13,14 @@ import { Slider } from 'antd';
 import injectSheet from 'react-jss';
 import styles from './styles';
 
+function addZero(number) {
+  let converted = '';
+  number > 10
+    ? converted = number
+    : converted = `0${number}`;
+  return converted;
+}
+
 class Video extends Component {
   constructor() {
     super();
@@ -20,11 +28,34 @@ class Video extends Component {
       muted: false,
       expanded: false,
       timeToSlide: 0,
+      showTime: '00:00 / 00:00',
     };
     this.videoRef = React.createRef();
     this.handleVideoPlay = this.handleVideoPlay.bind(this);
     this.handleTimeChange = this.handleTimeChange.bind(this);
     this.handleTimeUpdate = this.handleTimeUpdate.bind(this);
+    this.getTime = this.getTime.bind(this);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { timeToSlide } = this.state;
+    if (prevState.timeToSlide !== timeToSlide) {
+      this.getTime();
+    }
+  }
+
+  getTime() {
+    const { currentTime, duration } = this.videoRef.current;
+    const curmins = Math.floor(currentTime / 60);
+    const cursecs = Math.floor(currentTime - curmins * 60);
+    const durmins = Math.floor(duration / 60);
+    const dursecs = Math.floor(duration - durmins * 60);
+    const curTime = `${curmins}:${addZero(cursecs)}`;
+    const durTime = `${durmins}:${addZero(dursecs)}`;
+    const showTime = `${curTime} / ${durTime}`;
+    this.setState({
+      showTime,
+    });
   }
 
   handleVideoPlay() {
@@ -51,11 +82,22 @@ class Video extends Component {
   }
 
   render() {
-    const { muted, expanded, timeToSlide } = this.state;
+    const {
+      muted,
+      expanded,
+      timeToSlide,
+      showTime,
+    } = this.state;
     const { paused, classes } = this.props;
+    /* eslint-disable jsx-a11y/media-has-caption */
     return (
       <div>
-        <video ref={this.videoRef} src={process.env.VIDEO_URL} className={classes.w100} onTimeUpdate={this.handleTimeUpdate}/>
+        <video
+          ref={this.videoRef}
+          src={process.env.VIDEO_URL}
+          className={classes.w100}
+          onTimeUpdate={this.handleTimeUpdate}
+        />
         <div className={`${classes.controlsContainer} ${classes.w100}`}>
           <Slider
             tipFormatter={null}
@@ -71,6 +113,7 @@ class Video extends Component {
               : <FontAwesomeIcon icon={faPause} />
             }
           </button>
+          <span>{showTime}</span>
           <button type="button">
             {muted
               ? <FontAwesomeIcon icon={faVolumeOff} />
@@ -94,16 +137,13 @@ Video.defaultProps = {
   paused: true,
   classes: {},
   currentTime: 0,
-  timeToSlide: 0,
 };
 
 Video.propTypes = {
   paused: PropTypes.bool,
-  timeToSlide: PropTypes.number,
   classes: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   currentTime: PropTypes.number,
   playVideo: PropTypes.func.isRequired,
-  showCurrentTime: PropTypes.func.isRequired,
   moveTime: PropTypes.func.isRequired,
 };
 

@@ -15,7 +15,7 @@ const App = () => (
     </Col>
     <Col xs={24} md={16} lg={18}>
       <Row>
-        <Col xs={{ span: 20, offset: 2 }} md={{ span: 12, offset: 2 }} lg={{ span: 14, offset: 2 }}>
+        <Col span={20} offset={2}>
           <Video />
         </Col>
       </Row>
