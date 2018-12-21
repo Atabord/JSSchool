@@ -1,10 +1,17 @@
-import { VIDEO_PLAY, VIDEO_MOVE_TIME, VIDEO_MUTE, VIDEO_CHANGE_VOLUME } from '../actions/actionTypes';
+import {
+  VIDEO_PLAY,
+  VIDEO_MOVE_TIME,
+  VIDEO_MUTE,
+  VIDEO_CHANGE_VOLUME,
+  VIDEO_RUN_TIME,
+  VIDEO_EXPAND,
+} from '../actions/actionTypes';
 
 const initialState = {
   paused: true,
   muted: false,
   volume: 1,
-  expanded: null,
+  expanded: false,
   currentTime: 0,
 };
 
@@ -29,6 +36,16 @@ export default (state = initialState, action) => {
       return {
         ...state,
         volume: action.payload,
+      };
+    case VIDEO_RUN_TIME:
+      return {
+        ...state,
+        currentTime: action.payload,
+      };
+    case VIDEO_EXPAND:
+      return {
+        ...state,
+        expanded: !state.expanded,
       };
     default:
       return state;

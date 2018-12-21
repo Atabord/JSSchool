@@ -1,160 +1,122 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faPlay,
-  faVolumeUp,
-  faVolumeOff,
-  faPause,
-  faExpand,
-  faCompress,
-} from '@fortawesome/free-solid-svg-icons';
-import { Slider } from 'antd';
 import injectSheet from 'react-jss';
 import styles from './styles';
+import VideoControllers from '../containers/videoControllers';
+/* eslint no-unused-expressions:
+  ["error", { "allowShortCircuit": true, "allowTernary": true }] */
 
-function addZero(number) {
-  let converted = '';
-  number >= 10
-    ? converted = number
-    : converted = `0${number}`;
-  return converted;
+function openFullScreen(elem) {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+function exitFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) { /* Firefox */
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE/Edge */
+    document.msExitFullscreen();
+  }
 }
 
 class Video extends Component {
   constructor() {
     super();
     this.state = {
-      expanded: false,
-      timeToSlide: 0,
-      showTime: '0:00 / 0:00',
+      duration: 0,
     };
     this.videoRef = React.createRef();
     this.videoContainerRef = React.createRef();
     this.handleVideoPlay = this.handleVideoPlay.bind(this);
     this.handleTimeChange = this.handleTimeChange.bind(this);
-    this.handleTimeUpdate = this.handleTimeUpdate.bind(this);
-    this.handleEnd = this.handleEnd.bind(this);
     this.handleMute = this.handleMute.bind(this);
-    this.getTime = this.getTime.bind(this);
-    this.openFullScreen = this.openFullScreen.bind(this);
-    this.exitFullscreen = this.exitFullscreen.bind(this);
     this.handleExpand = this.handleExpand.bind(this);
     this.handleVolumeChange = this.handleVolumeChange.bind(this);
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    const { timeToSlide } = this.state;
-    if (prevState.timeToSlide !== timeToSlide) {
-      this.getTime();
-    }
+  componentDidUpdate(prevProps) {
+    const {
+      paused, muted, volume, currentTime, expanded,
+    } = this.props;
+    const { current } = this.videoRef;
+
+    (paused !== prevProps.paused)
+      && this.handleVideoPlay();
+    (muted !== prevProps.muted)
+      && this.handleMute();
+    (volume !== prevProps.volume)
+      && this.handleVolumeChange(volume);
+    (currentTime !== current.currentTime)
+      && this.handleTimeChange();
+    (expanded !== prevProps.expanded)
+      && this.handleExpand();
   }
 
-  getTime() {
-    const { currentTime, duration } = this.videoRef.current;
-    const curmins = Math.floor(currentTime / 60);
-    const cursecs = Math.floor(currentTime - curmins * 60);
-    const durmins = Math.floor(duration / 60);
-    const dursecs = Math.floor(duration - durmins * 60);
-    const curTime = `${curmins}:${addZero(cursecs)}`;
-    const durTime = `${durmins}:${addZero(dursecs)}`;
-    const showTime = `${curTime} / ${durTime}`;
+  videoInit() {
+    const { current } = this.videoRef;
     this.setState({
-      showTime,
+      duration: current.duration,
     });
   }
 
   handleVideoPlay() {
-    const { paused, playVideo } = this.props;
-    /* eslint no-unused-expressions: ["error", { "allowShortCircuit": true, "allowTernary": true }] */
-    paused
-      ? this.videoRef.current.play()
-      : this.videoRef.current.pause();
-    playVideo();
+    const { paused, currentTime, moveTime } = this.props;
+    const { current } = this.videoRef;
+    if (paused) {
+      this.videoRef.current.pause();
+    } else {
+      this.videoRef.current.play();
+      (currentTime >= current.duration)
+        && moveTime(0);
+    }
   }
 
-  handleTimeChange(percentage) {
-    const { moveTime, currentTime } = this.props;
-    const { duration } = this.videoRef.current;
-    const changeTo = duration * (percentage / 100);
-    moveTime(changeTo);
+  handleTimeChange() {
+    const { currentTime } = this.props;
     this.videoRef.current.currentTime = currentTime;
   }
 
   handleTimeUpdate() {
-    const { currentTime, duration } = this.videoRef.current;
-    const timeToSlide = currentTime * (100 / duration);
-    this.setState({ timeToSlide });
-  }
-
-  handleEnd() {
-    const { playVideo } = this.props;
-    playVideo();
+    const { currentTime } = this.videoRef.current;
+    const { showTimeRunning } = this.props;
+    showTimeRunning(currentTime);
   }
 
   handleMute() {
-    const { muteVideo, muted } = this.props;
+    const { muted } = this.props;
     const { current } = this.videoRef;
-    current.muted = !muted;
-    muteVideo();
+    current.muted = muted;
   }
 
-  handleVolumeChange(percentage) {
+  handleVolumeChange(volume) {
     const { current } = this.videoRef;
-    const { changeVolume } = this.props;
-    const changeVolTo = (percentage / 100);
-    changeVolume(changeVolTo);
-    current.volume = changeVolTo;
-  }
-
-  openFullScreen(elem) {
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) { /* Firefox */
-      elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-      elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /* IE/Edge */
-      elem.msRequestFullscreen();
-    }
-    this.setState({
-      expanded: true,
-    });
-  }
-
-  exitFullscreen() {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.mozCancelFullScreen) { /* Firefox */
-      document.mozCancelFullScreen();
-    } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
-      document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) { /* IE/Edge */
-      document.msExitFullscreen();
-    }
-    this.setState({
-      expanded: false,
-    });
+    current.volume = volume;
   }
 
   handleExpand() {
     const elem = this.videoContainerRef.current;
-    if (!document.fullscreen) {
-      this.openFullScreen(elem);
-    } else {
-      this.exitFullscreen();
-    }
+    const { expanded } = this.props;
+    expanded
+      ? openFullScreen(elem)
+      : exitFullscreen();
   }
 
   render() {
     const {
-      expanded,
-      timeToSlide,
-      showTime,
-    } = this.state;
-    const {
-      paused, classes, muted, volume,
+      playVideo, classes,
     } = this.props;
+    const { duration } = this.state;
     /* eslint-disable jsx-a11y/media-has-caption */
     return (
       <div ref={this.videoContainerRef}>
@@ -162,44 +124,11 @@ class Video extends Component {
           ref={this.videoRef}
           src={process.env.VIDEO_URL}
           className={classes.w100}
-          onTimeUpdate={this.handleTimeUpdate}
-          onEnded={this.handleEnd}
+          onCanPlay={this.videoInit.bind(this)}
+          onTimeUpdate={this.handleTimeUpdate.bind(this)}
+          onEnded={playVideo}
         />
-        <div className={`${classes.controlsContainer} ${classes.w100}`}>
-          <Slider
-            tipFormatter={null}
-            defaultValue={0}
-            step={0.00001}
-            value={timeToSlide}
-            onChange={this.handleTimeChange}
-            className={classes.w100}
-          />
-          <button type="button" onClick={this.handleVideoPlay}>
-            {paused
-              ? <FontAwesomeIcon icon={faPlay} />
-              : <FontAwesomeIcon icon={faPause} />
-            }
-          </button>
-          <span>{showTime}</span>
-          <button type="button" onClick={this.handleMute}>
-            {(muted || volume === 0)
-              ? <FontAwesomeIcon icon={faVolumeOff} />
-              : <FontAwesomeIcon icon={faVolumeUp} />
-            }
-          </button>
-          <Slider
-            defaultValue={100}
-            step={5}
-            className={classes.soundSlider}
-            onChange={this.handleVolumeChange}
-          />
-          <button type="button" className={classes.expandButton} onClick={this.handleExpand}>
-            {expanded
-              ? <FontAwesomeIcon icon={faCompress} />
-              : <FontAwesomeIcon icon={faExpand} />
-            }
-          </button>
-        </div>
+        <VideoControllers duration={duration} />
       </div>
     );
   }
@@ -211,16 +140,17 @@ Video.defaultProps = {
   currentTime: 0,
   muted: false,
   volume: 1,
+  expanded: false,
 };
 
 Video.propTypes = {
   paused: PropTypes.bool,
+  expanded: PropTypes.bool,
   classes: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   currentTime: PropTypes.number,
-  muteVideo: PropTypes.func.isRequired,
   muted: PropTypes.bool,
   volume: PropTypes.number,
-  changeVolume: PropTypes.func.isRequired,
+  showTimeRunning: PropTypes.func.isRequired,
   playVideo: PropTypes.func.isRequired,
   moveTime: PropTypes.func.isRequired,
 };

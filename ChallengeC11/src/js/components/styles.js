@@ -13,6 +13,7 @@ export default {
       border: 'none',
       cursor: 'pointer',
       fontSize: '18px',
+      width: '30px',
       '&:focus': {
         outline: 'none',
       },

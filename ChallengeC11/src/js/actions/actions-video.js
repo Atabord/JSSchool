@@ -1,4 +1,11 @@
-import { VIDEO_PLAY, VIDEO_MUTE, VIDEO_MOVE_TIME, VIDEO_CHANGE_VOLUME } from './actionTypes';
+import {
+  VIDEO_PLAY,
+  VIDEO_MUTE,
+  VIDEO_MOVE_TIME,
+  VIDEO_CHANGE_VOLUME,
+  VIDEO_RUN_TIME,
+  VIDEO_EXPAND,
+} from './actionTypes';
 
 export function playVideo() {
   return {
@@ -23,5 +30,18 @@ export function changeVolume(volume) {
   return {
     type: VIDEO_CHANGE_VOLUME,
     payload: volume,
+  };
+}
+
+export function showTimeRunning(time) {
+  return {
+    type: VIDEO_RUN_TIME,
+    payload: time,
+  };
+}
+
+export function expandVideo() {
+  return {
+    type: VIDEO_EXPAND,
   };
 }
