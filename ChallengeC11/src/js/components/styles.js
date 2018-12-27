@@ -31,4 +31,7 @@ export default {
   expandButton: {
     float: 'right',
   },
+  menu: {
+    height: '100vh',
+  },
 };

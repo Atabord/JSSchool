@@ -122,12 +122,13 @@ class Video extends Component {
       <div ref={this.videoContainerRef}>
         <video
           ref={this.videoRef}
-          src={process.env.VIDEO_URL}
           className={classes.w100}
           onCanPlay={this.videoInit.bind(this)}
           onTimeUpdate={this.handleTimeUpdate.bind(this)}
           onEnded={playVideo}
-        />
+        >
+          <source src={process.env.VIDEO_URL} />
+        </video>
         <VideoControllers duration={duration} />
       </div>
     );

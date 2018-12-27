@@ -1,26 +1,69 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
-  Menu,
   Row,
   Col,
+  Card,
 } from 'antd';
+import injectSheet from 'react-jss';
+import styles from './styles';
 import Video from '../containers/Video';
+import Clips from '../containers/Clips';
+import NewClip from '../containers/newClip';
 
-const App = () => (
-  <Row>
-    <Col xs={24} md={8} lg={6}>
-      <Menu theme="dark">
-        <Menu.Item key="1">Full Video</Menu.Item>
-      </Menu>
-    </Col>
-    <Col xs={24} md={16} lg={18}>
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      visible: false, 
+    };
+    this.onClose = this.onClose.bind(this);
+    this.showDrawer = this.showDrawer.bind(this);
+  }
+
+  onClose() {
+    this.setState({
+      visible: false,
+    });
+  }
+
+  showDrawer() {
+    this.setState({
+      visible: true,
+    });
+  }
+
+
+  render() {
+    const { classes } = this.props;
+    const { visible } = this.state;
+    return (
       <Row>
-        <Col span={20} offset={2}>
-          <Video />
+        <Col xs={24} md={8} lg={6}>
+          <Card className={classes.menu}>
+            <Clips showDrawer={this.showDrawer} />
+          </Card>
         </Col>
+        <Col xs={24} md={16} lg={18}>
+          <Card>
+            <Row>
+              <Col span={20} offset={2}>
+                <Video />
+              </Col>
+            </Row>
+          </Card>
+        </Col>
+        <NewClip
+          visible={visible}
+          onClose={this.onClose}
+        />
       </Row>
-    </Col>
-  </Row>
-);
+    );
+  }
+}
 
-export default App;
+App.propTypes = {
+  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};
+
+export default injectSheet(styles)(App);
