@@ -114,7 +114,7 @@ class Video extends Component {
 
   render() {
     const {
-      playVideo, classes,
+      playVideo, classes, videoSource,
     } = this.props;
     const { duration } = this.state;
     /* eslint-disable jsx-a11y/media-has-caption */
@@ -127,7 +127,7 @@ class Video extends Component {
           onTimeUpdate={this.handleTimeUpdate.bind(this)}
           onEnded={playVideo}
         >
-          <source src={process.env.VIDEO_URL} />
+          <source src={videoSource} />
         </video>
         <VideoControllers duration={duration} />
       </div>
@@ -139,6 +139,7 @@ Video.defaultProps = {
   paused: true,
   classes: {},
   currentTime: 0,
+  videoSource: process.env.VIDEO_URL,
   muted: false,
   volume: 1,
   expanded: false,
@@ -149,6 +150,7 @@ Video.propTypes = {
   expanded: PropTypes.bool,
   classes: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   currentTime: PropTypes.number,
+  videoSource: PropTypes.string,
   muted: PropTypes.bool,
   volume: PropTypes.number,
   showTimeRunning: PropTypes.func.isRequired,

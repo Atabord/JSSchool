@@ -6,7 +6,6 @@ import {
   Row,
   Col,
   Button,
-  InputNumber,
 } from 'antd';
 
 class NewClip extends Component {
@@ -17,10 +16,20 @@ class NewClip extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { form } = this.props;
+    const { form, addClip } = this.props;
     form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        if (Number(values.endTime) <= Number(values.startTime)) {
+          console.log('err end Time is less or equal to start time');
+        } else {
+          const clip = {
+            [values.clipName]: {
+              ...values,
+            },
+          };
+          addClip(clip);
+          form.resetFields();
+        }
       }
     });
   }

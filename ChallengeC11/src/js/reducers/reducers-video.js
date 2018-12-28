@@ -11,6 +11,7 @@ const initialState = {
   paused: true,
   muted: false,
   volume: 1,
+  videoSource: process.env.VIDEO_URL,
   expanded: false,
   currentTime: 0,
 };

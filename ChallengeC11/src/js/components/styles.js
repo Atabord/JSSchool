@@ -34,4 +34,9 @@ export default {
   menu: {
     height: '100vh',
   },
+  listItem: {
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
 };

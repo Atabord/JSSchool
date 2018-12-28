@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import {
   addClip,
 } from '../actions/actions-clips';
+import {
+  playVideo
+} from '../actions/actions-video';
 import Clips from '../components/Clips';
 
 function mapStateToProps(state) {
@@ -17,7 +20,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    addClip,
+    addClip, playVideo,
   }, dispatch);
 }
 

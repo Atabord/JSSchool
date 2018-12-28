@@ -10,6 +10,7 @@ function mapStateToProps(state) {
     paused,
     currentTime,
     muted,
+    videoSource,
     volume,
     expanded,
   } = state.video;
@@ -18,6 +19,7 @@ function mapStateToProps(state) {
     paused,
     currentTime,
     muted,
+    videoSource,
     volume,
     expanded,
   };
