@@ -4,6 +4,7 @@ export const VIDEO_MUTE = 'VIDEO_MUTE';
 export const VIDEO_CHANGE_VOLUME = 'VIDEO_CHANGE_VOLUME';
 export const VIDEO_RUN_TIME = 'VIDEO_RUN_TIME';
 export const VIDEO_EXPAND = 'VIDEO_EXPAND';
+export const VIDEO_PLAY_CLIP = 'VIDEO_PLAY_CLIP';
 
 export const CLIP_ADD = 'CLIP_ADD';
 export const CLIP_EDIT = 'CLIP_EDIT';

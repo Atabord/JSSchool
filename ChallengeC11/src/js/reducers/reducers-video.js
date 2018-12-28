@@ -5,13 +5,16 @@ import {
   VIDEO_CHANGE_VOLUME,
   VIDEO_RUN_TIME,
   VIDEO_EXPAND,
+  VIDEO_PLAY_CLIP,
 } from '../actions/actionTypes';
+
+const URL = process.env.VIDEO_URL;
 
 const initialState = {
   paused: true,
   muted: false,
   volume: 1,
-  videoSource: process.env.VIDEO_URL,
+  videoSource: URL,
   expanded: false,
   currentTime: 0,
 };
@@ -47,6 +50,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         expanded: !state.expanded,
+      };
+    case VIDEO_PLAY_CLIP:
+      return {
+        ...state,
+        videoSource: `${URL}#t=${action.payload.startTime},${action.payload.endTime}`,
       };
     default:
       return state;

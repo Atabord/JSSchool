@@ -4,7 +4,7 @@ import {
   addClip,
 } from '../actions/actions-clips';
 import {
-  playVideo
+  playVideo, playClip,
 } from '../actions/actions-video';
 import Clips from '../components/Clips';
 
@@ -20,7 +20,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    addClip, playVideo,
+    addClip, playVideo, playClip,
   }, dispatch);
 }
 

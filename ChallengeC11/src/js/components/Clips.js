@@ -13,7 +13,7 @@ const getClips = (clips, playClip) => {
     <List.Item
       key={`clip${index + 1}`}
       actions={[
-        <Button key={`play${index + 1}`} shape="circle" icon="caret-right" onClick={playClip} />,
+        <Button key={`play${index + 1}`} shape="circle" icon="caret-right" onClick={() => playClip(clip.startTime, clip.endTime)} />,
         <Button key={`edit${index + 1}`} shape="circle" icon="edit" />,
         <Button key={`delete${index + 1}`} shape="circle" icon="delete" />,
       ]}
@@ -29,9 +29,9 @@ class Clips extends Component {
     this.handlePlayClip = this.handlePlayClip.bind(this);
   }
 
-  handlePlayClip() {
-    const { playVideo } = this.props;
-    playVideo();
+  handlePlayClip(start, end) {
+    const { playClip } = this.props;
+    playClip(start, end);
   }
 
   render() {
@@ -58,7 +58,7 @@ class Clips extends Component {
 
 Clips.propTypes = {
   showDrawer: PropTypes.func.isRequired,
-  playVideo: PropTypes.func.isRequired,
+  playClip: PropTypes.func.isRequired,
   clips: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 

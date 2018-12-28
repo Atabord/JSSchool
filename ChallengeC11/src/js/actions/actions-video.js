@@ -5,6 +5,7 @@ import {
   VIDEO_CHANGE_VOLUME,
   VIDEO_RUN_TIME,
   VIDEO_EXPAND,
+  VIDEO_PLAY_CLIP,
 } from './actionTypes';
 
 export function playVideo() {
@@ -43,5 +44,14 @@ export function showTimeRunning(time) {
 export function expandVideo() {
   return {
     type: VIDEO_EXPAND,
+  };
+}
+
+export function playClip(startTime, endTime) {
+  return {
+    type: VIDEO_PLAY_CLIP,
+    payload: {
+      startTime, endTime,
+    },
   };
 }

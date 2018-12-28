@@ -2,7 +2,7 @@ import { CLIP_ADD, CLIP_EDIT } from '../actions/actionTypes';
 
 /* eslint no-confusing-arrow: ["error", {"allowParens": true}] */
 
-export default (state = [], action) => {
+export default (state = {}, action) => {
   switch (action.type) {
     case CLIP_ADD:
       return {

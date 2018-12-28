@@ -43,11 +43,12 @@ class Video extends Component {
     this.handleMute = this.handleMute.bind(this);
     this.handleExpand = this.handleExpand.bind(this);
     this.handleVolumeChange = this.handleVolumeChange.bind(this);
+    this.loadClipAndPlay = this.loadClipAndPlay.bind(this);
   }
 
   componentDidUpdate(prevProps) {
     const {
-      paused, muted, volume, currentTime, expanded,
+      paused, muted, volume, currentTime, expanded, videoSource,
     } = this.props;
     const { current } = this.videoRef;
 
@@ -61,6 +62,8 @@ class Video extends Component {
       && this.handleTimeChange();
     (expanded !== prevProps.expanded)
       && this.handleExpand();
+    (videoSource !== prevProps.videoSource)
+      && this.loadClipAndPlay();
   }
 
   videoInit() {
@@ -74,11 +77,24 @@ class Video extends Component {
     const { paused, currentTime, moveTime } = this.props;
     const { current } = this.videoRef;
     if (paused) {
-      this.videoRef.current.pause();
+      current.pause();
     } else {
-      this.videoRef.current.play();
+      current.play();
       (currentTime >= current.duration)
         && moveTime(0);
+    }
+  }
+
+  loadClipAndPlay() {
+    const { playVideo, paused } = this.props;
+    const { current } = this.videoRef;
+    if (paused) {
+      current.load();
+      playVideo();
+    } else {
+      current.pause();
+      current.load();
+      current.play();
     }
   }
 
