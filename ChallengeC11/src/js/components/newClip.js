@@ -7,6 +7,9 @@ import {
   Col,
   Button,
 } from 'antd';
+import PropTypes from 'prop-types';
+/* eslint no-unused-expressions:
+  ["error", { "allowShortCircuit": true, "allowTernary": true }] */
 
 class NewClip extends Component {
   constructor() {
@@ -16,27 +19,32 @@ class NewClip extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { form, addClip } = this.props;
+    const {
+      form, addClip, onClose, editClip, info,
+    } = this.props;
     form.validateFields((err, values) => {
       if (!err) {
         if (Number(values.endTime) <= Number(values.startTime)) {
           console.log('err end Time is less or equal to start time');
         } else {
           const clip = {
-            [values.clipName]: {
-              ...values,
-            },
+            ...values,
           };
-          addClip(clip);
+          info.clipName
+            ? editClip({ oldName: info.clipName, clip })
+            : addClip(clip);
           form.resetFields();
+          onClose();
         }
       }
     });
   }
- 
+
   render() {
-    const { visible, onClose, form } = this.props;
-    return(
+    const {
+      visible, onClose, form, info,
+    } = this.props;
+    return (
       <Drawer
         title="New clip"
         placement="bottom"
@@ -50,6 +58,7 @@ class NewClip extends Component {
               <Form.Item>
                 {form.getFieldDecorator('clipName', {
                   rules: [{ required: true, message: 'Please input a name!' }],
+                  initialValue: info.clipName,
                 })(
                   <Input placeholder="Clip Name" />,
                 )}
@@ -59,6 +68,7 @@ class NewClip extends Component {
                   <Form.Item>
                     {form.getFieldDecorator('startTime', {
                       rules: [{ required: false, min: 0 }],
+                      initialValue: info.startTime,
                     })(
                       <Input min={0} type="number" placeholder="Start Time (secs)" />,
                     )}
@@ -68,6 +78,7 @@ class NewClip extends Component {
                   <Form.Item>
                     {form.getFieldDecorator('endTime', {
                       rules: [{ required: false, min: 0 }],
+                      initialValue: info.endTime,
                     })(
                       <Input min={0} type="number" placeholder="End Time (secs)" />,
                     )}
@@ -87,8 +98,21 @@ class NewClip extends Component {
           </Col>
         </Row>
       </Drawer>
-    )
+    );
   }
 }
+
+NewClip.defaultProps = {
+  visible: false,
+};
+
+NewClip.propTypes = {
+  visible: PropTypes.bool,
+  onClose: PropTypes.func.isRequired,
+  addClip: PropTypes.func.isRequired,
+  editClip: PropTypes.func.isRequired,
+  form: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  info: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};
 
 export default Form.create()(NewClip);

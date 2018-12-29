@@ -14,9 +14,9 @@ export function editClip(info) {
   };
 }
 
-export function deleteClip(index) {
+export function deleteClip(clipName) {
   return {
     type: CLIP_DELETE,
-    payload: index,
+    payload: clipName,
   };
 }

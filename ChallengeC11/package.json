@@ -7,12 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src/js/*",
     "lintfix": "eslint src/js/* --fix",
-    "compileSass": "sass src/sass:dist/src/css",
-    "SassDev": "sass --watch src/sass:dist/src/css",
     "buildDev": "webpack --watch",
     "build": "webpack",
     "server": "webpack-dev-server --inline --hot",
-    "start": "npm run compileSass && npm run build && npm run server"
+    "start": "npm run build && npm run server"
   },
   "keywords": [],
   "author": "Alejandro Taborda",
@@ -32,7 +30,6 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "sass": "^1.15.1",
     "webpack-dev-server": "^3.1.10"
   },
   "devDependencies": {

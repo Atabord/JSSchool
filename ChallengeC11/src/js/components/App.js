@@ -10,12 +10,15 @@ import styles from './styles';
 import Video from '../containers/Video';
 import Clips from '../containers/Clips';
 import NewClip from '../containers/newClip';
+/* eslint no-unused-expressions:
+  ["error", { "allowShortCircuit": true, "allowTernary": true }] */
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      visible: false, 
+      visible: false,
+      info: {},
     };
     this.onClose = this.onClose.bind(this);
     this.showDrawer = this.showDrawer.bind(this);
@@ -24,19 +27,26 @@ class App extends Component {
   onClose() {
     this.setState({
       visible: false,
+      info: {},
     });
   }
 
-  showDrawer() {
-    this.setState({
-      visible: true,
-    });
+  showDrawer(info) {
+    info
+      ? this.setState({
+        visible: true,
+        info,
+      })
+      : this.setState({
+        visible: true,
+        info: {},
+      });
   }
 
 
   render() {
     const { classes } = this.props;
-    const { visible } = this.state;
+    const { visible, info } = this.state;
     return (
       <Row>
         <Col xs={24} md={8} lg={6}>
@@ -54,6 +64,7 @@ class App extends Component {
           </Card>
         </Col>
         <NewClip
+          info={info}
           visible={visible}
           onClose={this.onClose}
         />

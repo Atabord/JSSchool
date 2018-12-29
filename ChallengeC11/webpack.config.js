@@ -38,13 +38,13 @@ module.exports = {
         query: {
           presets: ['@babel/preset-env', '@babel/preset-react'],
           plugins: [
-            ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
+            ['import', { libraryName: 'antd', libraryDirectory: 'es', style: 'css' }],
           ],
         },
       },
-      { 
-        test: /\.css$/, 
-        loader: 'style-loader!css-loader' 
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader',
       },
     ],
   },
