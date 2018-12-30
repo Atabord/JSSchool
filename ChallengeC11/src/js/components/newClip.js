@@ -65,7 +65,7 @@ class NewClip extends Component {
         title="New clip"
         placement="bottom"
         closable={false}
-        height={500}
+        height={350}
         onClose={onClose}
         visible={visible}
       >
@@ -105,10 +105,12 @@ class NewClip extends Component {
               <Form.Item>
                 {form.getFieldDecorator('tags', {
                   rules: [{ required: false }],
+                  initialValue: info.tags,
                 })(
                   <Select
                     mode="tags"
                     tokenSeparators={[',']}
+                    placeholder="Tags separated by commas (Ex: Awesome, happy)"
                   />,
                 )}
               </Form.Item>
