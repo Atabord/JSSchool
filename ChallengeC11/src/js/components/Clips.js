@@ -41,7 +41,10 @@ class Clips extends Component {
 
   handleDeleteClip(clipName) {
     const { deleteClip } = this.props;
-    deleteClip(clipName);
+    const clips = JSON.parse(localStorage.getItem('videoClips'));
+    const clipList = clips.filter(clip => clip.clipName !== clipName);
+    localStorage.setItem('videoClips', JSON.stringify(clipList));
+    deleteClip(clipList);
   }
 
   render() {

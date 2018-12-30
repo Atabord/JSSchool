@@ -18,7 +18,7 @@ export default (state = clips || [], action) => {
           : clip
       ));
     case CLIP_DELETE:
-      return state.filter(clip => clip.clipName !== action.payload);
+      return action.payload;
     default:
       return state;
   }
