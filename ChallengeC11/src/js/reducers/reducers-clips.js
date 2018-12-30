@@ -2,7 +2,9 @@ import { CLIP_ADD, CLIP_EDIT, CLIP_DELETE } from '../actions/actionTypes';
 
 /* eslint no-confusing-arrow: ["error", {"allowParens": true}] */
 
-export default (state = [], action) => {
+const clips = JSON.parse(localStorage.getItem('videoClips'));
+
+export default (state = clips || [], action) => {
   switch (action.type) {
     case CLIP_ADD:
       return [

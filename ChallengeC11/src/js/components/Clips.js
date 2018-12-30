@@ -69,7 +69,7 @@ class Clips extends Component {
 Clips.propTypes = {
   showDrawer: PropTypes.func.isRequired,
   playClip: PropTypes.func.isRequired,
-  editClip: PropTypes.func.isRequired,
+  addClip: PropTypes.func.isRequired,
   deleteClip: PropTypes.func.isRequired,
   clips: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
 };

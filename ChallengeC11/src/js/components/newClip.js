@@ -33,6 +33,21 @@ class NewClip extends Component {
           info.clipName
             ? editClip({ oldName: info.clipName, clip })
             : addClip(clip);
+          const clips = JSON.parse(localStorage.getItem('videoClips'));
+          if (clips) {
+            const clipList = clips.map((singleClip) => {
+              let newClip;
+              (info.clipName && singleClip.clipName === info.clipName)
+                ? newClip = clip
+                : newClip = singleClip;
+              return newClip;
+            });
+            info.clipName
+              ? localStorage.setItem('videoClips', JSON.stringify([...clipList]))
+              : localStorage.setItem('videoClips', JSON.stringify([...clipList, clip]));
+          } else {
+            localStorage.setItem('videoClips', JSON.stringify([clip]));
+          }
           form.resetFields();
           onClose();
         }

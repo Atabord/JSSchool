@@ -39,4 +39,9 @@ export default {
     display: 'flex',
     justifyContent: 'space-between',
   },
+  '@media screen and (max-width: 467px)': {
+    menu: {
+      height: '20vh',
+    },
+  },
 };
