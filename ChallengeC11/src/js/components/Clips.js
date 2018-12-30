@@ -2,6 +2,7 @@ import React, { Fragment, Component } from 'react';
 import {
   List,
   Button,
+  Tag,
 } from 'antd';
 import injectSheet from 'react-jss';
 import PropTypes from 'prop-types';
@@ -16,7 +17,16 @@ const getClips = (clips, playClip, editClip, deleteClip) => clips.map((clip, ind
       <Button key={`delete${index + 1}`} shape="circle" icon="delete" onClick={() => deleteClip(clip.clipName)} />,
     ]}
   >
-    {clip.clipName}
+    <List.Item.Meta
+      title={clip.clipName}
+      description={(
+        <div>
+          {clip.tags && clip.tags.map(tag => (
+            <Tag key={tag}>{tag}</Tag>
+          ))}
+        </div>
+      )}
+    />
   </List.Item>
 ));
 

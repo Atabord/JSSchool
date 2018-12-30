@@ -6,6 +6,7 @@ import {
   Row,
   Col,
   Button,
+  Select,
 } from 'antd';
 import PropTypes from 'prop-types';
 /* eslint no-unused-expressions:
@@ -64,6 +65,7 @@ class NewClip extends Component {
         title="New clip"
         placement="bottom"
         closable={false}
+        height={500}
         onClose={onClose}
         visible={visible}
       >
@@ -72,7 +74,7 @@ class NewClip extends Component {
             <Form onSubmit={this.handleSubmit}>
               <Form.Item>
                 {form.getFieldDecorator('clipName', {
-                  rules: [{ required: true, message: 'Please input a name!' }],
+                  rules: [{ required: true, message: 'Please input a name' }],
                   initialValue: info.clipName,
                 })(
                   <Input placeholder="Clip Name" />,
@@ -82,7 +84,7 @@ class NewClip extends Component {
                 <Col xs={24} md={11}>
                   <Form.Item>
                     {form.getFieldDecorator('startTime', {
-                      rules: [{ required: false, min: 0 }],
+                      rules: [{ required: true, message: 'Please add the start time' }],
                       initialValue: info.startTime,
                     })(
                       <Input min={0} type="number" placeholder="Start Time (secs)" />,
@@ -92,7 +94,7 @@ class NewClip extends Component {
                 <Col xs={24} md={{ span: 11, offset: 2 }}>
                   <Form.Item>
                     {form.getFieldDecorator('endTime', {
-                      rules: [{ required: false, min: 0 }],
+                      rules: [{ required: true, message: 'Please add the start time' }],
                       initialValue: info.endTime,
                     })(
                       <Input min={0} type="number" placeholder="End Time (secs)" />,
@@ -100,6 +102,16 @@ class NewClip extends Component {
                   </Form.Item>
                 </Col>
               </Row>
+              <Form.Item>
+                {form.getFieldDecorator('tags', {
+                  rules: [{ required: false }],
+                })(
+                  <Select
+                    mode="tags"
+                    tokenSeparators={[',']}
+                  />,
+                )}
+              </Form.Item>
               <Form.Item>
                 <Button
                   type="primary"
