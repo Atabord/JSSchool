@@ -9,7 +9,7 @@ import {
   faExpand,
   faCompress,
 } from '@fortawesome/free-solid-svg-icons';
-import { Slider } from 'antd';
+import { Slider, Tooltip, Tag } from 'antd';
 import injectSheet from 'react-jss';
 import styles from './styles';
 
@@ -31,18 +31,20 @@ class VideoControllers extends Component {
     this.state = {
       timeToSlide: 0,
       showTime: '0:00 / 0:00',
+      marks: {},
     };
     this.videoRef = React.createRef();
     this.videoContainerRef = React.createRef();
     this.handleTimeChange = this.handleTimeChange.bind(this);
     this.handleTimeUpdate = this.handleTimeUpdate.bind(this);
     this.getTime = this.getTime.bind(this);
+    this.getMarkers = this.getMarkers.bind(this);
     this.handleVolumeChange = this.handleVolumeChange.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState) {
     const { timeToSlide } = this.state;
-    const { duration, currentTime } = this.props;
+    const { duration, currentTime, clips } = this.props;
     if (prevState.timeToSlide !== timeToSlide) {
       this.getTime();
     }
@@ -52,6 +54,9 @@ class VideoControllers extends Component {
 
     (currentTime !== prevProps.currentTime)
       && this.handleTimeUpdate();
+
+    (clips !== prevProps.clips)
+      && this.getMarkers();
   }
 
   getTime() {
@@ -65,6 +70,33 @@ class VideoControllers extends Component {
     const showTime = `${curTime} / ${durTime}`;
     this.setState({
       showTime,
+    });
+  }
+
+  getMarkers() {
+    const { clips, duration } = this.props;
+    let result = {};
+    const array = clips.map((clip) => {
+      const initialMark = Math.floor(Number(clip.startTime) * 100 / duration);
+      return {
+        [initialMark]: {
+          label: <Tooltip title={clip.clipName} visible />,
+          style: {
+            margin: '0',
+          },
+        },
+      };
+    });
+
+    for (let i = 0; i < array.length; i += 1) {
+      result = {
+        ...result,
+        ...array[i],
+      };
+    }
+
+    this.setState({
+      marks: result,
     });
   }
 
@@ -90,6 +122,7 @@ class VideoControllers extends Component {
     const {
       timeToSlide,
       showTime,
+      marks,
     } = this.state;
     const {
       paused,
@@ -102,6 +135,7 @@ class VideoControllers extends Component {
       expandVideo,
     } = this.props;
     /* eslint-disable jsx-a11y/media-has-caption */
+
     return (
       <div className={`${classes.controlsContainer} ${classes.w100}`}>
         <Slider
@@ -109,6 +143,7 @@ class VideoControllers extends Component {
           defaultValue={0}
           step={0.00001}
           value={timeToSlide}
+          marks={marks}
           onChange={this.handleTimeChange}
           className={classes.w100}
         />
@@ -149,6 +184,7 @@ VideoControllers.defaultProps = {
   muted: false,
   volume: 1,
   duration: 0,
+  clips: [],
   expanded: false,
 };
 
@@ -156,6 +192,7 @@ VideoControllers.propTypes = {
   paused: PropTypes.bool,
   expanded: PropTypes.bool,
   classes: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  clips: PropTypes.array, // eslint-disable-line react/forbid-prop-types
   currentTime: PropTypes.number,
   muteVideo: PropTypes.func.isRequired,
   muted: PropTypes.bool,

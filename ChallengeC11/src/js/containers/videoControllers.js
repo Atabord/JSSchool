@@ -14,12 +14,15 @@ function mapStateToProps(state) {
     expanded,
   } = state.video;
 
+  const { clips } = state;
+
   return {
     paused,
     currentTime,
     muted,
     volume,
     expanded,
+    clips,
   };
 }
 
