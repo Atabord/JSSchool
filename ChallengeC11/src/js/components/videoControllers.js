@@ -42,6 +42,10 @@ class VideoControllers extends Component {
     this.handleVolumeChange = this.handleVolumeChange.bind(this);
   }
 
+  componentDidMount() {
+    this.getMarkers();
+  }
+
   componentDidUpdate(prevProps, prevState) {
     const { timeToSlide } = this.state;
     const { duration, currentTime, clips } = this.props;
@@ -80,9 +84,12 @@ class VideoControllers extends Component {
       const initialMark = Math.floor(Number(clip.startTime) * 100 / duration);
       return {
         [initialMark]: {
-          label: <Tooltip title={clip.clipName} visible />,
+          label: <Tooltip title={clip.clipName} trigger="hover">|</Tooltip>,
           style: {
-            margin: '0',
+            width: '3px',
+            height: '15px',
+            margin: 0,
+            color: 'green',
           },
         },
       };
