@@ -4,6 +4,7 @@ import {
   Button,
   Tag,
   Input,
+  Alert,
 } from 'antd';
 import injectSheet from 'react-jss';
 import PropTypes from 'prop-types';
@@ -84,6 +85,13 @@ class Clips extends Component {
     return (
       <Fragment>
         <List>
+          <Alert
+            message="Hotkeys"
+            description="You can use hotkeys to jump through clips, P to previous, N to next"
+            type="info"
+            closeText="close"
+            showIcon
+          />
           <Input.Search
             placeholder="Search clip by tag"
             onChange={this.handleSearch}

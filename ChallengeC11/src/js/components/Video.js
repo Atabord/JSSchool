@@ -46,8 +46,14 @@ class Video extends Component {
     this.handleMute = this.handleMute.bind(this);
     this.handleExpand = this.handleExpand.bind(this);
     this.handleVolumeChange = this.handleVolumeChange.bind(this);
+    this.handleKeyboard = this.handleKeyboard.bind(this);
     this.loadClipAndPlay = this.loadClipAndPlay.bind(this);
     this.playNextClip = this.playNextClip.bind(this);
+    this.playPreviousClip = this.playPreviousClip.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('keyup', this.handleKeyboard);
   }
 
   componentDidUpdate(prevProps) {
@@ -68,6 +74,17 @@ class Video extends Component {
       && this.handleExpand();
     (videoSource !== prevProps.videoSource)
       && this.loadClipAndPlay();
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keyup', this.handleKeyboard);
+  }
+
+  handleKeyboard(event) {
+    event.code === 'KeyN'
+    && this.playNextClip();
+    event.code === 'KeyP'
+    && this.playPreviousClip();
   }
 
   videoInit() {
@@ -149,6 +166,17 @@ class Video extends Component {
     const nextClip = clips[clipIndex + 1];
     if (nextClip) {
       const { clipName, startTime, endTime } = nextClip;
+      playClip(clipName, startTime, endTime);
+    }
+  }
+
+  playPreviousClip() {
+    const { currentClip, clips, playClip } = this.props;
+    const clipIndex = clips
+      && clips.findIndex(clip => clip.clipName === currentClip);
+    const prevClip = clips[clipIndex - 1];
+    if (prevClip) {
+      const { clipName, startTime, endTime } = prevClip;
       playClip(clipName, startTime, endTime);
     }
   }
