@@ -30,6 +30,7 @@ function exitFullscreen() {
   }
 }
 
+// This component manage all the video events
 class Video extends Component {
   constructor() {
     super();

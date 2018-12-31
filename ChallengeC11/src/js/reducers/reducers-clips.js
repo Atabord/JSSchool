@@ -4,7 +4,21 @@ import { CLIP_ADD, CLIP_EDIT, CLIP_DELETE } from '../actions/actionTypes';
 
 const clips = JSON.parse(localStorage.getItem('videoClips'));
 
-export default (state = clips || [], action) => {
+const defaultClips = [
+  {
+    clipName: 'Poor Dragon',
+    startTime: '26',
+    endTime: '34',
+    tags: ['Sad', 'Dragon'],
+  },
+];
+
+// if there is any clip on localStorage, add it to initialState
+const initialState = clips
+  ? defaultClips.concat(clips)
+  : defaultClips;
+
+export default (state = initialState || [], action) => {
   switch (action.type) {
     case CLIP_ADD:
       return [

@@ -39,9 +39,10 @@ export default {
     display: 'flex',
     justifyContent: 'space-between',
   },
-  '@media screen and (max-width: 467px)': {
+  '@media screen and (max-width: 767px)': {
     menu: {
-      height: '20vh',
+      height: '35vh',
+      overflow: 'scroll',
     },
   },
 };

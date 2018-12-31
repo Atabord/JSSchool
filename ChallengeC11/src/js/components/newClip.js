@@ -12,12 +12,14 @@ import PropTypes from 'prop-types';
 /* eslint no-unused-expressions:
   ["error", { "allowShortCircuit": true, "allowTernary": true }] */
 
+// This component manage the process after the user clicks the addClip Button
 class NewClip extends Component {
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  // function to control what happens when submitting the form
   handleSubmit(e) {
     e.preventDefault();
     const {
@@ -65,7 +67,7 @@ class NewClip extends Component {
         title="New clip"
         placement="bottom"
         closable={false}
-        height={350}
+        height={370}
         onClose={onClose}
         visible={visible}
       >
@@ -81,7 +83,7 @@ class NewClip extends Component {
                 )}
               </Form.Item>
               <Row>
-                <Col xs={24} md={11}>
+                <Col xs={24} sm={11}>
                   <Form.Item>
                     {form.getFieldDecorator('startTime', {
                       rules: [{ required: true, message: 'Please add the start time' }],
@@ -91,7 +93,7 @@ class NewClip extends Component {
                     )}
                   </Form.Item>
                 </Col>
-                <Col xs={24} md={{ span: 11, offset: 2 }}>
+                <Col xs={24} sm={{ span: 11, offset: 2 }}>
                   <Form.Item>
                     {form.getFieldDecorator('endTime', {
                       rules: [{ required: true, message: 'Please add the start time' }],

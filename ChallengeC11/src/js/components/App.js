@@ -13,6 +13,8 @@ import NewClip from '../containers/newClip';
 /* eslint no-unused-expressions:
   ["error", { "allowShortCircuit": true, "allowTernary": true }] */
 
+
+// Main component with the design of the whole app
 class App extends Component {
   constructor() {
     super();
