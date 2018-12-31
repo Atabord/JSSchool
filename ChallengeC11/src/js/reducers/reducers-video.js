@@ -16,6 +16,7 @@ const initialState = {
   volume: 1,
   videoSource: URL,
   expanded: false,
+  currentClip: '',
   currentTime: 0,
 };
 
@@ -29,6 +30,7 @@ export default (state = initialState, action) => {
     case VIDEO_MOVE_TIME:
       return {
         ...state,
+        currentClip: '',
         currentTime: action.payload,
       };
     case VIDEO_MUTE:
@@ -55,6 +57,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         videoSource: `${URL}#t=${action.payload.startTime},${action.payload.endTime}`,
+        currentClip: action.payload.clipName || '',
       };
     default:
       return state;
