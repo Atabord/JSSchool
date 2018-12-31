@@ -4,6 +4,7 @@ import {
   Button,
   Tag,
   Input,
+  Alert,
 } from 'antd';
 import injectSheet from 'react-jss';
 import PropTypes from 'prop-types';
@@ -22,7 +23,7 @@ const getClips = (clips, playClip, editClip, deleteClip, search) => {
     <List.Item
       key={`clip${index + 1}`}
       actions={[
-        <Button key={`play${index + 1}`} shape="circle" icon="caret-right" onClick={() => playClip(clip.startTime, clip.endTime)} />,
+        <Button key={`play${index + 1}`} shape="circle" icon="caret-right" onClick={() => playClip(clip.clipName, clip.startTime, clip.endTime)} />,
         <Button key={`edit${index + 1}`} shape="circle" icon="edit" onClick={() => editClip(clip)} />,
         <Button key={`delete${index + 1}`} shape="circle" icon="delete" onClick={() => deleteClip(clip.clipName)} />,
       ]}
@@ -54,9 +55,9 @@ class Clips extends Component {
     this.handleSearch = this.handleSearch.bind(this);
   }
 
-  handlePlayClip(start, end) {
+  handlePlayClip(name, start, end) {
     const { playClip } = this.props;
-    playClip(start, end);
+    playClip(name, start, end);
   }
 
   handleEditClip(clip) {
@@ -84,6 +85,13 @@ class Clips extends Component {
     return (
       <Fragment>
         <List>
+          <Alert
+            message="Hotkeys"
+            description="You can use hotkeys to jump through clips, P to previous, N to next"
+            type="info"
+            closeText="close"
+            showIcon
+          />
           <Input.Search
             placeholder="Search clip by tag"
             onChange={this.handleSearch}

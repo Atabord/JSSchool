@@ -15,3 +15,4 @@
 * Use the left panel to add, search, edit and delete clips.
 * Add tags to your clips to find them using the search bar
 * If you want to use a different video just open `.env` file and change the `VIDEO_URL` value
+* You can Jump between clips using keyboard hotkeys `P` to play the previous clip `N` to play the next one.

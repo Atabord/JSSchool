@@ -47,11 +47,11 @@ export function expandVideo() {
   };
 }
 
-export function playClip(startTime, endTime) {
+export function playClip(clipName, startTime, endTime) {
   return {
     type: VIDEO_PLAY_CLIP,
     payload: {
-      startTime, endTime,
+      clipName, startTime, endTime,
     },
   };
 }

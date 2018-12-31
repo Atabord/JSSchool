@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
+import { Spin, Icon } from 'antd';
 import styles from './styles';
 import VideoControllers from '../containers/videoControllers';
 /* eslint no-unused-expressions:
@@ -36,6 +37,7 @@ class Video extends Component {
     super();
     this.state = {
       duration: 0,
+      loading: false,
     };
     this.videoRef = React.createRef();
     this.videoContainerRef = React.createRef();
@@ -44,7 +46,14 @@ class Video extends Component {
     this.handleMute = this.handleMute.bind(this);
     this.handleExpand = this.handleExpand.bind(this);
     this.handleVolumeChange = this.handleVolumeChange.bind(this);
+    this.handleKeyboard = this.handleKeyboard.bind(this);
     this.loadClipAndPlay = this.loadClipAndPlay.bind(this);
+    this.playNextClip = this.playNextClip.bind(this);
+    this.playPreviousClip = this.playPreviousClip.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('keyup', this.handleKeyboard);
   }
 
   componentDidUpdate(prevProps) {
@@ -65,6 +74,17 @@ class Video extends Component {
       && this.handleExpand();
     (videoSource !== prevProps.videoSource)
       && this.loadClipAndPlay();
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keyup', this.handleKeyboard);
+  }
+
+  handleKeyboard(event) {
+    event.code === 'KeyN'
+    && this.playNextClip();
+    event.code === 'KeyP'
+    && this.playPreviousClip();
   }
 
   videoInit() {
@@ -105,9 +125,19 @@ class Video extends Component {
   }
 
   handleTimeUpdate() {
-    const { currentTime } = this.videoRef.current;
-    const { showTimeRunning } = this.props;
+    const { currentTime, paused } = this.videoRef.current;
+    const { showTimeRunning, currentClip, clips } = this.props;
+    const currentClipInfo = clips.find(clip => clip.clipName === currentClip);
+    const currentEndTime = currentClipInfo
+      && currentClipInfo.endTime;
     showTimeRunning(currentTime);
+    if (paused && Math.floor(currentTime) === Number(currentEndTime)) {
+      this.setState({ loading: true });
+      setTimeout(() => {
+        this.setState({ loading: false });
+        this.playNextClip();
+      }, 3000);
+    }
   }
 
   handleMute() {
@@ -129,23 +159,48 @@ class Video extends Component {
       : exitFullscreen();
   }
 
+  playNextClip() {
+    const { currentClip, clips, playClip } = this.props;
+    const clipIndex = clips
+      && clips.findIndex(clip => clip.clipName === currentClip);
+    const nextClip = clips[clipIndex + 1];
+    if (nextClip) {
+      const { clipName, startTime, endTime } = nextClip;
+      playClip(clipName, startTime, endTime);
+    }
+  }
+
+  playPreviousClip() {
+    const { currentClip, clips, playClip } = this.props;
+    const clipIndex = clips
+      && clips.findIndex(clip => clip.clipName === currentClip);
+    const prevClip = clips[clipIndex - 1];
+    if (prevClip) {
+      const { clipName, startTime, endTime } = prevClip;
+      playClip(clipName, startTime, endTime);
+    }
+  }
+
   render() {
     const {
       playVideo, classes, videoSource,
     } = this.props;
-    const { duration } = this.state;
+    const { duration, loading } = this.state;
+    const antIcon = <Icon type="loading" style={{ fontSize: 48 }} spin />;
     /* eslint-disable jsx-a11y/media-has-caption */
     return (
       <div ref={this.videoContainerRef}>
-        <video
-          ref={this.videoRef}
-          className={classes.w100}
-          onCanPlay={this.videoInit.bind(this)}
-          onTimeUpdate={this.handleTimeUpdate.bind(this)}
-          onEnded={playVideo}
-        >
-          <source src={videoSource} />
-        </video>
+        <Spin indicator={antIcon} spinning={loading}>
+          <video
+            ref={this.videoRef}
+            className={classes.w100}
+            onCanPlay={this.videoInit.bind(this)}
+            onTimeUpdate={this.handleTimeUpdate.bind(this)}
+            onEnded={playVideo}
+          >
+            <source src={videoSource} />
+          </video>
+        </Spin>
         <VideoControllers duration={duration} />
       </div>
     );
@@ -158,6 +213,8 @@ Video.defaultProps = {
   currentTime: 0,
   videoSource: process.env.VIDEO_URL,
   muted: false,
+  currentClip: '',
+  clips: [],
   volume: 1,
   expanded: false,
 };
@@ -166,12 +223,15 @@ Video.propTypes = {
   paused: PropTypes.bool,
   expanded: PropTypes.bool,
   classes: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  clips: PropTypes.array, // eslint-disable-line react/forbid-prop-types
   currentTime: PropTypes.number,
   videoSource: PropTypes.string,
+  currentClip: PropTypes.string,
   muted: PropTypes.bool,
   volume: PropTypes.number,
   showTimeRunning: PropTypes.func.isRequired,
   playVideo: PropTypes.func.isRequired,
+  playClip: PropTypes.func.isRequired,
   moveTime: PropTypes.func.isRequired,
 };
 
