@@ -50,6 +50,7 @@ class Video extends Component {
     this.loadClipAndPlay = this.loadClipAndPlay.bind(this);
     this.playNextClip = this.playNextClip.bind(this);
     this.playPreviousClip = this.playPreviousClip.bind(this);
+    this.handlePaused = this.handlePaused.bind(this);
   }
 
   componentDidMount() {
@@ -125,19 +126,9 @@ class Video extends Component {
   }
 
   handleTimeUpdate() {
-    const { currentTime, paused } = this.videoRef.current;
-    const { showTimeRunning, currentClip, clips } = this.props;
-    const currentClipInfo = clips.find(clip => clip.clipName === currentClip);
-    const currentEndTime = currentClipInfo
-      && currentClipInfo.endTime;
+    const { currentTime } = this.videoRef.current;
+    const { showTimeRunning } = this.props;
     showTimeRunning(currentTime);
-    if (paused && Math.floor(currentTime) === Number(currentEndTime)) {
-      this.setState({ loading: true });
-      setTimeout(() => {
-        this.setState({ loading: false });
-        this.playNextClip();
-      }, 3000);
-    }
   }
 
   handleMute() {
@@ -157,6 +148,23 @@ class Video extends Component {
     expanded
       ? openFullScreen(elem)
       : exitFullscreen();
+  }
+
+  handlePaused() {
+    const { currentTime } = this.videoRef.current;
+    const {
+      currentClip, clips,
+    } = this.props;
+    const currentClipInfo = clips.find(clip => clip.clipName === currentClip);
+    const currentEndTime = currentClipInfo
+      && currentClipInfo.endTime;
+    if (Math.floor(currentTime) === Number(currentEndTime)) {
+      this.setState({ loading: true });
+      setTimeout(() => {
+        this.setState({ loading: false });
+        this.playNextClip();
+      }, 3000);
+    }
   }
 
   playNextClip() {
@@ -190,13 +198,14 @@ class Video extends Component {
     /* eslint-disable jsx-a11y/media-has-caption */
     return (
       <div ref={this.videoContainerRef}>
-        <Spin indicator={antIcon} spinning={loading}>
+        <Spin wrapperClassName={classes.spinText} indicator={antIcon} spinning={loading} size="large" tip="Preparing to play next clip ...">
           <video
             ref={this.videoRef}
             className={classes.w100}
             onCanPlay={this.videoInit.bind(this)}
             onTimeUpdate={this.handleTimeUpdate.bind(this)}
             onEnded={playVideo}
+            onPause={this.handlePaused}
           >
             <source src={videoSource} />
           </video>

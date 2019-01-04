@@ -9,7 +9,7 @@ import {
   faExpand,
   faCompress,
 } from '@fortawesome/free-solid-svg-icons';
-import { Slider, Tooltip, Tag } from 'antd';
+import { Slider, Tooltip } from 'antd';
 import injectSheet from 'react-jss';
 import styles from './styles';
 
@@ -59,7 +59,7 @@ class VideoControllers extends Component {
     (currentTime !== prevProps.currentTime)
       && this.handleTimeUpdate();
 
-    (clips !== prevProps.clips)
+    (duration !== prevProps.duration || clips !== prevProps.clips)
       && this.getMarkers();
   }
 
@@ -78,15 +78,20 @@ class VideoControllers extends Component {
   }
 
   getMarkers() {
-    const { clips, duration } = this.props;
+    const {
+      clips, duration, playClip, classes,
+    } = this.props;
     let result = {};
     const array = clips.map((clip) => {
       const initialMark = Math.floor(Number(clip.startTime) * 100 / duration);
       return {
         [initialMark]: {
-          label: <Tooltip title={clip.clipName} trigger="hover">|</Tooltip>,
+          label:
+  <Tooltip title={clip.clipName} trigger="hover">
+    <button className={classes.clipButton} type="button" onClick={() => playClip(clip.clipName, clip.startTime, clip.endTime)}>|</button>
+  </Tooltip>,
           style: {
-            width: '3px',
+            width: '2px',
             height: '15px',
             margin: 0,
             color: 'green',
@@ -208,6 +213,7 @@ VideoControllers.propTypes = {
   changeVolume: PropTypes.func.isRequired,
   expandVideo: PropTypes.func.isRequired,
   playVideo: PropTypes.func.isRequired,
+  playClip: PropTypes.func.isRequired,
   moveTime: PropTypes.func.isRequired,
 };
 
