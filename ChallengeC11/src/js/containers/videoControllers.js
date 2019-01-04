@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {
-  playVideo, moveTime, muteVideo, changeVolume, expandVideo,
+  playVideo, moveTime, muteVideo, changeVolume, expandVideo, playClip,
 } from '../actions/actions-video';
 import VideoControllers from '../components/videoControllers';
 
@@ -28,7 +28,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    playVideo, moveTime, muteVideo, changeVolume, expandVideo,
+    playVideo, moveTime, muteVideo, changeVolume, expandVideo, playClip,
   }, dispatch);
 }
 

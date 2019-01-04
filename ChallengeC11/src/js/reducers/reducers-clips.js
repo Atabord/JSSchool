@@ -13,10 +13,21 @@ const defaultClips = [
   },
 ];
 
+const filteredClips = clips
+  ? clips.filter((clip) => {
+    const equal = defaultClips.filter(defaultClip => defaultClip.clipName === clip.clipName);
+    return equal.length > 0
+      ? clip.clipName !== equal[0].clipName
+      : clip;
+  })
+  : [];
+
 // if there is any clip on localStorage, add it to initialState
-const initialState = clips
-  ? defaultClips.concat(clips)
+const initialState = filteredClips.length > 0
+  ? defaultClips.concat(filteredClips)
   : defaultClips;
+
+localStorage.setItem('videoClips', JSON.stringify(initialState));
 
 export default (state = initialState || [], action) => {
   switch (action.type) {

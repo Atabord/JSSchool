@@ -39,6 +39,21 @@ export default {
     display: 'flex',
     justifyContent: 'space-between',
   },
+  clipButton: {
+    width: '3px !important',
+    padding: '3px !important',
+  },
+  spinText: {
+    '& div': {
+      '& div': {
+        '& div': {
+          marginTop: '15px',
+          color: 'white',
+          textShadow: '0px 0px 10px #000 !important',
+        },
+      },
+    },
+  },
   '@media screen and (max-width: 767px)': {
     menu: {
       height: '35vh',

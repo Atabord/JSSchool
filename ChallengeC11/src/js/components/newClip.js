@@ -7,6 +7,7 @@ import {
   Col,
   Button,
   Select,
+  message,
 } from 'antd';
 import PropTypes from 'prop-types';
 /* eslint no-unused-expressions:
@@ -28,7 +29,7 @@ class NewClip extends Component {
     form.validateFields((err, values) => {
       if (!err) {
         if (Number(values.endTime) <= Number(values.startTime)) {
-          console.log('err end Time is less or equal to start time');
+          message.error('End Time shouldn\'t be less or equal to start time', 5);
         } else {
           const clip = {
             ...values,
@@ -96,7 +97,7 @@ class NewClip extends Component {
                 <Col xs={24} sm={{ span: 11, offset: 2 }}>
                   <Form.Item>
                     {form.getFieldDecorator('endTime', {
-                      rules: [{ required: true, message: 'Please add the start time' }],
+                      rules: [{ required: true, message: 'Please add the end time' }],
                       initialValue: info.endTime,
                     })(
                       <Input min={0} type="number" placeholder="End Time (secs)" />,
